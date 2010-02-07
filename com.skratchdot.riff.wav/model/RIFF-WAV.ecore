@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="wav"
+    nsURI="http:///com/skratchdot/riff/wav/RIFF-WAV.ecore" nsPrefix="com.skratchdot.riff.wav">
+  <eClassifiers xsi:type="ecore:EClass" name="RIFFWave">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="headerChunk" lowerBound="1"
+        eType="#//ChunkHeader" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chunks" eType="#//Chunk"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="riffType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Channel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sampleData" eType="#//SampleData"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chunk" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkID" eType="#//ChunkID"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkDataSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkCue" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfCuePoints" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cuePoints" eType="#//CuePoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkData" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channels" eType="#//Channel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleDataOriginal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataList" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeID" eType="#//ChunkDataListTypeID"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataListChunks" eType="#//ChunkDataListType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListType" abstract="true" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cuePointID" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabel" eSuperTypes="#//ChunkDataListType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabeledText" eSuperTypes="#//ChunkDataListType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleLength" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purposeID" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="country" eType="#//UnsignedShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//UnsignedShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dialect" eType="#//UnsignedShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="codePage" eType="#//UnsignedShort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeNote" eSuperTypes="#//ChunkDataListType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkFact" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatDependantData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkFormat" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compressionCode" eType="#//CompressionCode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfChannels" eType="#//UnsignedShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleRate" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageBytesPerSecond"
+        eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockAlign" eType="#//UnsignedShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="significantBitsPerSample"
+        eType="#//UnsignedShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfExtraFormatBytes"
+        eType="#//UnsignedShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraFormatBytes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkHeader" eSuperTypes="#//Chunk"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkInstrument" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unshiftedNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fineTune" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="highNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowVelocity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="highVelocity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkPlayList" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSegments" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="segments" eType="#//Segment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkSampler" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="product" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplePeriod" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="midiUnityNote" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="midiPitchFraction" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="smpteFormat" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="smpteOffset" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSampleLoops" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerDataSize" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sampleLoops" eType="#//SampleLoop"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkSilent" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSilentSamples"
+        eType="#//UnsignedInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkWaveList" eSuperTypes="#//Chunk">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternatingSilentAndDataChunks"
+        eType="#//Chunk" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CuePoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cuePointID" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataChunkID" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkStart" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockStart" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleOffset" eType="#//UnsignedInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SampleData" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SampleData8Bit" eSuperTypes="#//SampleData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sample" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SampleData16Bit" eSuperTypes="#//SampleData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sample" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SampleLoop">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cuePointID" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fraction" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="playCount" eType="#//UnsignedInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Segment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cuePointID" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lengthInSamples" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfRepeats" eType="#//UnsignedInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ChunkDataListTypeID">
+    <eLiterals name="UNKNOWN" literal="Unknown"/>
+    <eLiterals name="ADTL" value="1819541504" literal="Associated Data Type List - 'adtl'"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ChunkID">
+    <eLiterals name="UNKNOWN" literal="Unknown Chunk"/>
+    <eLiterals name="CUE" value="1668637984" literal="Cue Chunk - 'cue '"/>
+    <eLiterals name="DATA" value="1684108385" literal="Data Chunk - 'data'"/>
+    <eLiterals name="FACT" value="1717658484" literal="Fact Chunk - 'fact'"/>
+    <eLiterals name="FORMAT" value="1718449184" literal="Format Chunk - 'fmt '"/>
+    <eLiterals name="INSTRUMENT" value="1768846196" literal="Instrument Chunk - 'inst'"/>
+    <eLiterals name="LABEL" value="1818321516" literal="Label Chunk - 'labl'"/>
+    <eLiterals name="DATA_LIST" value="1818850164" literal="Data List Chunk - 'list'"/>
+    <eLiterals name="LABELED_TEXT" value="1819572340" literal="Labeled Text Chunk - 'ltxt'"/>
+    <eLiterals name="NOTE" value="1852798053" literal="Note Chunk - 'note'"/>
+    <eLiterals name="PLAYLIST" value="1886155636" literal="Playlist Chunk - 'plst'"/>
+    <eLiterals name="SILENT" value="1936486004" literal="Silent Chunk - 'slnt'"/>
+    <eLiterals name="SAMPLER" value="1936552044" literal="Sampler Chunk - 'smpl'"/>
+    <eLiterals name="WAVE_LIST" value="2002876012" literal="Wave List Chunk - 'wavl'"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompressionCode">
+    <eLiterals name="COMPRESSION_CODE_0" literal="Unknown"/>
+    <eLiterals name="COMPRESSION_CODE_1" value="1" literal="PCM/uncompressed"/>
+    <eLiterals name="COMPRESSION_CODE_2" value="2" literal="Microsoft ADPCM"/>
+    <eLiterals name="COMPRESSION_CODE_6" value="6" literal="ITU G.711 a-law"/>
+    <eLiterals name="COMPRESSION_CODE_7" value="7" literal="ITU G.711 Au-law"/>
+    <eLiterals name="COMPRESSION_CODE_17" value="17" literal="IMA ADPCM"/>
+    <eLiterals name="COMPRESSION_CODE_20" value="20" literal="ITU G.723 ADPCM (Yamaha)"/>
+    <eLiterals name="COMPRESSION_CODE_49" value="49" literal="GSM 6.10"/>
+    <eLiterals name="COMPRESSION_CODE_64" value="64" literal="ITU G.721 ADPCM"/>
+    <eLiterals name="COMPRESSION_CODE_80" value="80" literal="MPEG"/>
+    <eLiterals name="COMPRESSION_CODE_65536" value="65536" literal="Experimental"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SampleLoopType">
+    <eLiterals name="UNKNOWN" value="-1" literal="Unknown"/>
+    <eLiterals name="FORWARD" literal="Loop Forward (normal)"/>
+    <eLiterals name="PING_PONG" value="1" literal="Alternating loop (forward/backward, also known as Ping Pong)"/>
+    <eLiterals name="BACKWARD" value="2" literal="Loop backward (reverse)"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SMPTEFormat">
+    <eLiterals name="SMPTE_0" literal="no SMPTE offset"/>
+    <eLiterals name="SMPTE_24" value="24" literal="24 frames per second"/>
+    <eLiterals name="SMPTE_25" value="25" literal="25 frames per second"/>
+    <eLiterals name="SMPTE_29" value="29" literal="30 frames per second with frame dropping (30 drop)"/>
+    <eLiterals name="SMPTE_30" value="30" literal="30 frames per second"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="UnsignedShort" instanceClassName="java.lang.Integer"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="UnsignedInt" instanceClassName="java.lang.Long"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="UnsupportedType" instanceClassName="java.lang.Exception"/>
+</ecore:EPackage>
