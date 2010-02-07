@@ -12,27 +12,29 @@
  *
  * $Id$
  */
-package com.skratchdot.riff.wav.provider;
+package com.skratchdot.riff.wav.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
+
+import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the RIFF-WAV edit plugin.
+ * This is the central singleton for the RIFFWave editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class RIFFWAVEditPlugin extends EMFPlugin {
+public final class RIFFWaveEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final RIFFWAVEditPlugin INSTANCE = new RIFFWAVEditPlugin();
-
+	public static final RIFFWaveEditorPlugin INSTANCE = new RIFFWaveEditorPlugin();
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -47,10 +49,10 @@ public final class RIFFWAVEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RIFFWAVEditPlugin() {
+	public RIFFWaveEditorPlugin() {
 		super
-		  (new ResourceLocator [] {
-		   });
+			(new ResourceLocator [] {
+			});
 	}
 
 	/**
@@ -64,7 +66,7 @@ public final class RIFFWAVEditPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-
+	
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -75,14 +77,14 @@ public final class RIFFWAVEditPlugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-
+	
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static class Implementation extends EclipsePlugin {
+	public static class Implementation extends EclipseUIPlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
@@ -91,7 +93,7 @@ public final class RIFFWAVEditPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

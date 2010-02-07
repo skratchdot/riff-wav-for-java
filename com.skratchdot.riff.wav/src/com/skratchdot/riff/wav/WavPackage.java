@@ -51,7 +51,7 @@ public interface WavPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http:///com/skratchdot/riff/wav/RIFF-WAV.ecore";
+	String eNS_URI = "http:///com/skratchdot/riff/wav/RIFFWave.ecore";
 
 	/**
 	 * The package namespace name.

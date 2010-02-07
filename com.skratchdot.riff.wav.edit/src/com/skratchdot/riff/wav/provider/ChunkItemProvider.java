@@ -178,7 +178,7 @@ public class ChunkItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RIFFWAVEditPlugin.INSTANCE;
+		return RIFFWaveEditPlugin.INSTANCE;
 	}
 
 }

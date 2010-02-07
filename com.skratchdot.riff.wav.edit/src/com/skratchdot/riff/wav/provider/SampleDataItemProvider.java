@@ -114,7 +114,7 @@ public class SampleDataItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RIFFWAVEditPlugin.INSTANCE;
+		return RIFFWaveEditPlugin.INSTANCE;
 	}
 
 }

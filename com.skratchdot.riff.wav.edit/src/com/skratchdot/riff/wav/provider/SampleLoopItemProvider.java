@@ -284,7 +284,7 @@ public class SampleLoopItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RIFFWAVEditPlugin.INSTANCE;
+		return RIFFWaveEditPlugin.INSTANCE;
 	}
 
 }

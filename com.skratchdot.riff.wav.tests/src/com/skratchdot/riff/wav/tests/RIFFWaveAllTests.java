@@ -21,11 +21,11 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test suite for the '<em><b>RIFF-WAV</b></em>' model.
+ * A test suite for the '<em><b>RIFFWave</b></em>' model.
  * <!-- end-user-doc -->
  * @generated
  */
-public class RIFFWAVAllTests extends TestSuite {
+public class RIFFWaveAllTests extends TestSuite {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -42,7 +42,7 @@ public class RIFFWAVAllTests extends TestSuite {
 	 * @generated
 	 */
 	public static Test suite() {
-		TestSuite suite = new RIFFWAVAllTests("RIFF-WAV Tests");
+		TestSuite suite = new RIFFWaveAllTests("RIFFWave Tests");
 		return suite;
 	}
 
@@ -51,8 +51,8 @@ public class RIFFWAVAllTests extends TestSuite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RIFFWAVAllTests(String name) {
+	public RIFFWaveAllTests(String name) {
 		super(name);
 	}
 
-} //RIFFWAVAllTests
+} //RIFFWaveAllTests

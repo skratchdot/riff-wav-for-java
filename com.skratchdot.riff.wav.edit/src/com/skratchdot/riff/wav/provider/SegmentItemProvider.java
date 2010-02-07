@@ -212,7 +212,7 @@ public class SegmentItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RIFFWAVEditPlugin.INSTANCE;
+		return RIFFWaveEditPlugin.INSTANCE;
 	}
 
 }

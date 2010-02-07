@@ -284,7 +284,7 @@ public class CuePointItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RIFFWAVEditPlugin.INSTANCE;
+		return RIFFWaveEditPlugin.INSTANCE;
 	}
 
 }

@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="wav"
-    nsURI="http:///com/skratchdot/riff/wav/RIFF-WAV.ecore" nsPrefix="com.skratchdot.riff.wav">
+    nsURI="http:///com/skratchdot/riff/wav/RIFFWave.ecore" nsPrefix="com.skratchdot.riff.wav">
   <eClassifiers xsi:type="ecore:EClass" name="RIFFWave">
     <eStructuralFeatures xsi:type="ecore:EReference" name="headerChunk" lowerBound="1"
         eType="#//ChunkHeader" containment="true"/>

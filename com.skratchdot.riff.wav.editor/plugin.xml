@@ -18,6 +18,71 @@
 
 <plugin>
 
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="RIFFWaveEditorAdvisorApplication">
+      <application>
+         <run class="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            name="%_UI_Perspective_label"
+            class="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisor$Perspective"
+            id="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="%_UI_RIFFWaveEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="RIFFWaveEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenURICommand"
+               class="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenCommand"
+               class="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="com.skratchdot.riff.wav.presentation.RIFFWaveEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <editor
             id="com.skratchdot.riff.wav.presentation.WavEditorID"

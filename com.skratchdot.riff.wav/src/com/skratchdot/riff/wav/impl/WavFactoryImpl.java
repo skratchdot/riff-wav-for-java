@@ -40,7 +40,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	 */
 	public static WavFactory init() {
 		try {
-			WavFactory theWavFactory = (WavFactory)EPackage.Registry.INSTANCE.getEFactory("http:///com/skratchdot/riff/wav/RIFF-WAV.ecore"); 
+			WavFactory theWavFactory = (WavFactory)EPackage.Registry.INSTANCE.getEFactory("http:///com/skratchdot/riff/wav/RIFFWave.ecore"); 
 			if (theWavFactory != null) {
 				return theWavFactory;
 			}
