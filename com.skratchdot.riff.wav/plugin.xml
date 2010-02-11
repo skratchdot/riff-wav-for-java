@@ -20,15 +20,9 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http:///com/skratchdot/riff/wav/RIFF-WAV.ecore"
+            uri="http:///com/skratchdot/riff/wav/RIFFWave.ecore"
             class="com.skratchdot.riff.wav.WavPackage"
-            genModel="model/RIFF-WAV.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            type="wav"
-            class="com.skratchdot.riff.wav.util.WavResourceFactoryImpl"/>
+            genModel="model/RIFFWave.genmodel"/>
    </extension>
 
 </plugin>

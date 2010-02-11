@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,29 +34,19 @@ package com.skratchdot.riff.wav;
  */
 public interface ChunkWaveList extends Chunk {
 	/**
-	 * Returns the value of the '<em><b>Alternating Silent And Data Chunks</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Alternating Silent And Data Chunks</b></em>' containment reference list.
+	 * The list contents are of type {@link com.skratchdot.riff.wav.Chunk}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Alternating Silent And Data Chunks</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Alternating Silent And Data Chunks</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alternating Silent And Data Chunks</em>' containment reference.
-	 * @see #setAlternatingSilentAndDataChunks(Chunk)
+	 * @return the value of the '<em>Alternating Silent And Data Chunks</em>' containment reference list.
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkWaveList_AlternatingSilentAndDataChunks()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Chunk getAlternatingSilentAndDataChunks();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkWaveList#getAlternatingSilentAndDataChunks <em>Alternating Silent And Data Chunks</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alternating Silent And Data Chunks</em>' containment reference.
-	 * @see #getAlternatingSilentAndDataChunks()
-	 * @generated
-	 */
-	void setAlternatingSilentAndDataChunks(Chunk value);
+	EList<Chunk> getAlternatingSilentAndDataChunks();
 
 } // ChunkWaveList

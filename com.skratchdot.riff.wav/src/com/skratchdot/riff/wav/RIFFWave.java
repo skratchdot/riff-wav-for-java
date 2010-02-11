@@ -14,6 +14,8 @@
  */
 package com.skratchdot.riff.wav;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -62,30 +64,20 @@ public interface RIFFWave extends EObject {
 	void setHeaderChunk(ChunkHeader value);
 
 	/**
-	 * Returns the value of the '<em><b>Chunks</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Chunks</b></em>' containment reference list.
+	 * The list contents are of type {@link com.skratchdot.riff.wav.Chunk}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Chunks</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Chunks</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chunks</em>' containment reference.
-	 * @see #setChunks(Chunk)
+	 * @return the value of the '<em>Chunks</em>' containment reference list.
 	 * @see com.skratchdot.riff.wav.WavPackage#getRIFFWave_Chunks()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Chunk getChunks();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.RIFFWave#getChunks <em>Chunks</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chunks</em>' containment reference.
-	 * @see #getChunks()
-	 * @generated
-	 */
-	void setChunks(Chunk value);
+	EList<Chunk> getChunks();
 
 	/**
 	 * Returns the value of the '<em><b>Riff Type</b></em>' attribute.

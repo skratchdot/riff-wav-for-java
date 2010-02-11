@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,29 +61,19 @@ public interface ChunkCue extends Chunk {
 	void setNumberOfCuePoints(Long value);
 
 	/**
-	 * Returns the value of the '<em><b>Cue Points</b></em>' reference.
+	 * Returns the value of the '<em><b>Cue Points</b></em>' reference list.
+	 * The list contents are of type {@link com.skratchdot.riff.wav.CuePoint}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cue Points</em>' reference isn't clear,
+	 * If the meaning of the '<em>Cue Points</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cue Points</em>' reference.
-	 * @see #setCuePoints(CuePoint)
+	 * @return the value of the '<em>Cue Points</em>' reference list.
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkCue_CuePoints()
 	 * @model
 	 * @generated
 	 */
-	CuePoint getCuePoints();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkCue#getCuePoints <em>Cue Points</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cue Points</em>' reference.
-	 * @see #getCuePoints()
-	 * @generated
-	 */
-	void setCuePoints(CuePoint value);
+	EList<CuePoint> getCuePoints();
 
 } // ChunkCue

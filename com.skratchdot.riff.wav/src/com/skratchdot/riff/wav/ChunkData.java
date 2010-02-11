@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,30 +35,20 @@ package com.skratchdot.riff.wav;
  */
 public interface ChunkData extends Chunk {
 	/**
-	 * Returns the value of the '<em><b>Channels</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Channels</b></em>' containment reference list.
+	 * The list contents are of type {@link com.skratchdot.riff.wav.Channel}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Channels</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Channels</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Channels</em>' containment reference.
-	 * @see #setChannels(Channel)
+	 * @return the value of the '<em>Channels</em>' containment reference list.
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkData_Channels()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Channel getChannels();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkData#getChannels <em>Channels</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Channels</em>' containment reference.
-	 * @see #getChannels()
-	 * @generated
-	 */
-	void setChannels(Channel value);
+	EList<Channel> getChannels();
 
 	/**
 	 * Returns the value of the '<em><b>Sample Data Original</b></em>' attribute.

@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -303,29 +304,19 @@ public interface ChunkSampler extends Chunk {
 	void setSamplerData(byte[] value);
 
 	/**
-	 * Returns the value of the '<em><b>Sample Loops</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Sample Loops</b></em>' containment reference list.
+	 * The list contents are of type {@link com.skratchdot.riff.wav.SampleLoop}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sample Loops</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Sample Loops</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sample Loops</em>' containment reference.
-	 * @see #setSampleLoops(SampleLoop)
+	 * @return the value of the '<em>Sample Loops</em>' containment reference list.
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkSampler_SampleLoops()
 	 * @model containment="true"
 	 * @generated
 	 */
-	SampleLoop getSampleLoops();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkSampler#getSampleLoops <em>Sample Loops</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sample Loops</em>' containment reference.
-	 * @see #getSampleLoops()
-	 * @generated
-	 */
-	void setSampleLoops(SampleLoop value);
+	EList<SampleLoop> getSampleLoops();
 
 } // ChunkSampler

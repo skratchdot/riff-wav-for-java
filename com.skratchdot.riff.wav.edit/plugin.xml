@@ -20,7 +20,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http:///com/skratchdot/riff/wav/RIFF-WAV.ecore"
+            uri="http:///com/skratchdot/riff/wav/RIFFWave.ecore"
             class="com.skratchdot.riff.wav.provider.WavItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

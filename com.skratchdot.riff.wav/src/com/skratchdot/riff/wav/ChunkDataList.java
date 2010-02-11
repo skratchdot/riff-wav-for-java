@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,29 +64,19 @@ public interface ChunkDataList extends Chunk {
 	void setTypeID(ChunkDataListTypeID value);
 
 	/**
-	 * Returns the value of the '<em><b>Data List Chunks</b></em>' reference.
+	 * Returns the value of the '<em><b>Data List Chunks</b></em>' reference list.
+	 * The list contents are of type {@link com.skratchdot.riff.wav.ChunkDataListType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Data List Chunks</em>' reference isn't clear,
+	 * If the meaning of the '<em>Data List Chunks</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data List Chunks</em>' reference.
-	 * @see #setDataListChunks(ChunkDataListType)
+	 * @return the value of the '<em>Data List Chunks</em>' reference list.
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkDataList_DataListChunks()
 	 * @model
 	 * @generated
 	 */
-	ChunkDataListType getDataListChunks();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkDataList#getDataListChunks <em>Data List Chunks</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data List Chunks</em>' reference.
-	 * @see #getDataListChunks()
-	 * @generated
-	 */
-	void setDataListChunks(ChunkDataListType value);
+	EList<ChunkDataListType> getDataListChunks();
 
 } // ChunkDataList

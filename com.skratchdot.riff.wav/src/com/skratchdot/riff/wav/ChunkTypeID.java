@@ -22,14 +22,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Chunk ID</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Chunk Type ID</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.skratchdot.riff.wav.WavPackage#getChunkID()
+ * @see com.skratchdot.riff.wav.WavPackage#getChunkTypeID()
  * @model
  * @generated
  */
-public enum ChunkID implements Enumerator {
+public enum ChunkTypeID implements Enumerator {
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -381,13 +381,13 @@ public enum ChunkID implements Enumerator {
 	public static final int WAVE_LIST_VALUE = 2002876012;
 
 	/**
-	 * An array of all the '<em><b>Chunk ID</b></em>' enumerators.
+	 * An array of all the '<em><b>Chunk Type ID</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ChunkID[] VALUES_ARRAY =
-		new ChunkID[] {
+	private static final ChunkTypeID[] VALUES_ARRAY =
+		new ChunkTypeID[] {
 			UNKNOWN,
 			CUE,
 			DATA,
@@ -405,22 +405,22 @@ public enum ChunkID implements Enumerator {
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Chunk ID</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Chunk Type ID</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ChunkID> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ChunkTypeID> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Chunk ID</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Chunk Type ID</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ChunkID get(String literal) {
+	public static ChunkTypeID get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ChunkID result = VALUES_ARRAY[i];
+			ChunkTypeID result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -429,14 +429,14 @@ public enum ChunkID implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Chunk ID</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Chunk Type ID</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ChunkID getByName(String name) {
+	public static ChunkTypeID getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ChunkID result = VALUES_ARRAY[i];
+			ChunkTypeID result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -445,12 +445,12 @@ public enum ChunkID implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Chunk ID</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Chunk Type ID</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ChunkID get(int value) {
+	public static ChunkTypeID get(int value) {
 		switch (value) {
 			case UNKNOWN_VALUE: return UNKNOWN;
 			case CUE_VALUE: return CUE;
@@ -497,7 +497,7 @@ public enum ChunkID implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ChunkID(int value, String name, String literal) {
+	private ChunkTypeID(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -541,4 +541,4 @@ public enum ChunkID implements Enumerator {
 		return literal;
 	}
 	
-} //ChunkID
+} //ChunkTypeID

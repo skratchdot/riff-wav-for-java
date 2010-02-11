@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.skratchdot.riff.wav.edit;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Activator: com.skratchdot.riff.wav.provider.RIFFWAVEditPlugin$Implementation
+Bundle-Activator: com.skratchdot.riff.wav.provider.RIFFWaveEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,29 +61,19 @@ public interface ChunkPlayList extends Chunk {
 	void setNumberOfSegments(Long value);
 
 	/**
-	 * Returns the value of the '<em><b>Segments</b></em>' reference.
+	 * Returns the value of the '<em><b>Segments</b></em>' reference list.
+	 * The list contents are of type {@link com.skratchdot.riff.wav.Segment}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Segments</em>' reference isn't clear,
+	 * If the meaning of the '<em>Segments</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Segments</em>' reference.
-	 * @see #setSegments(Segment)
+	 * @return the value of the '<em>Segments</em>' reference list.
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkPlayList_Segments()
 	 * @model
 	 * @generated
 	 */
-	Segment getSegments();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkPlayList#getSegments <em>Segments</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Segments</em>' reference.
-	 * @see #getSegments()
-	 * @generated
-	 */
-	void setSegments(Segment value);
+	EList<Segment> getSegments();
 
 } // ChunkPlayList

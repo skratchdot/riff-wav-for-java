@@ -24,8 +24,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkID <em>Chunk ID</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkDataSize <em>Chunk Data Size</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkID <em>Chunk ID</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID <em>Chunk Type ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,35 +35,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Chunk extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Chunk ID</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.skratchdot.riff.wav.ChunkID}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Chunk ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chunk ID</em>' attribute.
-	 * @see com.skratchdot.riff.wav.ChunkID
-	 * @see #setChunkID(ChunkID)
-	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_ChunkID()
-	 * @model
-	 * @generated
-	 */
-	ChunkID getChunkID();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.Chunk#getChunkID <em>Chunk ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chunk ID</em>' attribute.
-	 * @see com.skratchdot.riff.wav.ChunkID
-	 * @see #getChunkID()
-	 * @generated
-	 */
-	void setChunkID(ChunkID value);
-
 	/**
 	 * Returns the value of the '<em><b>Chunk Data Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,5 +60,60 @@ public interface Chunk extends EObject {
 	 * @generated
 	 */
 	void setChunkDataSize(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Chunk ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Chunk ID</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Chunk ID</em>' attribute.
+	 * @see #setChunkID(int)
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_ChunkID()
+	 * @model
+	 * @generated
+	 */
+	int getChunkID();
+
+	/**
+	 * Sets the value of the '{@link com.skratchdot.riff.wav.Chunk#getChunkID <em>Chunk ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Chunk ID</em>' attribute.
+	 * @see #getChunkID()
+	 * @generated
+	 */
+	void setChunkID(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Chunk Type ID</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.skratchdot.riff.wav.ChunkTypeID}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Chunk Type ID</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Chunk Type ID</em>' attribute.
+	 * @see com.skratchdot.riff.wav.ChunkTypeID
+	 * @see #setChunkTypeID(ChunkTypeID)
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_ChunkTypeID()
+	 * @model
+	 * @generated
+	 */
+	ChunkTypeID getChunkTypeID();
+
+	/**
+	 * Sets the value of the '{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID <em>Chunk Type ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Chunk Type ID</em>' attribute.
+	 * @see com.skratchdot.riff.wav.ChunkTypeID
+	 * @see #getChunkTypeID()
+	 * @generated
+	 */
+	void setChunkTypeID(ChunkTypeID value);
 
 } // Chunk
