@@ -6,7 +6,7 @@
     modelName="RIFFWave" richClientPlatform="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>RIFFWave.ecore</foreignModel>
-  <genPackages prefix="Wav" basePackage="com.skratchdot.riff" resource="Basic" disposableProviderFactory="true"
+  <genPackages prefix="Wav" basePackage="com.skratchdot.riff" disposableProviderFactory="true"
       generateModelWizard="false" ecorePackage="RIFFWave.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="RIFFWave.ecore#//ChunkDataListTypeID">
       <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkDataListTypeID/UNKNOWN"/>

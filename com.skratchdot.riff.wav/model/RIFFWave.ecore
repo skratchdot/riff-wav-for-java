@@ -6,8 +6,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="RIFFWave">
     <eStructuralFeatures xsi:type="ecore:EReference" name="headerChunk" lowerBound="1"
         eType="#//ChunkHeader" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="chunks" eType="#//Chunk"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chunks" upperBound="-1"
+        eType="#//Chunk" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="riffType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Channel">
@@ -15,21 +15,24 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Chunk" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkID" eType="#//ChunkID"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkDataSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkTypeID" eType="#//ChunkTypeID"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkCue" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfCuePoints" eType="#//UnsignedInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cuePoints" eType="#//CuePoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cuePoints" upperBound="-1"
+        eType="#//CuePoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkData" eSuperTypes="#//Chunk">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="channels" eType="#//Channel"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channels" upperBound="-1"
+        eType="#//Channel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleDataOriginal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataList" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeID" eType="#//ChunkDataListTypeID"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataListChunks" eType="#//ChunkDataListType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataListChunks" upperBound="-1"
+        eType="#//ChunkDataListType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListType" abstract="true" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cuePointID" eType="#//UnsignedInt"/>
@@ -73,7 +76,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkPlayList" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSegments" eType="#//UnsignedInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="segments" eType="#//Segment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="segments" upperBound="-1"
+        eType="#//Segment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkSampler" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" eType="#//UnsignedInt"/>
@@ -86,8 +90,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSampleLoops" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerDataSize" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sampleLoops" eType="#//SampleLoop"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sampleLoops" upperBound="-1"
+        eType="#//SampleLoop" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkSilent" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSilentSamples"
@@ -95,7 +99,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkWaveList" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EReference" name="alternatingSilentAndDataChunks"
-        eType="#//Chunk" containment="true"/>
+        upperBound="-1" eType="#//Chunk" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CuePoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cuePointID" eType="#//UnsignedInt"/>
@@ -129,7 +133,7 @@
     <eLiterals name="UNKNOWN" literal="Unknown"/>
     <eLiterals name="ADTL" value="1819541504" literal="Associated Data Type List - 'adtl'"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ChunkID">
+  <eClassifiers xsi:type="ecore:EEnum" name="ChunkTypeID">
     <eLiterals name="UNKNOWN" literal="Unknown Chunk"/>
     <eLiterals name="CUE" value="1668637984" literal="Cue Chunk - 'cue '"/>
     <eLiterals name="DATA" value="1684108385" literal="Data Chunk - 'data'"/>
