@@ -15,7 +15,6 @@
 package com.skratchdot.riff.wav.provider;
 
 
-import com.skratchdot.riff.wav.ChunkID;
 import com.skratchdot.riff.wav.ChunkInstrument;
 import com.skratchdot.riff.wav.WavPackage;
 
@@ -254,11 +253,8 @@ public class ChunkInstrumentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkID labelValue = ((ChunkInstrument)object).getChunkID();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ChunkInstrument_type") :
-			getString("_UI_ChunkInstrument_type") + " " + label;
+		ChunkInstrument chunkInstrument = (ChunkInstrument)object;
+		return getString("_UI_ChunkInstrument_type") + " " + chunkInstrument.getChunkDataSize();
 	}
 
 	/**

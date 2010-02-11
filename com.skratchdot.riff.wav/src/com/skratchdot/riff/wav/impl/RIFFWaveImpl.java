@@ -19,14 +19,21 @@ import com.skratchdot.riff.wav.ChunkHeader;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,14 +62,14 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	protected ChunkHeader headerChunk;
 
 	/**
-	 * The cached value of the '{@link #getChunks() <em>Chunks</em>}' containment reference.
+	 * The cached value of the '{@link #getChunks() <em>Chunks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getChunks()
 	 * @generated
 	 * @ordered
 	 */
-	protected Chunk chunks;
+	protected EList<Chunk> chunks;
 
 	/**
 	 * The default value of the '{@link #getRiffType() <em>Riff Type</em>}' attribute.
@@ -151,42 +158,11 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Chunk getChunks() {
+	public EList<Chunk> getChunks() {
+		if (chunks == null) {
+			chunks = new EObjectContainmentEList<Chunk>(Chunk.class, this, WavPackage.RIFF_WAVE__CHUNKS);
+		}
 		return chunks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetChunks(Chunk newChunks, NotificationChain msgs) {
-		Chunk oldChunks = chunks;
-		chunks = newChunks;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WavPackage.RIFF_WAVE__CHUNKS, oldChunks, newChunks);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChunks(Chunk newChunks) {
-		if (newChunks != chunks) {
-			NotificationChain msgs = null;
-			if (chunks != null)
-				msgs = ((InternalEObject)chunks).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WavPackage.RIFF_WAVE__CHUNKS, null, msgs);
-			if (newChunks != null)
-				msgs = ((InternalEObject)newChunks).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WavPackage.RIFF_WAVE__CHUNKS, null, msgs);
-			msgs = basicSetChunks(newChunks, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.RIFF_WAVE__CHUNKS, newChunks, newChunks));
 	}
 
 	/**
@@ -221,7 +197,7 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
 				return basicSetHeaderChunk(null, msgs);
 			case WavPackage.RIFF_WAVE__CHUNKS:
-				return basicSetChunks(null, msgs);
+				return ((InternalEList<?>)getChunks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -249,6 +225,7 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -256,7 +233,8 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 				setHeaderChunk((ChunkHeader)newValue);
 				return;
 			case WavPackage.RIFF_WAVE__CHUNKS:
-				setChunks((Chunk)newValue);
+				getChunks().clear();
+				getChunks().addAll((Collection<? extends Chunk>)newValue);
 				return;
 			case WavPackage.RIFF_WAVE__RIFF_TYPE:
 				setRiffType((Integer)newValue);
@@ -277,7 +255,7 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 				setHeaderChunk((ChunkHeader)null);
 				return;
 			case WavPackage.RIFF_WAVE__CHUNKS:
-				setChunks((Chunk)null);
+				getChunks().clear();
 				return;
 			case WavPackage.RIFF_WAVE__RIFF_TYPE:
 				setRiffType(RIFF_TYPE_EDEFAULT);
@@ -297,7 +275,7 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
 				return headerChunk != null;
 			case WavPackage.RIFF_WAVE__CHUNKS:
-				return chunks != null;
+				return chunks != null && !chunks.isEmpty();
 			case WavPackage.RIFF_WAVE__RIFF_TYPE:
 				return riffType != RIFF_TYPE_EDEFAULT;
 		}

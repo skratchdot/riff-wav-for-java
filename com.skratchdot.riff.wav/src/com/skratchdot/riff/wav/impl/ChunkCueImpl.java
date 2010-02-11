@@ -18,12 +18,17 @@ import com.skratchdot.riff.wav.ChunkCue;
 import com.skratchdot.riff.wav.CuePoint;
 import com.skratchdot.riff.wav.WavPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,14 +66,14 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	protected Long numberOfCuePoints = NUMBER_OF_CUE_POINTS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCuePoints() <em>Cue Points</em>}' reference.
+	 * The cached value of the '{@link #getCuePoints() <em>Cue Points</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCuePoints()
 	 * @generated
 	 * @ordered
 	 */
-	protected CuePoint cuePoints;
+	protected EList<CuePoint> cuePoints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,37 +120,11 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CuePoint getCuePoints() {
-		if (cuePoints != null && cuePoints.eIsProxy()) {
-			InternalEObject oldCuePoints = (InternalEObject)cuePoints;
-			cuePoints = (CuePoint)eResolveProxy(oldCuePoints);
-			if (cuePoints != oldCuePoints) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WavPackage.CHUNK_CUE__CUE_POINTS, oldCuePoints, cuePoints));
-			}
+	public EList<CuePoint> getCuePoints() {
+		if (cuePoints == null) {
+			cuePoints = new EObjectResolvingEList<CuePoint>(CuePoint.class, this, WavPackage.CHUNK_CUE__CUE_POINTS);
 		}
 		return cuePoints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CuePoint basicGetCuePoints() {
-		return cuePoints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCuePoints(CuePoint newCuePoints) {
-		CuePoint oldCuePoints = cuePoints;
-		cuePoints = newCuePoints;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_CUE__CUE_POINTS, oldCuePoints, cuePoints));
 	}
 
 	/**
@@ -159,8 +138,7 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 			case WavPackage.CHUNK_CUE__NUMBER_OF_CUE_POINTS:
 				return getNumberOfCuePoints();
 			case WavPackage.CHUNK_CUE__CUE_POINTS:
-				if (resolve) return getCuePoints();
-				return basicGetCuePoints();
+				return getCuePoints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,6 +148,7 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -177,7 +156,8 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 				setNumberOfCuePoints((Long)newValue);
 				return;
 			case WavPackage.CHUNK_CUE__CUE_POINTS:
-				setCuePoints((CuePoint)newValue);
+				getCuePoints().clear();
+				getCuePoints().addAll((Collection<? extends CuePoint>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,7 +175,7 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 				setNumberOfCuePoints(NUMBER_OF_CUE_POINTS_EDEFAULT);
 				return;
 			case WavPackage.CHUNK_CUE__CUE_POINTS:
-				setCuePoints((CuePoint)null);
+				getCuePoints().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -212,7 +192,7 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 			case WavPackage.CHUNK_CUE__NUMBER_OF_CUE_POINTS:
 				return NUMBER_OF_CUE_POINTS_EDEFAULT == null ? numberOfCuePoints != null : !NUMBER_OF_CUE_POINTS_EDEFAULT.equals(numberOfCuePoints);
 			case WavPackage.CHUNK_CUE__CUE_POINTS:
-				return cuePoints != null;
+				return cuePoints != null && !cuePoints.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -18,13 +18,17 @@ import com.skratchdot.riff.wav.Chunk;
 import com.skratchdot.riff.wav.ChunkWaveList;
 import com.skratchdot.riff.wav.WavPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,14 +45,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	/**
-	 * The cached value of the '{@link #getAlternatingSilentAndDataChunks() <em>Alternating Silent And Data Chunks</em>}' containment reference.
+	 * The cached value of the '{@link #getAlternatingSilentAndDataChunks() <em>Alternating Silent And Data Chunks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAlternatingSilentAndDataChunks()
 	 * @generated
 	 * @ordered
 	 */
-	protected Chunk alternatingSilentAndDataChunks;
+	protected EList<Chunk> alternatingSilentAndDataChunks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,42 +78,11 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Chunk getAlternatingSilentAndDataChunks() {
+	public EList<Chunk> getAlternatingSilentAndDataChunks() {
+		if (alternatingSilentAndDataChunks == null) {
+			alternatingSilentAndDataChunks = new EObjectContainmentEList<Chunk>(Chunk.class, this, WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS);
+		}
 		return alternatingSilentAndDataChunks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAlternatingSilentAndDataChunks(Chunk newAlternatingSilentAndDataChunks, NotificationChain msgs) {
-		Chunk oldAlternatingSilentAndDataChunks = alternatingSilentAndDataChunks;
-		alternatingSilentAndDataChunks = newAlternatingSilentAndDataChunks;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS, oldAlternatingSilentAndDataChunks, newAlternatingSilentAndDataChunks);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAlternatingSilentAndDataChunks(Chunk newAlternatingSilentAndDataChunks) {
-		if (newAlternatingSilentAndDataChunks != alternatingSilentAndDataChunks) {
-			NotificationChain msgs = null;
-			if (alternatingSilentAndDataChunks != null)
-				msgs = ((InternalEObject)alternatingSilentAndDataChunks).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS, null, msgs);
-			if (newAlternatingSilentAndDataChunks != null)
-				msgs = ((InternalEObject)newAlternatingSilentAndDataChunks).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS, null, msgs);
-			msgs = basicSetAlternatingSilentAndDataChunks(newAlternatingSilentAndDataChunks, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS, newAlternatingSilentAndDataChunks, newAlternatingSilentAndDataChunks));
 	}
 
 	/**
@@ -121,7 +94,7 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS:
-				return basicSetAlternatingSilentAndDataChunks(null, msgs);
+				return ((InternalEList<?>)getAlternatingSilentAndDataChunks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -145,11 +118,13 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS:
-				setAlternatingSilentAndDataChunks((Chunk)newValue);
+				getAlternatingSilentAndDataChunks().clear();
+				getAlternatingSilentAndDataChunks().addAll((Collection<? extends Chunk>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,7 +139,7 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS:
-				setAlternatingSilentAndDataChunks((Chunk)null);
+				getAlternatingSilentAndDataChunks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -179,7 +154,7 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS:
-				return alternatingSilentAndDataChunks != null;
+				return alternatingSilentAndDataChunks != null && !alternatingSilentAndDataChunks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

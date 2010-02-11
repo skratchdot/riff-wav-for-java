@@ -15,7 +15,6 @@
 package com.skratchdot.riff.wav.provider;
 
 
-import com.skratchdot.riff.wav.ChunkID;
 import com.skratchdot.riff.wav.ChunkSilent;
 import com.skratchdot.riff.wav.WavPackage;
 
@@ -116,11 +115,8 @@ public class ChunkSilentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkID labelValue = ((ChunkSilent)object).getChunkID();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ChunkSilent_type") :
-			getString("_UI_ChunkSilent_type") + " " + label;
+		ChunkSilent chunkSilent = (ChunkSilent)object;
+		return getString("_UI_ChunkSilent_type") + " " + chunkSilent.getChunkDataSize();
 	}
 
 	/**

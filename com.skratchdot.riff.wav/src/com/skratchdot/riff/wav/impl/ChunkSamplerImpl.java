@@ -18,13 +18,20 @@ import com.skratchdot.riff.wav.ChunkSampler;
 import com.skratchdot.riff.wav.SampleLoop;
 import com.skratchdot.riff.wav.WavPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -251,14 +258,14 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	protected byte[] samplerData = SAMPLER_DATA_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSampleLoops() <em>Sample Loops</em>}' containment reference.
+	 * The cached value of the '{@link #getSampleLoops() <em>Sample Loops</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSampleLoops()
 	 * @generated
 	 * @ordered
 	 */
-	protected SampleLoop sampleLoops;
+	protected EList<SampleLoop> sampleLoops;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -494,42 +501,11 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SampleLoop getSampleLoops() {
+	public EList<SampleLoop> getSampleLoops() {
+		if (sampleLoops == null) {
+			sampleLoops = new EObjectContainmentEList<SampleLoop>(SampleLoop.class, this, WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS);
+		}
 		return sampleLoops;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSampleLoops(SampleLoop newSampleLoops, NotificationChain msgs) {
-		SampleLoop oldSampleLoops = sampleLoops;
-		sampleLoops = newSampleLoops;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS, oldSampleLoops, newSampleLoops);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSampleLoops(SampleLoop newSampleLoops) {
-		if (newSampleLoops != sampleLoops) {
-			NotificationChain msgs = null;
-			if (sampleLoops != null)
-				msgs = ((InternalEObject)sampleLoops).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS, null, msgs);
-			if (newSampleLoops != null)
-				msgs = ((InternalEObject)newSampleLoops).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS, null, msgs);
-			msgs = basicSetSampleLoops(newSampleLoops, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS, newSampleLoops, newSampleLoops));
 	}
 
 	/**
@@ -541,7 +517,7 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
-				return basicSetSampleLoops(null, msgs);
+				return ((InternalEList<?>)getSampleLoops()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -585,6 +561,7 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -619,7 +596,8 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 				setSamplerData((byte[])newValue);
 				return;
 			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
-				setSampleLoops((SampleLoop)newValue);
+				getSampleLoops().clear();
+				getSampleLoops().addAll((Collection<? extends SampleLoop>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -664,7 +642,7 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 				setSamplerData(SAMPLER_DATA_EDEFAULT);
 				return;
 			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
-				setSampleLoops((SampleLoop)null);
+				getSampleLoops().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -699,7 +677,7 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
 				return SAMPLER_DATA_EDEFAULT == null ? samplerData != null : !SAMPLER_DATA_EDEFAULT.equals(samplerData);
 			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
-				return sampleLoops != null;
+				return sampleLoops != null && !sampleLoops.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

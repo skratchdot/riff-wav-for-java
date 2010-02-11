@@ -16,7 +16,6 @@ package com.skratchdot.riff.wav.provider;
 
 
 import com.skratchdot.riff.wav.ChunkDataList;
-import com.skratchdot.riff.wav.ChunkID;
 import com.skratchdot.riff.wav.WavPackage;
 
 import java.util.Collection;
@@ -139,11 +138,8 @@ public class ChunkDataListItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkID labelValue = ((ChunkDataList)object).getChunkID();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ChunkDataList_type") :
-			getString("_UI_ChunkDataList_type") + " " + label;
+		ChunkDataList chunkDataList = (ChunkDataList)object;
+		return getString("_UI_ChunkDataList_type") + " " + chunkDataList.getChunkDataSize();
 	}
 
 	/**

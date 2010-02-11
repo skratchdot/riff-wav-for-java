@@ -16,7 +16,6 @@ package com.skratchdot.riff.wav.provider;
 
 
 import com.skratchdot.riff.wav.ChunkFact;
-import com.skratchdot.riff.wav.ChunkID;
 import com.skratchdot.riff.wav.WavPackage;
 
 import java.util.Collection;
@@ -116,11 +115,8 @@ public class ChunkFactItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkID labelValue = ((ChunkFact)object).getChunkID();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ChunkFact_type") :
-			getString("_UI_ChunkFact_type") + " " + label;
+		ChunkFact chunkFact = (ChunkFact)object;
+		return getString("_UI_ChunkFact_type") + " " + chunkFact.getChunkDataSize();
 	}
 
 	/**

@@ -16,7 +16,6 @@ package com.skratchdot.riff.wav.provider;
 
 
 import com.skratchdot.riff.wav.ChunkHeader;
-import com.skratchdot.riff.wav.ChunkID;
 
 import java.util.Collection;
 import java.util.List;
@@ -89,11 +88,8 @@ public class ChunkHeaderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkID labelValue = ((ChunkHeader)object).getChunkID();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ChunkHeader_type") :
-			getString("_UI_ChunkHeader_type") + " " + label;
+		ChunkHeader chunkHeader = (ChunkHeader)object;
+		return getString("_UI_ChunkHeader_type") + " " + chunkHeader.getChunkDataSize();
 	}
 
 	/**

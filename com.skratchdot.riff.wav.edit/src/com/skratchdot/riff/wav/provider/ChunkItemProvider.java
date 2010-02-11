@@ -16,7 +16,6 @@ package com.skratchdot.riff.wav.provider;
 
 
 import com.skratchdot.riff.wav.Chunk;
-import com.skratchdot.riff.wav.ChunkID;
 import com.skratchdot.riff.wav.WavPackage;
 
 import java.util.Collection;
@@ -73,32 +72,11 @@ public class ChunkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addChunkIDPropertyDescriptor(object);
 			addChunkDataSizePropertyDescriptor(object);
+			addChunkIDPropertyDescriptor(object);
+			addChunkTypeIDPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Chunk ID feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addChunkIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Chunk_chunkID_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Chunk_chunkID_feature", "_UI_Chunk_type"),
-				 WavPackage.Literals.CHUNK__CHUNK_ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -124,6 +102,50 @@ public class ChunkItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Chunk ID feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addChunkIDPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Chunk_chunkID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Chunk_chunkID_feature", "_UI_Chunk_type"),
+				 WavPackage.Literals.CHUNK__CHUNK_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Chunk Type ID feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addChunkTypeIDPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Chunk_chunkTypeID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Chunk_chunkTypeID_feature", "_UI_Chunk_type"),
+				 WavPackage.Literals.CHUNK__CHUNK_TYPE_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,11 +153,8 @@ public class ChunkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkID labelValue = ((Chunk)object).getChunkID();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Chunk_type") :
-			getString("_UI_Chunk_type") + " " + label;
+		Chunk chunk = (Chunk)object;
+		return getString("_UI_Chunk_type") + " " + chunk.getChunkDataSize();
 	}
 
 	/**
@@ -150,8 +169,9 @@ public class ChunkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Chunk.class)) {
-			case WavPackage.CHUNK__CHUNK_ID:
 			case WavPackage.CHUNK__CHUNK_DATA_SIZE:
+			case WavPackage.CHUNK__CHUNK_ID:
+			case WavPackage.CHUNK__CHUNK_TYPE_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

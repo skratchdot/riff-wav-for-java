@@ -19,12 +19,17 @@ import com.skratchdot.riff.wav.ChunkDataListType;
 import com.skratchdot.riff.wav.ChunkDataListTypeID;
 import com.skratchdot.riff.wav.WavPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,14 +67,14 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 	protected ChunkDataListTypeID typeID = TYPE_ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDataListChunks() <em>Data List Chunks</em>}' reference.
+	 * The cached value of the '{@link #getDataListChunks() <em>Data List Chunks</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDataListChunks()
 	 * @generated
 	 * @ordered
 	 */
-	protected ChunkDataListType dataListChunks;
+	protected EList<ChunkDataListType> dataListChunks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,37 +121,11 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChunkDataListType getDataListChunks() {
-		if (dataListChunks != null && dataListChunks.eIsProxy()) {
-			InternalEObject oldDataListChunks = (InternalEObject)dataListChunks;
-			dataListChunks = (ChunkDataListType)eResolveProxy(oldDataListChunks);
-			if (dataListChunks != oldDataListChunks) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS, oldDataListChunks, dataListChunks));
-			}
+	public EList<ChunkDataListType> getDataListChunks() {
+		if (dataListChunks == null) {
+			dataListChunks = new EObjectResolvingEList<ChunkDataListType>(ChunkDataListType.class, this, WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS);
 		}
 		return dataListChunks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ChunkDataListType basicGetDataListChunks() {
-		return dataListChunks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDataListChunks(ChunkDataListType newDataListChunks) {
-		ChunkDataListType oldDataListChunks = dataListChunks;
-		dataListChunks = newDataListChunks;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS, oldDataListChunks, dataListChunks));
 	}
 
 	/**
@@ -160,8 +139,7 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 			case WavPackage.CHUNK_DATA_LIST__TYPE_ID:
 				return getTypeID();
 			case WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS:
-				if (resolve) return getDataListChunks();
-				return basicGetDataListChunks();
+				return getDataListChunks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +149,7 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -178,7 +157,8 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 				setTypeID((ChunkDataListTypeID)newValue);
 				return;
 			case WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS:
-				setDataListChunks((ChunkDataListType)newValue);
+				getDataListChunks().clear();
+				getDataListChunks().addAll((Collection<? extends ChunkDataListType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,7 +176,7 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 				setTypeID(TYPE_ID_EDEFAULT);
 				return;
 			case WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS:
-				setDataListChunks((ChunkDataListType)null);
+				getDataListChunks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,7 +193,7 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 			case WavPackage.CHUNK_DATA_LIST__TYPE_ID:
 				return typeID != TYPE_ID_EDEFAULT;
 			case WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS:
-				return dataListChunks != null;
+				return dataListChunks != null && !dataListChunks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

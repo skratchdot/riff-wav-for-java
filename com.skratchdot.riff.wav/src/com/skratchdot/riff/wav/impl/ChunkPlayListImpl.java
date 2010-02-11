@@ -18,12 +18,17 @@ import com.skratchdot.riff.wav.ChunkPlayList;
 import com.skratchdot.riff.wav.Segment;
 import com.skratchdot.riff.wav.WavPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,14 +66,14 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	protected Long numberOfSegments = NUMBER_OF_SEGMENTS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' reference.
+	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSegments()
 	 * @generated
 	 * @ordered
 	 */
-	protected Segment segments;
+	protected EList<Segment> segments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,37 +120,11 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Segment getSegments() {
-		if (segments != null && segments.eIsProxy()) {
-			InternalEObject oldSegments = (InternalEObject)segments;
-			segments = (Segment)eResolveProxy(oldSegments);
-			if (segments != oldSegments) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WavPackage.CHUNK_PLAY_LIST__SEGMENTS, oldSegments, segments));
-			}
+	public EList<Segment> getSegments() {
+		if (segments == null) {
+			segments = new EObjectResolvingEList<Segment>(Segment.class, this, WavPackage.CHUNK_PLAY_LIST__SEGMENTS);
 		}
 		return segments;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Segment basicGetSegments() {
-		return segments;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSegments(Segment newSegments) {
-		Segment oldSegments = segments;
-		segments = newSegments;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_PLAY_LIST__SEGMENTS, oldSegments, segments));
 	}
 
 	/**
@@ -159,8 +138,7 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 			case WavPackage.CHUNK_PLAY_LIST__NUMBER_OF_SEGMENTS:
 				return getNumberOfSegments();
 			case WavPackage.CHUNK_PLAY_LIST__SEGMENTS:
-				if (resolve) return getSegments();
-				return basicGetSegments();
+				return getSegments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,6 +148,7 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -177,7 +156,8 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 				setNumberOfSegments((Long)newValue);
 				return;
 			case WavPackage.CHUNK_PLAY_LIST__SEGMENTS:
-				setSegments((Segment)newValue);
+				getSegments().clear();
+				getSegments().addAll((Collection<? extends Segment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,7 +175,7 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 				setNumberOfSegments(NUMBER_OF_SEGMENTS_EDEFAULT);
 				return;
 			case WavPackage.CHUNK_PLAY_LIST__SEGMENTS:
-				setSegments((Segment)null);
+				getSegments().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -212,7 +192,7 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 			case WavPackage.CHUNK_PLAY_LIST__NUMBER_OF_SEGMENTS:
 				return NUMBER_OF_SEGMENTS_EDEFAULT == null ? numberOfSegments != null : !NUMBER_OF_SEGMENTS_EDEFAULT.equals(numberOfSegments);
 			case WavPackage.CHUNK_PLAY_LIST__SEGMENTS:
-				return segments != null;
+				return segments != null && !segments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

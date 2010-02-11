@@ -15,7 +15,6 @@
 package com.skratchdot.riff.wav.provider;
 
 
-import com.skratchdot.riff.wav.ChunkID;
 import com.skratchdot.riff.wav.ChunkSampler;
 import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
@@ -356,11 +355,8 @@ public class ChunkSamplerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkID labelValue = ((ChunkSampler)object).getChunkID();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ChunkSampler_type") :
-			getString("_UI_ChunkSampler_type") + " " + label;
+		ChunkSampler chunkSampler = (ChunkSampler)object;
+		return getString("_UI_ChunkSampler_type") + " " + chunkSampler.getChunkDataSize();
 	}
 
 	/**

@@ -105,8 +105,8 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 		switch (eDataType.getClassifierID()) {
 			case WavPackage.CHUNK_DATA_LIST_TYPE_ID:
 				return createChunkDataListTypeIDFromString(eDataType, initialValue);
-			case WavPackage.CHUNK_ID:
-				return createChunkIDFromString(eDataType, initialValue);
+			case WavPackage.CHUNK_TYPE_ID:
+				return createChunkTypeIDFromString(eDataType, initialValue);
 			case WavPackage.COMPRESSION_CODE:
 				return createCompressionCodeFromString(eDataType, initialValue);
 			case WavPackage.SAMPLE_LOOP_TYPE:
@@ -134,8 +134,8 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 		switch (eDataType.getClassifierID()) {
 			case WavPackage.CHUNK_DATA_LIST_TYPE_ID:
 				return convertChunkDataListTypeIDToString(eDataType, instanceValue);
-			case WavPackage.CHUNK_ID:
-				return convertChunkIDToString(eDataType, instanceValue);
+			case WavPackage.CHUNK_TYPE_ID:
+				return convertChunkTypeIDToString(eDataType, instanceValue);
 			case WavPackage.COMPRESSION_CODE:
 				return convertCompressionCodeToString(eDataType, instanceValue);
 			case WavPackage.SAMPLE_LOOP_TYPE:
@@ -388,8 +388,8 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChunkID createChunkIDFromString(EDataType eDataType, String initialValue) {
-		ChunkID result = ChunkID.get(initialValue);
+	public ChunkTypeID createChunkTypeIDFromString(EDataType eDataType, String initialValue) {
+		ChunkTypeID result = ChunkTypeID.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -399,7 +399,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertChunkIDToString(EDataType eDataType, Object instanceValue) {
+	public String convertChunkTypeIDToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

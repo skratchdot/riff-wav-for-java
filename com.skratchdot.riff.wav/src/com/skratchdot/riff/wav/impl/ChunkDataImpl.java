@@ -18,13 +18,20 @@ import com.skratchdot.riff.wav.Channel;
 import com.skratchdot.riff.wav.ChunkData;
 import com.skratchdot.riff.wav.WavPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,14 +49,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 	/**
-	 * The cached value of the '{@link #getChannels() <em>Channels</em>}' containment reference.
+	 * The cached value of the '{@link #getChannels() <em>Channels</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getChannels()
 	 * @generated
 	 * @ordered
 	 */
-	protected Channel channels;
+	protected EList<Channel> channels;
 
 	/**
 	 * The default value of the '{@link #getSampleDataOriginal() <em>Sample Data Original</em>}' attribute.
@@ -95,42 +102,11 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Channel getChannels() {
+	public EList<Channel> getChannels() {
+		if (channels == null) {
+			channels = new EObjectContainmentEList<Channel>(Channel.class, this, WavPackage.CHUNK_DATA__CHANNELS);
+		}
 		return channels;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetChannels(Channel newChannels, NotificationChain msgs) {
-		Channel oldChannels = channels;
-		channels = newChannels;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_DATA__CHANNELS, oldChannels, newChannels);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChannels(Channel newChannels) {
-		if (newChannels != channels) {
-			NotificationChain msgs = null;
-			if (channels != null)
-				msgs = ((InternalEObject)channels).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WavPackage.CHUNK_DATA__CHANNELS, null, msgs);
-			if (newChannels != null)
-				msgs = ((InternalEObject)newChannels).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WavPackage.CHUNK_DATA__CHANNELS, null, msgs);
-			msgs = basicSetChannels(newChannels, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_DATA__CHANNELS, newChannels, newChannels));
 	}
 
 	/**
@@ -163,7 +139,7 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case WavPackage.CHUNK_DATA__CHANNELS:
-				return basicSetChannels(null, msgs);
+				return ((InternalEList<?>)getChannels()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,11 +165,13 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case WavPackage.CHUNK_DATA__CHANNELS:
-				setChannels((Channel)newValue);
+				getChannels().clear();
+				getChannels().addAll((Collection<? extends Channel>)newValue);
 				return;
 			case WavPackage.CHUNK_DATA__SAMPLE_DATA_ORIGINAL:
 				setSampleDataOriginal((byte[])newValue);
@@ -211,7 +189,7 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case WavPackage.CHUNK_DATA__CHANNELS:
-				setChannels((Channel)null);
+				getChannels().clear();
 				return;
 			case WavPackage.CHUNK_DATA__SAMPLE_DATA_ORIGINAL:
 				setSampleDataOriginal(SAMPLE_DATA_ORIGINAL_EDEFAULT);
@@ -229,7 +207,7 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case WavPackage.CHUNK_DATA__CHANNELS:
-				return channels != null;
+				return channels != null && !channels.isEmpty();
 			case WavPackage.CHUNK_DATA__SAMPLE_DATA_ORIGINAL:
 				return SAMPLE_DATA_ORIGINAL_EDEFAULT == null ? sampleDataOriginal != null : !SAMPLE_DATA_ORIGINAL_EDEFAULT.equals(sampleDataOriginal);
 		}
