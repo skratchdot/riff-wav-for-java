@@ -18,8 +18,6 @@ import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
 
-import com.skratchdot.riff.wav.util.WavResourceFactoryImpl;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -34,6 +32,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
+
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,7 +58,7 @@ public class WavExample {
 		//
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put
 			(Resource.Factory.Registry.DEFAULT_EXTENSION, 
-			 new WavResourceFactoryImpl());
+			 new XMIResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
 		//
