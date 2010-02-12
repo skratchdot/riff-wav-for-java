@@ -88,7 +88,7 @@ public class ChunkSilentItemProvider
 				 getString("_UI_ChunkSilent_numberOfSilentSamples_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkSilent_numberOfSilentSamples_feature", "_UI_ChunkSilent_type"),
 				 WavPackage.Literals.CHUNK_SILENT__NUMBER_OF_SILENT_SAMPLES,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

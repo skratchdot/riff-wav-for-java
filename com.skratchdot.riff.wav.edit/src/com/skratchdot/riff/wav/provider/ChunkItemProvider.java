@@ -115,7 +115,7 @@ public class ChunkItemProvider
 				 getString("_UI_Chunk_chunkTypeID_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Chunk_chunkTypeID_feature", "_UI_Chunk_type"),
 				 WavPackage.Literals.CHUNK__CHUNK_TYPE_ID,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

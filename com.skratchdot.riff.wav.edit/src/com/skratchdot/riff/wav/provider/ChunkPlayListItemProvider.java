@@ -89,7 +89,7 @@ public class ChunkPlayListItemProvider
 				 getString("_UI_ChunkPlayList_numberOfSegments_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkPlayList_numberOfSegments_feature", "_UI_ChunkPlayList_type"),
 				 WavPackage.Literals.CHUNK_PLAY_LIST__NUMBER_OF_SEGMENTS,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

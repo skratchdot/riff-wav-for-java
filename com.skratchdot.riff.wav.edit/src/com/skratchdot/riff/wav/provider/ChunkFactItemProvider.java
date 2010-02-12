@@ -88,7 +88,7 @@ public class ChunkFactItemProvider
 				 getString("_UI_ChunkFact_formatDependantData_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkFact_formatDependantData_feature", "_UI_ChunkFact_type"),
 				 WavPackage.Literals.CHUNK_FACT__FORMAT_DEPENDANT_DATA,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,

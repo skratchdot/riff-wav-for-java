@@ -91,7 +91,7 @@ public class ChunkDataItemProvider
 				 getString("_UI_ChunkData_sampleDataOriginal_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkData_sampleDataOriginal_feature", "_UI_ChunkData_type"),
 				 WavPackage.Literals.CHUNK_DATA__SAMPLE_DATA_ORIGINAL,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

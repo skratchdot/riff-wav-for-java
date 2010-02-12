@@ -89,7 +89,7 @@ public class ChunkCueItemProvider
 				 getString("_UI_ChunkCue_numberOfCuePoints_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkCue_numberOfCuePoints_feature", "_UI_ChunkCue_type"),
 				 WavPackage.Literals.CHUNK_CUE__NUMBER_OF_CUE_POINTS,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

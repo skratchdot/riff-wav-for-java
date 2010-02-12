@@ -89,7 +89,7 @@ public class ChunkDataListTypeItemProvider
 				 getString("_UI_ChunkDataListType_cuePointID_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkDataListType_cuePointID_feature", "_UI_ChunkDataListType_type"),
 				 WavPackage.Literals.CHUNK_DATA_LIST_TYPE__CUE_POINT_ID,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
