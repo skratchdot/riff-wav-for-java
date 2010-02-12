@@ -24,9 +24,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkDataSize <em>Chunk Data Size</em>}</li>
- *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkID <em>Chunk ID</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getSize <em>Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID <em>Chunk Type ID</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue <em>Chunk Type ID Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,56 +36,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Chunk extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * Returns the value of the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Chunk Data Size</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Size</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chunk Data Size</em>' attribute.
-	 * @see #setChunkDataSize(long)
-	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_ChunkDataSize()
-	 * @model
+	 * @return the value of the '<em>Size</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_Size()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	long getChunkDataSize();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.Chunk#getChunkDataSize <em>Chunk Data Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chunk Data Size</em>' attribute.
-	 * @see #getChunkDataSize()
-	 * @generated
-	 */
-	void setChunkDataSize(long value);
-
-	/**
-	 * Returns the value of the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Chunk ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chunk ID</em>' attribute.
-	 * @see #setChunkID(int)
-	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_ChunkID()
-	 * @model
-	 * @generated
-	 */
-	int getChunkID();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.Chunk#getChunkID <em>Chunk ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chunk ID</em>' attribute.
-	 * @see #getChunkID()
-	 * @generated
-	 */
-	void setChunkID(int value);
+	long getSize();
 
 	/**
 	 * Returns the value of the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -98,22 +61,25 @@ public interface Chunk extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Chunk Type ID</em>' attribute.
 	 * @see com.skratchdot.riff.wav.ChunkTypeID
-	 * @see #setChunkTypeID(ChunkTypeID)
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_ChunkTypeID()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	ChunkTypeID getChunkTypeID();
 
 	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID <em>Chunk Type ID</em>}' attribute.
+	 * Returns the value of the '<em><b>Chunk Type ID Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Chunk Type ID Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chunk Type ID</em>' attribute.
-	 * @see com.skratchdot.riff.wav.ChunkTypeID
-	 * @see #getChunkTypeID()
+	 * @return the value of the '<em>Chunk Type ID Value</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_ChunkTypeIDValue()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	void setChunkTypeID(ChunkTypeID value);
+	int getChunkTypeIDValue();
 
 } // Chunk

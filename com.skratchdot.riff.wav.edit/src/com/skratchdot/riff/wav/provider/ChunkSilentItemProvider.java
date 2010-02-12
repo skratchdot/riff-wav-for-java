@@ -116,7 +116,7 @@ public class ChunkSilentItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkSilent chunkSilent = (ChunkSilent)object;
-		return getString("_UI_ChunkSilent_type") + " " + chunkSilent.getChunkDataSize();
+		return getString("_UI_ChunkSilent_type") + " " + chunkSilent.getSize();
 	}
 
 	/**

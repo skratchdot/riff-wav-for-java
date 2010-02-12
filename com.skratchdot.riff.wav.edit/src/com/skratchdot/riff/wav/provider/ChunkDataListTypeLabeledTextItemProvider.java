@@ -231,7 +231,7 @@ public class ChunkDataListTypeLabeledTextItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkDataListTypeLabeledText chunkDataListTypeLabeledText = (ChunkDataListTypeLabeledText)object;
-		return getString("_UI_ChunkDataListTypeLabeledText_type") + " " + chunkDataListTypeLabeledText.getChunkDataSize();
+		return getString("_UI_ChunkDataListTypeLabeledText_type") + " " + chunkDataListTypeLabeledText.getSize();
 	}
 
 	/**

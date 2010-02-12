@@ -17,6 +17,7 @@ package com.skratchdot.riff.wav.impl;
 import com.skratchdot.riff.wav.ChunkDataList;
 import com.skratchdot.riff.wav.ChunkDataListType;
 import com.skratchdot.riff.wav.ChunkDataListTypeID;
+import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
@@ -132,6 +133,30 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 			dataListChunks = new EObjectResolvingEList<ChunkDataListType>(ChunkDataListType.class, this, WavPackage.CHUNK_DATA_LIST__DATA_LIST_CHUNKS);
 		}
 		return dataListChunks;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID()
+	 */
+	@Override
+	public ChunkTypeID getChunkTypeID() {
+		return ChunkTypeID.LIST;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue()
+	 */
+	@Override
+	public int getChunkTypeIDValue() {
+		return ChunkTypeID.LIST_VALUE;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getSize()
+	 */
+	@Override
+	public long getSize() {
+		return -1;
 	}
 
 	/**

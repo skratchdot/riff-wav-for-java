@@ -15,6 +15,7 @@
 package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.Chunk;
+import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.ChunkWaveList;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
@@ -89,6 +90,30 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 			alternatingSilentAndDataChunks = new EObjectContainmentEList<Chunk>(Chunk.class, this, WavPackage.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS);
 		}
 		return alternatingSilentAndDataChunks;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID()
+	 */
+	@Override
+	public ChunkTypeID getChunkTypeID() {
+		return ChunkTypeID.WAVL;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue()
+	 */
+	@Override
+	public int getChunkTypeIDValue() {
+		return ChunkTypeID.WAVL_VALUE;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getSize()
+	 */
+	@Override
+	public long getSize() {
+		return -1;
 	}
 
 	/**

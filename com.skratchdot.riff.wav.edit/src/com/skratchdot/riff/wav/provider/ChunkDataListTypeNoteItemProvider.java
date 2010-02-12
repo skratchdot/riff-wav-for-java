@@ -89,7 +89,7 @@ public class ChunkDataListTypeNoteItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkDataListTypeNote chunkDataListTypeNote = (ChunkDataListTypeNote)object;
-		return getString("_UI_ChunkDataListTypeNote_type") + " " + chunkDataListTypeNote.getChunkDataSize();
+		return getString("_UI_ChunkDataListTypeNote_type") + " " + chunkDataListTypeNote.getSize();
 	}
 
 	/**

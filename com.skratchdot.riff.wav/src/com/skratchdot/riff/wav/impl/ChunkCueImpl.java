@@ -15,6 +15,7 @@
 package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.ChunkCue;
+import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.CuePoint;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
@@ -131,6 +132,30 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 			cuePoints = new EObjectResolvingEList<CuePoint>(CuePoint.class, this, WavPackage.CHUNK_CUE__CUE_POINTS);
 		}
 		return cuePoints;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID()
+	 */
+	@Override
+	public ChunkTypeID getChunkTypeID() {
+		return ChunkTypeID.CUE_;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue()
+	 */
+	@Override
+	public int getChunkTypeIDValue() {
+		return ChunkTypeID.CUE__VALUE;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getSize()
+	 */
+	@Override
+	public long getSize() {
+		return -1;
 	}
 
 	/**

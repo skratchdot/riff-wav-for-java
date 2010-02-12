@@ -356,7 +356,7 @@ public class ChunkSamplerItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkSampler chunkSampler = (ChunkSampler)object;
-		return getString("_UI_ChunkSampler_type") + " " + chunkSampler.getChunkDataSize();
+		return getString("_UI_ChunkSampler_type") + " " + chunkSampler.getSize();
 	}
 
 	/**

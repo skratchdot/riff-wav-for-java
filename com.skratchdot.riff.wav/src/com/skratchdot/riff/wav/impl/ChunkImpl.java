@@ -14,16 +14,12 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import com.skratchdot.riff.wav.Chunk;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.WavPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,9 +28,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getChunkDataSize <em>Chunk Data Size</em>}</li>
- *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getChunkID <em>Chunk ID</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getSize <em>Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID <em>Chunk Type ID</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue <em>Chunk Type ID Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,44 +38,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	/**
-	 * The default value of the '{@link #getChunkDataSize() <em>Chunk Data Size</em>}' attribute.
+	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChunkDataSize()
+	 * @see #getSize()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long CHUNK_DATA_SIZE_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getChunkDataSize() <em>Chunk Data Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChunkDataSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected long chunkDataSize = CHUNK_DATA_SIZE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getChunkID() <em>Chunk ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChunkID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int CHUNK_ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getChunkID() <em>Chunk ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChunkID()
-	 * @generated
-	 * @ordered
-	 */
-	protected int chunkID = CHUNK_ID_EDEFAULT;
+	protected static final long SIZE_EDEFAULT = 0L;
 
 	/**
 	 * The default value of the '{@link #getChunkTypeID() <em>Chunk Type ID</em>}' attribute.
@@ -92,14 +58,14 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	protected static final ChunkTypeID CHUNK_TYPE_ID_EDEFAULT = ChunkTypeID.UNKNOWN;
 
 	/**
-	 * The cached value of the '{@link #getChunkTypeID() <em>Chunk Type ID</em>}' attribute.
+	 * The default value of the '{@link #getChunkTypeIDValue() <em>Chunk Type ID Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChunkTypeID()
+	 * @see #getChunkTypeIDValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected ChunkTypeID chunkTypeID = CHUNK_TYPE_ID_EDEFAULT;
+	protected static final int CHUNK_TYPE_ID_VALUE_EDEFAULT = 0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,64 +89,31 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public long getChunkDataSize() {
-		return chunkDataSize;
+	public long getSize() {
+		// Implementation should be handled by subclasses
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChunkDataSize(long newChunkDataSize) {
-		long oldChunkDataSize = chunkDataSize;
-		chunkDataSize = newChunkDataSize;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK__CHUNK_DATA_SIZE, oldChunkDataSize, chunkDataSize));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getChunkID() {
-		return chunkID;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChunkID(int newChunkID) {
-		int oldChunkID = chunkID;
-		chunkID = newChunkID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK__CHUNK_ID, oldChunkID, chunkID));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ChunkTypeID getChunkTypeID() {
-		return chunkTypeID;
+		// Implementation should be handled by subclasses
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setChunkTypeID(ChunkTypeID newChunkTypeID) {
-		ChunkTypeID oldChunkTypeID = chunkTypeID;
-		chunkTypeID = newChunkTypeID == null ? CHUNK_TYPE_ID_EDEFAULT : newChunkTypeID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK__CHUNK_TYPE_ID, oldChunkTypeID, chunkTypeID));
+	public int getChunkTypeIDValue() {
+		// Implementation should be handled by subclasses
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -191,12 +124,12 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WavPackage.CHUNK__CHUNK_DATA_SIZE:
-				return getChunkDataSize();
-			case WavPackage.CHUNK__CHUNK_ID:
-				return getChunkID();
+			case WavPackage.CHUNK__SIZE:
+				return getSize();
 			case WavPackage.CHUNK__CHUNK_TYPE_ID:
 				return getChunkTypeID();
+			case WavPackage.CHUNK__CHUNK_TYPE_ID_VALUE:
+				return getChunkTypeIDValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,78 +140,16 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case WavPackage.CHUNK__CHUNK_DATA_SIZE:
-				setChunkDataSize((Long)newValue);
-				return;
-			case WavPackage.CHUNK__CHUNK_ID:
-				setChunkID((Integer)newValue);
-				return;
-			case WavPackage.CHUNK__CHUNK_TYPE_ID:
-				setChunkTypeID((ChunkTypeID)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case WavPackage.CHUNK__CHUNK_DATA_SIZE:
-				setChunkDataSize(CHUNK_DATA_SIZE_EDEFAULT);
-				return;
-			case WavPackage.CHUNK__CHUNK_ID:
-				setChunkID(CHUNK_ID_EDEFAULT);
-				return;
-			case WavPackage.CHUNK__CHUNK_TYPE_ID:
-				setChunkTypeID(CHUNK_TYPE_ID_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WavPackage.CHUNK__CHUNK_DATA_SIZE:
-				return chunkDataSize != CHUNK_DATA_SIZE_EDEFAULT;
-			case WavPackage.CHUNK__CHUNK_ID:
-				return chunkID != CHUNK_ID_EDEFAULT;
+			case WavPackage.CHUNK__SIZE:
+				return getSize() != SIZE_EDEFAULT;
 			case WavPackage.CHUNK__CHUNK_TYPE_ID:
-				return chunkTypeID != CHUNK_TYPE_ID_EDEFAULT;
+				return getChunkTypeID() != CHUNK_TYPE_ID_EDEFAULT;
+			case WavPackage.CHUNK__CHUNK_TYPE_ID_VALUE:
+				return getChunkTypeIDValue() != CHUNK_TYPE_ID_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (chunkDataSize: ");
-		result.append(chunkDataSize);
-		result.append(", chunkID: ");
-		result.append(chunkID);
-		result.append(", chunkTypeID: ");
-		result.append(chunkTypeID);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ChunkImpl

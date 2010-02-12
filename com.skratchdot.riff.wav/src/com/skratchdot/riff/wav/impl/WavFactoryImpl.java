@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import com.skratchdot.riff.wav.*;
 import java.io.File;
 
 import org.eclipse.emf.ecore.EClass;
@@ -58,33 +59,32 @@ import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
  * end-user-doc -->
- * 
  * @generated
  */
 public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	/**
-	 * Creates the default factory implementation. <!-- begin-user-doc --> <!--
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static WavFactory init() {
 		try {
-			WavFactory theWavFactory = (WavFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http:///com/skratchdot/riff/wav/RIFFWave.ecore");
+			WavFactory theWavFactory = (WavFactory)EPackage.Registry.INSTANCE.getEFactory("http:///com/skratchdot/riff/wav/RIFFWave.ecore"); 
 			if (theWavFactory != null) {
 				return theWavFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new WavFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public WavFactoryImpl() {
@@ -93,125 +93,96 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case WavPackage.RIFF_WAVE:
-			return createRIFFWave();
-		case WavPackage.CHANNEL:
-			return createChannel();
-		case WavPackage.CHUNK_CUE:
-			return createChunkCue();
-		case WavPackage.CHUNK_DATA:
-			return createChunkData();
-		case WavPackage.CHUNK_DATA_LIST:
-			return createChunkDataList();
-		case WavPackage.CHUNK_DATA_LIST_TYPE_LABEL:
-			return createChunkDataListTypeLabel();
-		case WavPackage.CHUNK_DATA_LIST_TYPE_LABELED_TEXT:
-			return createChunkDataListTypeLabeledText();
-		case WavPackage.CHUNK_DATA_LIST_TYPE_NOTE:
-			return createChunkDataListTypeNote();
-		case WavPackage.CHUNK_FACT:
-			return createChunkFact();
-		case WavPackage.CHUNK_FORMAT:
-			return createChunkFormat();
-		case WavPackage.CHUNK_INSTRUMENT:
-			return createChunkInstrument();
-		case WavPackage.CHUNK_PLAY_LIST:
-			return createChunkPlayList();
-		case WavPackage.CHUNK_SAMPLER:
-			return createChunkSampler();
-		case WavPackage.CHUNK_SILENT:
-			return createChunkSilent();
-		case WavPackage.CHUNK_UNKNOWN:
-			return createChunkUnknown();
-		case WavPackage.CHUNK_WAVE_LIST:
-			return createChunkWaveList();
-		case WavPackage.CUE_POINT:
-			return createCuePoint();
-		case WavPackage.PARSE_CHUNK_EXCEPTION:
-			return createParseChunkException();
-		case WavPackage.SAMPLE_DATA8_BIT:
-			return createSampleData8Bit();
-		case WavPackage.SAMPLE_DATA16_BIT:
-			return createSampleData16Bit();
-		case WavPackage.SAMPLE_LOOP:
-			return createSampleLoop();
-		case WavPackage.SEGMENT:
-			return createSegment();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName()
-					+ "' is not a valid classifier");
+			case WavPackage.RIFF_WAVE: return createRIFFWave();
+			case WavPackage.CHANNEL: return createChannel();
+			case WavPackage.CHUNK_CUE: return createChunkCue();
+			case WavPackage.CHUNK_DATA: return createChunkData();
+			case WavPackage.CHUNK_DATA_LIST: return createChunkDataList();
+			case WavPackage.CHUNK_DATA_LIST_TYPE_LABEL: return createChunkDataListTypeLabel();
+			case WavPackage.CHUNK_DATA_LIST_TYPE_LABELED_TEXT: return createChunkDataListTypeLabeledText();
+			case WavPackage.CHUNK_DATA_LIST_TYPE_NOTE: return createChunkDataListTypeNote();
+			case WavPackage.CHUNK_FACT: return createChunkFact();
+			case WavPackage.CHUNK_FORMAT: return createChunkFormat();
+			case WavPackage.CHUNK_INSTRUMENT: return createChunkInstrument();
+			case WavPackage.CHUNK_PLAY_LIST: return createChunkPlayList();
+			case WavPackage.CHUNK_SAMPLER: return createChunkSampler();
+			case WavPackage.CHUNK_SILENT: return createChunkSilent();
+			case WavPackage.CHUNK_UNKNOWN: return createChunkUnknown();
+			case WavPackage.CHUNK_WAVE_LIST: return createChunkWaveList();
+			case WavPackage.CUE_POINT: return createCuePoint();
+			case WavPackage.PARSE_CHUNK_EXCEPTION: return createParseChunkException();
+			case WavPackage.SAMPLE_DATA8_BIT: return createSampleData8Bit();
+			case WavPackage.SAMPLE_DATA16_BIT: return createSampleData16Bit();
+			case WavPackage.SAMPLE_LOOP: return createSampleLoop();
+			case WavPackage.SEGMENT: return createSegment();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-		case WavPackage.CHUNK_DATA_LIST_TYPE_ID:
-			return createChunkDataListTypeIDFromString(eDataType, initialValue);
-		case WavPackage.CHUNK_TYPE_ID:
-			return createChunkTypeIDFromString(eDataType, initialValue);
-		case WavPackage.COMPRESSION_CODE:
-			return createCompressionCodeFromString(eDataType, initialValue);
-		case WavPackage.SAMPLE_LOOP_TYPE:
-			return createSampleLoopTypeFromString(eDataType, initialValue);
-		case WavPackage.SMPTE_FORMAT:
-			return createSMPTEFormatFromString(eDataType, initialValue);
-		case WavPackage.EXCEPTION:
-			return createExceptionFromString(eDataType, initialValue);
-		case WavPackage.UNSIGNED_SHORT:
-			return createUnsignedShortFromString(eDataType, initialValue);
-		case WavPackage.UNSIGNED_INT:
-			return createUnsignedIntFromString(eDataType, initialValue);
-		default:
-			throw new IllegalArgumentException("The datatype '"
-					+ eDataType.getName() + "' is not a valid classifier");
+			case WavPackage.CHUNK_DATA_LIST_TYPE_ID:
+				return createChunkDataListTypeIDFromString(eDataType, initialValue);
+			case WavPackage.CHUNK_TYPE_ID:
+				return createChunkTypeIDFromString(eDataType, initialValue);
+			case WavPackage.COMPRESSION_CODE:
+				return createCompressionCodeFromString(eDataType, initialValue);
+			case WavPackage.SAMPLE_LOOP_TYPE:
+				return createSampleLoopTypeFromString(eDataType, initialValue);
+			case WavPackage.SMPTE_FORMAT:
+				return createSMPTEFormatFromString(eDataType, initialValue);
+			case WavPackage.EXCEPTION:
+				return createExceptionFromString(eDataType, initialValue);
+			case WavPackage.UNSIGNED_SHORT:
+				return createUnsignedShortFromString(eDataType, initialValue);
+			case WavPackage.UNSIGNED_INT:
+				return createUnsignedIntFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-		case WavPackage.CHUNK_DATA_LIST_TYPE_ID:
-			return convertChunkDataListTypeIDToString(eDataType, instanceValue);
-		case WavPackage.CHUNK_TYPE_ID:
-			return convertChunkTypeIDToString(eDataType, instanceValue);
-		case WavPackage.COMPRESSION_CODE:
-			return convertCompressionCodeToString(eDataType, instanceValue);
-		case WavPackage.SAMPLE_LOOP_TYPE:
-			return convertSampleLoopTypeToString(eDataType, instanceValue);
-		case WavPackage.SMPTE_FORMAT:
-			return convertSMPTEFormatToString(eDataType, instanceValue);
-		case WavPackage.EXCEPTION:
-			return convertExceptionToString(eDataType, instanceValue);
-		case WavPackage.UNSIGNED_SHORT:
-			return convertUnsignedShortToString(eDataType, instanceValue);
-		case WavPackage.UNSIGNED_INT:
-			return convertUnsignedIntToString(eDataType, instanceValue);
-		default:
-			throw new IllegalArgumentException("The datatype '"
-					+ eDataType.getName() + "' is not a valid classifier");
+			case WavPackage.CHUNK_DATA_LIST_TYPE_ID:
+				return convertChunkDataListTypeIDToString(eDataType, instanceValue);
+			case WavPackage.CHUNK_TYPE_ID:
+				return convertChunkTypeIDToString(eDataType, instanceValue);
+			case WavPackage.COMPRESSION_CODE:
+				return convertCompressionCodeToString(eDataType, instanceValue);
+			case WavPackage.SAMPLE_LOOP_TYPE:
+				return convertSampleLoopTypeToString(eDataType, instanceValue);
+			case WavPackage.SMPTE_FORMAT:
+				return convertSMPTEFormatToString(eDataType, instanceValue);
+			case WavPackage.EXCEPTION:
+				return convertExceptionToString(eDataType, instanceValue);
+			case WavPackage.UNSIGNED_SHORT:
+				return convertUnsignedShortToString(eDataType, instanceValue);
+			case WavPackage.UNSIGNED_INT:
+				return convertUnsignedIntToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RIFFWave createRIFFWave() {
@@ -233,7 +204,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Channel createChannel() {
@@ -243,7 +213,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkCue createChunkCue() {
@@ -259,7 +228,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkData createChunkData() {
@@ -275,7 +243,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkDataList createChunkDataList() {
@@ -292,7 +259,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkDataListTypeLabel createChunkDataListTypeLabel() {
@@ -310,7 +276,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkDataListTypeLabeledText createChunkDataListTypeLabeledText() {
@@ -328,7 +293,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkDataListTypeNote createChunkDataListTypeNote() {
@@ -346,7 +310,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkFact createChunkFact() {
@@ -362,7 +325,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkFormat createChunkFormat() {
@@ -379,7 +341,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkInstrument createChunkInstrument() {
@@ -396,7 +357,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkPlayList createChunkPlayList() {
@@ -413,7 +373,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkSampler createChunkSampler() {
@@ -430,7 +389,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkSilent createChunkSilent() {
@@ -447,7 +405,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkUnknown createChunkUnknown() {
@@ -464,7 +421,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkWaveList createChunkWaveList() {
@@ -481,7 +437,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CuePoint createCuePoint() {
@@ -491,7 +446,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ParseChunkException createParseChunkException() {
@@ -501,7 +455,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SampleData8Bit createSampleData8Bit() {
@@ -511,7 +464,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SampleData16Bit createSampleData16Bit() {
@@ -521,7 +473,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SampleLoop createSampleLoop() {
@@ -531,7 +482,6 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Segment createSegment() {
@@ -541,22 +491,17 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkDataListTypeID createChunkDataListTypeIDFromString(
 			EDataType eDataType, String initialValue) {
 		ChunkDataListTypeID result = ChunkDataListTypeID.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertChunkDataListTypeIDToString(EDataType eDataType,
@@ -566,22 +511,17 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ChunkTypeID createChunkTypeIDFromString(EDataType eDataType,
 			String initialValue) {
 		ChunkTypeID result = ChunkTypeID.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertChunkTypeIDToString(EDataType eDataType,
@@ -591,22 +531,17 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CompressionCode createCompressionCodeFromString(EDataType eDataType,
 			String initialValue) {
 		CompressionCode result = CompressionCode.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertCompressionCodeToString(EDataType eDataType,
@@ -616,22 +551,17 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SampleLoopType createSampleLoopTypeFromString(EDataType eDataType,
 			String initialValue) {
 		SampleLoopType result = SampleLoopType.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertSampleLoopTypeToString(EDataType eDataType,
@@ -641,22 +571,17 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SMPTEFormat createSMPTEFormatFromString(EDataType eDataType,
 			String initialValue) {
 		SMPTEFormat result = SMPTEFormat.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertSMPTEFormatToString(EDataType eDataType,
@@ -666,17 +591,15 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Exception createExceptionFromString(EDataType eDataType,
 			String initialValue) {
-		return (Exception) super.createFromString(eDataType, initialValue);
+		return (Exception)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertExceptionToString(EDataType eDataType,
@@ -686,17 +609,15 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Integer createUnsignedShortFromString(EDataType eDataType,
 			String initialValue) {
-		return (Integer) super.createFromString(eDataType, initialValue);
+		return (Integer)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertUnsignedShortToString(EDataType eDataType,
@@ -706,17 +627,15 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Long createUnsignedIntFromString(EDataType eDataType,
 			String initialValue) {
-		return (Long) super.createFromString(eDataType, initialValue);
+		return (Long)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertUnsignedIntToString(EDataType eDataType,
@@ -726,16 +645,14 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public WavPackage getWavPackage() {
-		return (WavPackage) getEPackage();
+		return (WavPackage)getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */

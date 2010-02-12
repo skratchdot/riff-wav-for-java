@@ -145,22 +145,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK = 2;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK__CHUNK_DATA_SIZE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK__CHUNK_ID = 1;
+	int CHUNK__SIZE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -169,7 +160,16 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK__CHUNK_TYPE_ID = 2;
+	int CHUNK__CHUNK_TYPE_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK__CHUNK_TYPE_ID_VALUE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Chunk</em>' class.
@@ -191,22 +191,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_CUE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_CUE__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_CUE__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_CUE__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -216,6 +207,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_CUE__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_CUE__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Cue Points</b></em>' attribute.
@@ -255,22 +255,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA = 4;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_DATA__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_DATA__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_DATA__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -280,6 +271,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Channels</b></em>' containment reference list.
@@ -319,22 +319,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST = 5;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_DATA_LIST__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_DATA_LIST__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_DATA_LIST__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -344,6 +335,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Type ID</b></em>' attribute.
@@ -383,22 +383,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST_TYPE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_DATA_LIST_TYPE__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_DATA_LIST_TYPE__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_DATA_LIST_TYPE__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -408,6 +399,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Cue Point ID</b></em>' attribute.
@@ -447,22 +447,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST_TYPE_LABEL = 7;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_DATA_LIST_TYPE_LABEL__CHUNK_DATA_SIZE = CHUNK_DATA_LIST_TYPE__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_DATA_LIST_TYPE_LABEL__CHUNK_ID = CHUNK_DATA_LIST_TYPE__CHUNK_ID;
+	int CHUNK_DATA_LIST_TYPE_LABEL__SIZE = CHUNK_DATA_LIST_TYPE__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -472,6 +463,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST_TYPE_LABEL__CHUNK_TYPE_ID = CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_LABEL__CHUNK_TYPE_ID_VALUE = CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Cue Point ID</b></em>' attribute.
@@ -511,22 +511,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__CHUNK_DATA_SIZE = CHUNK_DATA_LIST_TYPE__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__CHUNK_ID = CHUNK_DATA_LIST_TYPE__CHUNK_ID;
+	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__SIZE = CHUNK_DATA_LIST_TYPE__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -536,6 +527,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__CHUNK_TYPE_ID = CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__CHUNK_TYPE_ID_VALUE = CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Cue Point ID</b></em>' attribute.
@@ -629,22 +629,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST_TYPE_NOTE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_DATA_LIST_TYPE_NOTE__CHUNK_DATA_SIZE = CHUNK_DATA_LIST_TYPE__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_DATA_LIST_TYPE_NOTE__CHUNK_ID = CHUNK_DATA_LIST_TYPE__CHUNK_ID;
+	int CHUNK_DATA_LIST_TYPE_NOTE__SIZE = CHUNK_DATA_LIST_TYPE__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -654,6 +645,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST_TYPE_NOTE__CHUNK_TYPE_ID = CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_NOTE__CHUNK_TYPE_ID_VALUE = CHUNK_DATA_LIST_TYPE__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Cue Point ID</b></em>' attribute.
@@ -693,22 +693,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_FACT = 10;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FACT__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_FACT__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_FACT__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -718,6 +709,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_FACT__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_FACT__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Format Dependant Data</b></em>' attribute.
@@ -748,22 +748,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_FORMAT = 11;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_FORMAT__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_FORMAT__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -773,6 +764,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_FORMAT__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_FORMAT__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Compression Code</b></em>' attribute.
@@ -866,22 +866,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_INSTRUMENT = 12;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_INSTRUMENT__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_INSTRUMENT__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_INSTRUMENT__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -891,6 +882,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_INSTRUMENT__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_INSTRUMENT__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Unshifted Note</b></em>' attribute.
@@ -975,22 +975,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_PLAY_LIST = 13;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_PLAY_LIST__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_PLAY_LIST__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_PLAY_LIST__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -1000,6 +991,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_PLAY_LIST__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_PLAY_LIST__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Segments</b></em>' attribute.
@@ -1039,22 +1039,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_SAMPLER = 14;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_SAMPLER__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_SAMPLER__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_SAMPLER__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -1064,6 +1055,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_SAMPLER__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_SAMPLER__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -1184,22 +1184,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_SILENT = 15;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_SILENT__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_SILENT__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_SILENT__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -1209,6 +1200,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_SILENT__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_SILENT__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Silent Samples</b></em>' attribute.
@@ -1239,22 +1239,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_UNKNOWN = 16;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_UNKNOWN__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_UNKNOWN__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_UNKNOWN__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -1264,6 +1255,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_UNKNOWN__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The number of structural features of the '<em>Chunk Unknown</em>' class.
@@ -1285,22 +1285,13 @@ public interface WavPackage extends EPackage {
 	int CHUNK_WAVE_LIST = 17;
 
 	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_WAVE_LIST__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_WAVE_LIST__CHUNK_ID = CHUNK__CHUNK_ID;
+	int CHUNK_WAVE_LIST__SIZE = CHUNK__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -1310,6 +1301,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_WAVE_LIST__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_WAVE_LIST__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Alternating Silent And Data Chunks</b></em>' containment reference list.
@@ -1768,26 +1768,15 @@ public interface WavPackage extends EPackage {
 	EClass getChunk();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.Chunk#getChunkDataSize <em>Chunk Data Size</em>}'.
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.Chunk#getSize <em>Size</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Chunk Data Size</em>'.
-	 * @see com.skratchdot.riff.wav.Chunk#getChunkDataSize()
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see com.skratchdot.riff.wav.Chunk#getSize()
 	 * @see #getChunk()
 	 * @generated
 	 */
-	EAttribute getChunk_ChunkDataSize();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.Chunk#getChunkID <em>Chunk ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Chunk ID</em>'.
-	 * @see com.skratchdot.riff.wav.Chunk#getChunkID()
-	 * @see #getChunk()
-	 * @generated
-	 */
-	EAttribute getChunk_ChunkID();
+	EAttribute getChunk_Size();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID <em>Chunk Type ID</em>}'.
@@ -1799,6 +1788,17 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getChunk_ChunkTypeID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue <em>Chunk Type ID Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Chunk Type ID Value</em>'.
+	 * @see com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue()
+	 * @see #getChunk()
+	 * @generated
+	 */
+	EAttribute getChunk_ChunkTypeIDValue();
 
 	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ChunkCue <em>Chunk Cue</em>}'.
@@ -2873,20 +2873,12 @@ public interface WavPackage extends EPackage {
 		EClass CHUNK = eINSTANCE.getChunk();
 
 		/**
-		 * The meta object literal for the '<em><b>Chunk Data Size</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CHUNK__CHUNK_DATA_SIZE = eINSTANCE.getChunk_ChunkDataSize();
-
-		/**
-		 * The meta object literal for the '<em><b>Chunk ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHUNK__CHUNK_ID = eINSTANCE.getChunk_ChunkID();
+		EAttribute CHUNK__SIZE = eINSTANCE.getChunk_Size();
 
 		/**
 		 * The meta object literal for the '<em><b>Chunk Type ID</b></em>' attribute feature.
@@ -2895,6 +2887,14 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHUNK__CHUNK_TYPE_ID = eINSTANCE.getChunk_ChunkTypeID();
+
+		/**
+		 * The meta object literal for the '<em><b>Chunk Type ID Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHUNK__CHUNK_TYPE_ID_VALUE = eINSTANCE.getChunk_ChunkTypeIDValue();
 
 		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChunkCueImpl <em>Chunk Cue</em>}' class.

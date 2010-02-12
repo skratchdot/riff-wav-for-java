@@ -139,7 +139,7 @@ public class ChunkDataListItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkDataList chunkDataList = (ChunkDataList)object;
-		return getString("_UI_ChunkDataList_type") + " " + chunkDataList.getChunkDataSize();
+		return getString("_UI_ChunkDataList_type") + " " + chunkDataList.getSize();
 	}
 
 	/**

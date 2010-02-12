@@ -15,6 +15,7 @@
 package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.ChunkSampler;
+import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.SampleLoop;
 import com.skratchdot.riff.wav.WavPackage;
@@ -512,6 +513,30 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 			sampleLoops = new EObjectContainmentEList<SampleLoop>(SampleLoop.class, this, WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS);
 		}
 		return sampleLoops;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID()
+	 */
+	@Override
+	public ChunkTypeID getChunkTypeID() {
+		return ChunkTypeID.SMPL;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue()
+	 */
+	@Override
+	public int getChunkTypeIDValue() {
+		return ChunkTypeID.SMPL_VALUE;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getSize()
+	 */
+	@Override
+	public long getSize() {
+		return -1;
 	}
 
 	/**

@@ -43,6 +43,7 @@ public class RIFFWaveAllTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new RIFFWaveAllTests("RIFFWave Tests");
+		suite.addTest(WavTests.suite());
 		return suite;
 	}
 

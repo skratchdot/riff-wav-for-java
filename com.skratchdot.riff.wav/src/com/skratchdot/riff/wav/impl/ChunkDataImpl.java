@@ -16,6 +16,7 @@ package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.Channel;
 import com.skratchdot.riff.wav.ChunkData;
+import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
@@ -134,6 +135,30 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 		sampleDataOriginal = newSampleDataOriginal;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_DATA__SAMPLE_DATA_ORIGINAL, oldSampleDataOriginal, sampleDataOriginal));
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID()
+	 */
+	@Override
+	public ChunkTypeID getChunkTypeID() {
+		return ChunkTypeID.DATA;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue()
+	 */
+	@Override
+	public int getChunkTypeIDValue() {
+		return ChunkTypeID.DATA_VALUE;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getSize()
+	 */
+	@Override
+	public long getSize() {
+		return -1;
 	}
 
 	/**

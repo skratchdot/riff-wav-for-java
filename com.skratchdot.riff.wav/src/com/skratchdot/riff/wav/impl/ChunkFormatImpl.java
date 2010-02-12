@@ -15,6 +15,7 @@
 package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.ChunkFormat;
+import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.CompressionCode;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
@@ -396,6 +397,30 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		extraFormatBytes = newExtraFormatBytes;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_FORMAT__EXTRA_FORMAT_BYTES, oldExtraFormatBytes, extraFormatBytes));
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID()
+	 */
+	@Override
+	public ChunkTypeID getChunkTypeID() {
+		return ChunkTypeID.FMT_;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue()
+	 */
+	@Override
+	public int getChunkTypeIDValue() {
+		return ChunkTypeID.FMT__VALUE;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.skratchdot.riff.wav.impl.ChunkImpl#getSize()
+	 */
+	@Override
+	public long getSize() {
+		return -1;
 	}
 
 	/**

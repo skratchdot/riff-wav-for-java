@@ -22,6 +22,14 @@ import junit.framework.TestCase;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Chunk</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getSize() <em>Size</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID() <em>Chunk Type ID</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue() <em>Chunk Type ID Value</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class ChunkTest extends TestCase {
@@ -62,6 +70,45 @@ public abstract class ChunkTest extends TestCase {
 	 */
 	protected Chunk getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.Chunk#getSize() <em>Size</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.Chunk#getSize()
+	 * @generated
+	 */
+	public void testGetSize() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID() <em>Chunk Type ID</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.Chunk#getChunkTypeID()
+	 * @generated
+	 */
+	public void testGetChunkTypeID() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue() <em>Chunk Type ID Value</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue()
+	 * @generated
+	 */
+	public void testGetChunkTypeIDValue() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ChunkTest

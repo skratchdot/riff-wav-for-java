@@ -139,7 +139,7 @@ public class ChunkCueItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkCue chunkCue = (ChunkCue)object;
-		return getString("_UI_ChunkCue_type") + " " + chunkCue.getChunkDataSize();
+		return getString("_UI_ChunkCue_type") + " " + chunkCue.getSize();
 	}
 
 	/**

@@ -43,6 +43,20 @@ public class WavTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new WavTests("wav Tests");
+		suite.addTestSuite(ChunkCueTest.class);
+		suite.addTestSuite(ChunkDataTest.class);
+		suite.addTestSuite(ChunkDataListTest.class);
+		suite.addTestSuite(ChunkDataListTypeLabelTest.class);
+		suite.addTestSuite(ChunkDataListTypeLabeledTextTest.class);
+		suite.addTestSuite(ChunkDataListTypeNoteTest.class);
+		suite.addTestSuite(ChunkFactTest.class);
+		suite.addTestSuite(ChunkFormatTest.class);
+		suite.addTestSuite(ChunkInstrumentTest.class);
+		suite.addTestSuite(ChunkPlayListTest.class);
+		suite.addTestSuite(ChunkSamplerTest.class);
+		suite.addTestSuite(ChunkSilentTest.class);
+		suite.addTestSuite(ChunkUnknownTest.class);
+		suite.addTestSuite(ChunkWaveListTest.class);
 		return suite;
 	}
 

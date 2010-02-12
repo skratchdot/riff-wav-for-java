@@ -149,7 +149,7 @@ public class ChunkDataItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkData chunkData = (ChunkData)object;
-		return getString("_UI_ChunkData_type") + " " + chunkData.getChunkDataSize();
+		return getString("_UI_ChunkData_type") + " " + chunkData.getSize();
 	}
 
 	/**

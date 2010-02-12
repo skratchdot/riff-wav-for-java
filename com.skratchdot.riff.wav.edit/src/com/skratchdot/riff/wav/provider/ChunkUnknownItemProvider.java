@@ -89,7 +89,7 @@ public class ChunkUnknownItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkUnknown chunkUnknown = (ChunkUnknown)object;
-		return getString("_UI_ChunkUnknown_type") + " " + chunkUnknown.getChunkDataSize();
+		return getString("_UI_ChunkUnknown_type") + " " + chunkUnknown.getSize();
 	}
 
 	/**

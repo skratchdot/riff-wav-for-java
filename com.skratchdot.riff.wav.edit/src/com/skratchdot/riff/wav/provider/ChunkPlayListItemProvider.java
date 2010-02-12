@@ -139,7 +139,7 @@ public class ChunkPlayListItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkPlayList chunkPlayList = (ChunkPlayList)object;
-		return getString("_UI_ChunkPlayList_type") + " " + chunkPlayList.getChunkDataSize();
+		return getString("_UI_ChunkPlayList_type") + " " + chunkPlayList.getSize();
 	}
 
 	/**
