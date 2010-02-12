@@ -80,31 +80,22 @@ public interface WavPackage extends EPackage {
 	int RIFF_WAVE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Header Chunk</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RIFF_WAVE__HEADER_CHUNK = 0;
-
-	/**
 	 * The feature id for the '<em><b>Chunks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RIFF_WAVE__CHUNKS = 1;
+	int RIFF_WAVE__CHUNKS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Riff Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Parse Chunk Exceptions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RIFF_WAVE__RIFF_TYPE = 2;
+	int RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS = 1;
 
 	/**
 	 * The number of structural features of the '<em>RIFF Wave</em>' class.
@@ -113,7 +104,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RIFF_WAVE_FEATURE_COUNT = 3;
+	int RIFF_WAVE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChannelImpl <em>Channel</em>}' class.
@@ -865,52 +856,6 @@ public interface WavPackage extends EPackage {
 	int CHUNK_FORMAT_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 8;
 
 	/**
-	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkHeaderImpl <em>Chunk Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.skratchdot.riff.wav.impl.ChunkHeaderImpl
-	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkHeader()
-	 * @generated
-	 */
-	int CHUNK_HEADER = 12;
-
-	/**
-	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_HEADER__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
-
-	/**
-	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_HEADER__CHUNK_ID = CHUNK__CHUNK_ID;
-
-	/**
-	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_HEADER__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
-
-	/**
-	 * The number of structural features of the '<em>Chunk Header</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_HEADER_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkInstrumentImpl <em>Chunk Instrument</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -918,7 +863,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkInstrument()
 	 * @generated
 	 */
-	int CHUNK_INSTRUMENT = 13;
+	int CHUNK_INSTRUMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
@@ -1027,7 +972,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkPlayList()
 	 * @generated
 	 */
-	int CHUNK_PLAY_LIST = 14;
+	int CHUNK_PLAY_LIST = 13;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
@@ -1091,7 +1036,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkSampler()
 	 * @generated
 	 */
-	int CHUNK_SAMPLER = 15;
+	int CHUNK_SAMPLER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
@@ -1236,7 +1181,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkSilent()
 	 * @generated
 	 */
-	int CHUNK_SILENT = 16;
+	int CHUNK_SILENT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
@@ -1282,6 +1227,52 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_SILENT_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkUnknownImpl <em>Chunk Unknown</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.impl.ChunkUnknownImpl
+	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkUnknown()
+	 * @generated
+	 */
+	int CHUNK_UNKNOWN = 16;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Data Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN__CHUNK_DATA_SIZE = CHUNK__CHUNK_DATA_SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Chunk ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN__CHUNK_ID = CHUNK__CHUNK_ID;
+
+	/**
+	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN__CHUNK_TYPE_ID = CHUNK__CHUNK_TYPE_ID;
+
+	/**
+	 * The number of structural features of the '<em>Chunk Unknown</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkWaveListImpl <em>Chunk Wave List</em>}' class.
@@ -1412,6 +1403,34 @@ public interface WavPackage extends EPackage {
 	int CUE_POINT_FEATURE_COUNT = 6;
 
 	/**
+	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl <em>Parse Chunk Exception</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl
+	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getParseChunkException()
+	 * @generated
+	 */
+	int PARSE_CHUNK_EXCEPTION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Exception</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSE_CHUNK_EXCEPTION__EXCEPTION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parse Chunk Exception</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSE_CHUNK_EXCEPTION_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.SampleDataImpl <em>Sample Data</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1419,7 +1438,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getSampleData()
 	 * @generated
 	 */
-	int SAMPLE_DATA = 19;
+	int SAMPLE_DATA = 20;
 
 	/**
 	 * The number of structural features of the '<em>Sample Data</em>' class.
@@ -1438,7 +1457,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getSampleData8Bit()
 	 * @generated
 	 */
-	int SAMPLE_DATA8_BIT = 20;
+	int SAMPLE_DATA8_BIT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Sample</b></em>' attribute.
@@ -1466,7 +1485,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getSampleData16Bit()
 	 * @generated
 	 */
-	int SAMPLE_DATA16_BIT = 21;
+	int SAMPLE_DATA16_BIT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Sample</b></em>' attribute.
@@ -1494,7 +1513,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getSampleLoop()
 	 * @generated
 	 */
-	int SAMPLE_LOOP = 22;
+	int SAMPLE_LOOP = 23;
 
 	/**
 	 * The feature id for the '<em><b>Cue Point ID</b></em>' attribute.
@@ -1567,7 +1586,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getSegment()
 	 * @generated
 	 */
-	int SEGMENT = 23;
+	int SEGMENT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Cue Point ID</b></em>' attribute.
@@ -1613,7 +1632,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkDataListTypeID()
 	 * @generated
 	 */
-	int CHUNK_DATA_LIST_TYPE_ID = 24;
+	int CHUNK_DATA_LIST_TYPE_ID = 25;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.ChunkTypeID <em>Chunk Type ID</em>}' enum.
@@ -1623,7 +1642,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkTypeID()
 	 * @generated
 	 */
-	int CHUNK_TYPE_ID = 25;
+	int CHUNK_TYPE_ID = 26;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.CompressionCode <em>Compression Code</em>}' enum.
@@ -1633,7 +1652,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getCompressionCode()
 	 * @generated
 	 */
-	int COMPRESSION_CODE = 26;
+	int COMPRESSION_CODE = 27;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.SampleLoopType <em>Sample Loop Type</em>}' enum.
@@ -1643,7 +1662,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getSampleLoopType()
 	 * @generated
 	 */
-	int SAMPLE_LOOP_TYPE = 27;
+	int SAMPLE_LOOP_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.SMPTEFormat <em>SMPTE Format</em>}' enum.
@@ -1653,7 +1672,17 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getSMPTEFormat()
 	 * @generated
 	 */
-	int SMPTE_FORMAT = 28;
+	int SMPTE_FORMAT = 29;
+
+	/**
+	 * The meta object id for the '<em>Exception</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Exception
+	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getException()
+	 * @generated
+	 */
+	int EXCEPTION = 30;
 
 	/**
 	 * The meta object id for the '<em>Unsigned Short</em>' data type.
@@ -1663,7 +1692,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getUnsignedShort()
 	 * @generated
 	 */
-	int UNSIGNED_SHORT = 29;
+	int UNSIGNED_SHORT = 31;
 
 	/**
 	 * The meta object id for the '<em>Unsigned Int</em>' data type.
@@ -1673,18 +1702,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getUnsignedInt()
 	 * @generated
 	 */
-	int UNSIGNED_INT = 30;
-
-	/**
-	 * The meta object id for the '<em>Unsupported Type</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Exception
-	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getUnsupportedType()
-	 * @generated
-	 */
-	int UNSUPPORTED_TYPE = 31;
-
+	int UNSIGNED_INT = 32;
 
 	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.RIFFWave <em>RIFF Wave</em>}'.
@@ -1695,17 +1713,6 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRIFFWave();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.skratchdot.riff.wav.RIFFWave#getHeaderChunk <em>Header Chunk</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Header Chunk</em>'.
-	 * @see com.skratchdot.riff.wav.RIFFWave#getHeaderChunk()
-	 * @see #getRIFFWave()
-	 * @generated
-	 */
-	EReference getRIFFWave_HeaderChunk();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.skratchdot.riff.wav.RIFFWave#getChunks <em>Chunks</em>}'.
@@ -1719,15 +1726,15 @@ public interface WavPackage extends EPackage {
 	EReference getRIFFWave_Chunks();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.RIFFWave#getRiffType <em>Riff Type</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.skratchdot.riff.wav.RIFFWave#getParseChunkExceptions <em>Parse Chunk Exceptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Riff Type</em>'.
-	 * @see com.skratchdot.riff.wav.RIFFWave#getRiffType()
+	 * @return the meta object for the containment reference list '<em>Parse Chunk Exceptions</em>'.
+	 * @see com.skratchdot.riff.wav.RIFFWave#getParseChunkExceptions()
 	 * @see #getRIFFWave()
 	 * @generated
 	 */
-	EAttribute getRIFFWave_RiffType();
+	EReference getRIFFWave_ParseChunkExceptions();
 
 	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.Channel <em>Channel</em>}'.
@@ -2137,16 +2144,6 @@ public interface WavPackage extends EPackage {
 	EAttribute getChunkFormat_ExtraFormatBytes();
 
 	/**
-	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ChunkHeader <em>Chunk Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Chunk Header</em>'.
-	 * @see com.skratchdot.riff.wav.ChunkHeader
-	 * @generated
-	 */
-	EClass getChunkHeader();
-
-	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ChunkInstrument <em>Chunk Instrument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2418,6 +2415,16 @@ public interface WavPackage extends EPackage {
 	EAttribute getChunkSilent_NumberOfSilentSamples();
 
 	/**
+	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ChunkUnknown <em>Chunk Unknown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chunk Unknown</em>'.
+	 * @see com.skratchdot.riff.wav.ChunkUnknown
+	 * @generated
+	 */
+	EClass getChunkUnknown();
+
+	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ChunkWaveList <em>Chunk Wave List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2513,6 +2520,27 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCuePoint_SampleOffset();
+
+	/**
+	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ParseChunkException <em>Parse Chunk Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parse Chunk Exception</em>'.
+	 * @see com.skratchdot.riff.wav.ParseChunkException
+	 * @generated
+	 */
+	EClass getParseChunkException();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ParseChunkException#getException <em>Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exception</em>'.
+	 * @see com.skratchdot.riff.wav.ParseChunkException#getException()
+	 * @see #getParseChunkException()
+	 * @generated
+	 */
+	EAttribute getParseChunkException_Exception();
 
 	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.SampleData <em>Sample Data</em>}'.
@@ -2736,6 +2764,17 @@ public interface WavPackage extends EPackage {
 	EEnum getSMPTEFormat();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.Exception <em>Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Exception</em>'.
+	 * @see java.lang.Exception
+	 * @model instanceClass="java.lang.Exception"
+	 * @generated
+	 */
+	EDataType getException();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Integer <em>Unsigned Short</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2756,17 +2795,6 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getUnsignedInt();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.Exception <em>Unsupported Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Unsupported Type</em>'.
-	 * @see java.lang.Exception
-	 * @model instanceClass="java.lang.Exception"
-	 * @generated
-	 */
-	EDataType getUnsupportedType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2801,14 +2829,6 @@ public interface WavPackage extends EPackage {
 		EClass RIFF_WAVE = eINSTANCE.getRIFFWave();
 
 		/**
-		 * The meta object literal for the '<em><b>Header Chunk</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RIFF_WAVE__HEADER_CHUNK = eINSTANCE.getRIFFWave_HeaderChunk();
-
-		/**
 		 * The meta object literal for the '<em><b>Chunks</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2817,12 +2837,12 @@ public interface WavPackage extends EPackage {
 		EReference RIFF_WAVE__CHUNKS = eINSTANCE.getRIFFWave_Chunks();
 
 		/**
-		 * The meta object literal for the '<em><b>Riff Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Parse Chunk Exceptions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RIFF_WAVE__RIFF_TYPE = eINSTANCE.getRIFFWave_RiffType();
+		EReference RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS = eINSTANCE.getRIFFWave_ParseChunkExceptions();
 
 		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChannelImpl <em>Channel</em>}' class.
@@ -3151,16 +3171,6 @@ public interface WavPackage extends EPackage {
 		EAttribute CHUNK_FORMAT__EXTRA_FORMAT_BYTES = eINSTANCE.getChunkFormat_ExtraFormatBytes();
 
 		/**
-		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChunkHeaderImpl <em>Chunk Header</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.skratchdot.riff.wav.impl.ChunkHeaderImpl
-		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkHeader()
-		 * @generated
-		 */
-		EClass CHUNK_HEADER = eINSTANCE.getChunkHeader();
-
-		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChunkInstrumentImpl <em>Chunk Instrument</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3369,6 +3379,16 @@ public interface WavPackage extends EPackage {
 		EAttribute CHUNK_SILENT__NUMBER_OF_SILENT_SAMPLES = eINSTANCE.getChunkSilent_NumberOfSilentSamples();
 
 		/**
+		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChunkUnknownImpl <em>Chunk Unknown</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.skratchdot.riff.wav.impl.ChunkUnknownImpl
+		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getChunkUnknown()
+		 * @generated
+		 */
+		EClass CHUNK_UNKNOWN = eINSTANCE.getChunkUnknown();
+
+		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChunkWaveListImpl <em>Chunk Wave List</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3443,6 +3463,24 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CUE_POINT__SAMPLE_OFFSET = eINSTANCE.getCuePoint_SampleOffset();
+
+		/**
+		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl <em>Parse Chunk Exception</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl
+		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getParseChunkException()
+		 * @generated
+		 */
+		EClass PARSE_CHUNK_EXCEPTION = eINSTANCE.getParseChunkException();
+
+		/**
+		 * The meta object literal for the '<em><b>Exception</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARSE_CHUNK_EXCEPTION__EXCEPTION = eINSTANCE.getParseChunkException_Exception();
 
 		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.SampleDataImpl <em>Sample Data</em>}' class.
@@ -3633,6 +3671,16 @@ public interface WavPackage extends EPackage {
 		EEnum SMPTE_FORMAT = eINSTANCE.getSMPTEFormat();
 
 		/**
+		 * The meta object literal for the '<em>Exception</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Exception
+		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getException()
+		 * @generated
+		 */
+		EDataType EXCEPTION = eINSTANCE.getException();
+
+		/**
 		 * The meta object literal for the '<em>Unsigned Short</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3651,16 +3699,6 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType UNSIGNED_INT = eINSTANCE.getUnsignedInt();
-
-		/**
-		 * The meta object literal for the '<em>Unsupported Type</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Exception
-		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getUnsupportedType()
-		 * @generated
-		 */
-		EDataType UNSUPPORTED_TYPE = eINSTANCE.getUnsupportedType();
 
 	}
 

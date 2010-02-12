@@ -200,11 +200,6 @@ public class ChunkWaveListItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WavPackage.Literals.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS,
-				 WavFactory.eINSTANCE.createChunkHeader()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WavPackage.Literals.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS,
 				 WavFactory.eINSTANCE.createChunkInstrument()));
 
 		newChildDescriptors.add
@@ -221,6 +216,11 @@ public class ChunkWaveListItemProvider
 			(createChildParameter
 				(WavPackage.Literals.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS,
 				 WavFactory.eINSTANCE.createChunkSilent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WavPackage.Literals.CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS,
+				 WavFactory.eINSTANCE.createChunkUnknown()));
 
 		newChildDescriptors.add
 			(createChildParameter

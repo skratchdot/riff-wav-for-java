@@ -38,19 +38,33 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "UNKNOWN", "Unknown Chunk"),
+	UNKNOWN(-1, "UNKNOWN", "Unknown Chunk"),
 
 	/**
-	 * The '<em><b>CUE</b></em>' literal object.
+	 * The '<em><b>RIFF</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CUE_VALUE
+	 * @see #RIFF_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CUE(1668637984, "CUE", "Cue Chunk - 'cue '"),
-
-	/**
+	RIFF(1179011410, "RIFF", "RIFF Header Chunk - 'RIFF'"), /**
+	 * The '<em><b>WAVE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WAVE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WAVE(1163280727, "WAVE", "WAVE Header Chunk - 'WAVE'"), /**
+	 * The '<em><b>CUE </b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CUE__VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CUE_(543520099, "CUE_", "Cue Chunk - 'cue '"), /**
 	 * The '<em><b>DATA</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +72,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA(1684108385, "DATA", "Data Chunk - 'data'"),
+	DATA(1635017060, "DATA", "Data Chunk - 'data'"),
 
 	/**
 	 * The '<em><b>FACT</b></em>' literal object.
@@ -68,59 +82,49 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FACT(1717658484, "FACT", "Fact Chunk - 'fact'"),
+	FACT(1952670054, "FACT", "Fact Chunk - 'fact'"),
 
 	/**
-	 * The '<em><b>FORMAT</b></em>' literal object.
+	 * The '<em><b>FMT </b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FORMAT_VALUE
+	 * @see #FMT__VALUE
 	 * @generated
 	 * @ordered
 	 */
-	FORMAT(1718449184, "FORMAT", "Format Chunk - 'fmt '"),
-
-	/**
-	 * The '<em><b>INSTRUMENT</b></em>' literal object.
+	FMT_(544501094, "FMT_", "Format Chunk - 'fmt '"), /**
+	 * The '<em><b>INST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #INSTRUMENT_VALUE
+	 * @see #INST_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	INSTRUMENT(1768846196, "INSTRUMENT", "Instrument Chunk - 'inst'"),
-
-	/**
-	 * The '<em><b>LABEL</b></em>' literal object.
+	INST(1953721961, "INST", "Instrument Chunk - 'inst'"), /**
+	 * The '<em><b>LABL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #LABEL_VALUE
+	 * @see #LABL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	LABEL(1818321516, "LABEL", "Label Chunk - 'labl'"),
-
-	/**
-	 * The '<em><b>DATA LIST</b></em>' literal object.
+	LABL(1818386796, "LABL", "Label Chunk - 'labl'"), /**
+	 * The '<em><b>LIST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DATA_LIST_VALUE
+	 * @see #LIST_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DATA_LIST(1818850164, "DATA_LIST", "Data List Chunk - 'list'"),
-
-	/**
-	 * The '<em><b>LABELED TEXT</b></em>' literal object.
+	LIST(1953720684, "LIST", "Data List Chunk - 'list'"), /**
+	 * The '<em><b>LTXT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #LABELED_TEXT_VALUE
+	 * @see #LTXT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	LABELED_TEXT(1819572340, "LABELED_TEXT", "Labeled Text Chunk - 'ltxt'"),
-
-	/**
+	LTXT(1954051180, "LTXT", "Labeled Text Chunk - 'ltxt'"), /**
 	 * The '<em><b>NOTE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,47 +132,41 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTE(1852798053, "NOTE", "Note Chunk - 'note'"),
+	NOTE(1702129518, "NOTE", "Note Chunk - 'note'"),
 
 	/**
-	 * The '<em><b>PLAYLIST</b></em>' literal object.
+	 * The '<em><b>PLST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PLAYLIST_VALUE
+	 * @see #PLST_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PLAYLIST(1886155636, "PLAYLIST", "Playlist Chunk - 'plst'"),
-
-	/**
-	 * The '<em><b>SILENT</b></em>' literal object.
+	PLST(1953721456, "PLST", "Playlist Chunk - 'plst'"), /**
+	 * The '<em><b>SINT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SILENT_VALUE
+	 * @see #SINT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SILENT(1936486004, "SILENT", "Silent Chunk - 'slnt'"),
-
-	/**
-	 * The '<em><b>SAMPLER</b></em>' literal object.
+	SINT(1953393779, "SINT", "Silent Chunk - 'slnt'"), /**
+	 * The '<em><b>SMPL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SAMPLER_VALUE
+	 * @see #SMPL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SAMPLER(1936552044, "SAMPLER", "Sampler Chunk - 'smpl'"),
-
-	/**
-	 * The '<em><b>WAVE LIST</b></em>' literal object.
+	SMPL(1819307379, "SMPL", "Sampler Chunk - 'smpl'"), /**
+	 * The '<em><b>WAVL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #WAVE_LIST_VALUE
+	 * @see #WAVL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	WAVE_LIST(2002876012, "WAVE_LIST", "Wave List Chunk - 'wavl'");
+	WAVL(1819697527, "WAVL", "Wave List Chunk - 'wavl'");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -183,22 +181,52 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNKNOWN_VALUE = 0;
+	public static final int UNKNOWN_VALUE = -1;
 
 	/**
-	 * The '<em><b>CUE</b></em>' literal value.
+	 * The '<em><b>RIFF</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>CUE</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>RIFF</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CUE
+	 * @see #RIFF
+	 * @model literal="RIFF Header Chunk - 'RIFF'"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RIFF_VALUE = 1179011410;
+
+	/**
+	 * The '<em><b>WAVE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>WAVE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #WAVE
+	 * @model literal="WAVE Header Chunk - 'WAVE'"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WAVE_VALUE = 1163280727;
+
+	/**
+	 * The '<em><b>CUE </b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>CUE </b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CUE_
 	 * @model literal="Cue Chunk - 'cue '"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CUE_VALUE = 1668637984;
+	public static final int CUE__VALUE = 543520099;
 
 	/**
 	 * The '<em><b>DATA</b></em>' literal value.
@@ -213,7 +241,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_VALUE = 1684108385;
+	public static final int DATA_VALUE = 1635017060;
 
 	/**
 	 * The '<em><b>FACT</b></em>' literal value.
@@ -228,82 +256,82 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FACT_VALUE = 1717658484;
+	public static final int FACT_VALUE = 1952670054;
 
 	/**
-	 * The '<em><b>FORMAT</b></em>' literal value.
+	 * The '<em><b>FMT </b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>FORMAT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>FMT </b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FORMAT
+	 * @see #FMT_
 	 * @model literal="Format Chunk - 'fmt '"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FORMAT_VALUE = 1718449184;
+	public static final int FMT__VALUE = 544501094;
 
 	/**
-	 * The '<em><b>INSTRUMENT</b></em>' literal value.
+	 * The '<em><b>INST</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>INSTRUMENT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>INST</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #INSTRUMENT
+	 * @see #INST
 	 * @model literal="Instrument Chunk - 'inst'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INSTRUMENT_VALUE = 1768846196;
+	public static final int INST_VALUE = 1953721961;
 
 	/**
-	 * The '<em><b>LABEL</b></em>' literal value.
+	 * The '<em><b>LABL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>LABEL</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>LABL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #LABEL
+	 * @see #LABL
 	 * @model literal="Label Chunk - 'labl'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LABEL_VALUE = 1818321516;
+	public static final int LABL_VALUE = 1818386796;
 
 	/**
-	 * The '<em><b>DATA LIST</b></em>' literal value.
+	 * The '<em><b>LIST</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>DATA LIST</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>LIST</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DATA_LIST
+	 * @see #LIST
 	 * @model literal="Data List Chunk - 'list'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_LIST_VALUE = 1818850164;
+	public static final int LIST_VALUE = 1953720684;
 
 	/**
-	 * The '<em><b>LABELED TEXT</b></em>' literal value.
+	 * The '<em><b>LTXT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>LABELED TEXT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>LTXT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #LABELED_TEXT
+	 * @see #LTXT
 	 * @model literal="Labeled Text Chunk - 'ltxt'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LABELED_TEXT_VALUE = 1819572340;
+	public static final int LTXT_VALUE = 1954051180;
 
 	/**
 	 * The '<em><b>NOTE</b></em>' literal value.
@@ -318,67 +346,67 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NOTE_VALUE = 1852798053;
+	public static final int NOTE_VALUE = 1702129518;
 
 	/**
-	 * The '<em><b>PLAYLIST</b></em>' literal value.
+	 * The '<em><b>PLST</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>PLAYLIST</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>PLST</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PLAYLIST
+	 * @see #PLST
 	 * @model literal="Playlist Chunk - 'plst'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PLAYLIST_VALUE = 1886155636;
+	public static final int PLST_VALUE = 1953721456;
 
 	/**
-	 * The '<em><b>SILENT</b></em>' literal value.
+	 * The '<em><b>SINT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>SILENT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>SINT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #SILENT
+	 * @see #SINT
 	 * @model literal="Silent Chunk - 'slnt'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SILENT_VALUE = 1936486004;
+	public static final int SINT_VALUE = 1953393779;
 
 	/**
-	 * The '<em><b>SAMPLER</b></em>' literal value.
+	 * The '<em><b>SMPL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>SAMPLER</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>SMPL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #SAMPLER
+	 * @see #SMPL
 	 * @model literal="Sampler Chunk - 'smpl'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SAMPLER_VALUE = 1936552044;
+	public static final int SMPL_VALUE = 1819307379;
 
 	/**
-	 * The '<em><b>WAVE LIST</b></em>' literal value.
+	 * The '<em><b>WAVL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>WAVE LIST</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>WAVL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #WAVE_LIST
+	 * @see #WAVL
 	 * @model literal="Wave List Chunk - 'wavl'"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WAVE_LIST_VALUE = 2002876012;
+	public static final int WAVL_VALUE = 1819697527;
 
 	/**
 	 * An array of all the '<em><b>Chunk Type ID</b></em>' enumerators.
@@ -389,19 +417,21 @@ public enum ChunkTypeID implements Enumerator {
 	private static final ChunkTypeID[] VALUES_ARRAY =
 		new ChunkTypeID[] {
 			UNKNOWN,
-			CUE,
+			RIFF,
+			WAVE,
+			CUE_,
 			DATA,
 			FACT,
-			FORMAT,
-			INSTRUMENT,
-			LABEL,
-			DATA_LIST,
-			LABELED_TEXT,
+			FMT_,
+			INST,
+			LABL,
+			LIST,
+			LTXT,
 			NOTE,
-			PLAYLIST,
-			SILENT,
-			SAMPLER,
-			WAVE_LIST,
+			PLST,
+			SINT,
+			SMPL,
+			WAVL,
 		};
 
 	/**
@@ -453,19 +483,21 @@ public enum ChunkTypeID implements Enumerator {
 	public static ChunkTypeID get(int value) {
 		switch (value) {
 			case UNKNOWN_VALUE: return UNKNOWN;
-			case CUE_VALUE: return CUE;
+			case RIFF_VALUE: return RIFF;
+			case WAVE_VALUE: return WAVE;
+			case CUE__VALUE: return CUE_;
 			case DATA_VALUE: return DATA;
 			case FACT_VALUE: return FACT;
-			case FORMAT_VALUE: return FORMAT;
-			case INSTRUMENT_VALUE: return INSTRUMENT;
-			case LABEL_VALUE: return LABEL;
-			case DATA_LIST_VALUE: return DATA_LIST;
-			case LABELED_TEXT_VALUE: return LABELED_TEXT;
+			case FMT__VALUE: return FMT_;
+			case INST_VALUE: return INST;
+			case LABL_VALUE: return LABL;
+			case LIST_VALUE: return LIST;
+			case LTXT_VALUE: return LTXT;
 			case NOTE_VALUE: return NOTE;
-			case PLAYLIST_VALUE: return PLAYLIST;
-			case SILENT_VALUE: return SILENT;
-			case SAMPLER_VALUE: return SAMPLER;
-			case WAVE_LIST_VALUE: return WAVE_LIST;
+			case PLST_VALUE: return PLST;
+			case SINT_VALUE: return SINT;
+			case SMPL_VALUE: return SMPL;
+			case WAVL_VALUE: return WAVL;
 		}
 		return null;
 	}

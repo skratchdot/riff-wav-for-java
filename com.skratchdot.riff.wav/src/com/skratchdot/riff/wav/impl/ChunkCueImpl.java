@@ -16,7 +16,9 @@ package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.ChunkCue;
 import com.skratchdot.riff.wav.CuePoint;
+import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import java.util.Collection;
 
@@ -82,6 +84,10 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	 */
 	protected ChunkCueImpl() {
 		super();
+	}
+
+	public ChunkCueImpl(RIFFWave riffWave, WavRandomAccessFile in) {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**

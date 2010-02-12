@@ -14,7 +14,7 @@
  */
 package com.skratchdot.riff.wav.impl;
 
-import com.skratchdot.riff.wav.ChunkDataListTypeNote;
+import com.skratchdot.riff.wav.ChunkUnknown;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
@@ -23,24 +23,24 @@ import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Chunk Data List Type Note</b></em>'.
+ * An implementation of the model object '<em><b>Chunk Unknown</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class ChunkDataListTypeNoteImpl extends ChunkDataListTypeImpl implements ChunkDataListTypeNote {
+public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChunkDataListTypeNoteImpl() {
+	protected ChunkUnknownImpl() {
 		super();
 	}
 
-	public ChunkDataListTypeNoteImpl(RIFFWave riffWave, WavRandomAccessFile in) {
+	public ChunkUnknownImpl(RIFFWave riffWave, WavRandomAccessFile in) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -51,7 +51,7 @@ public class ChunkDataListTypeNoteImpl extends ChunkDataListTypeImpl implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return WavPackage.Literals.CHUNK_DATA_LIST_TYPE_NOTE;
+		return WavPackage.Literals.CHUNK_UNKNOWN;
 	}
 
-} //ChunkDataListTypeNoteImpl
+} //ChunkUnknownImpl

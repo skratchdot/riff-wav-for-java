@@ -128,10 +128,6 @@ public class WavAdapterFactory extends AdapterFactoryImpl {
 				return createChunkFormatAdapter();
 			}
 			@Override
-			public Adapter caseChunkHeader(ChunkHeader object) {
-				return createChunkHeaderAdapter();
-			}
-			@Override
 			public Adapter caseChunkInstrument(ChunkInstrument object) {
 				return createChunkInstrumentAdapter();
 			}
@@ -148,12 +144,20 @@ public class WavAdapterFactory extends AdapterFactoryImpl {
 				return createChunkSilentAdapter();
 			}
 			@Override
+			public Adapter caseChunkUnknown(ChunkUnknown object) {
+				return createChunkUnknownAdapter();
+			}
+			@Override
 			public Adapter caseChunkWaveList(ChunkWaveList object) {
 				return createChunkWaveListAdapter();
 			}
 			@Override
 			public Adapter caseCuePoint(CuePoint object) {
 				return createCuePointAdapter();
+			}
+			@Override
+			public Adapter caseParseChunkException(ParseChunkException object) {
+				return createParseChunkExceptionAdapter();
 			}
 			@Override
 			public Adapter caseSampleData(SampleData object) {
@@ -364,20 +368,6 @@ public class WavAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.skratchdot.riff.wav.ChunkHeader <em>Chunk Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.skratchdot.riff.wav.ChunkHeader
-	 * @generated
-	 */
-	public Adapter createChunkHeaderAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.skratchdot.riff.wav.ChunkInstrument <em>Chunk Instrument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -434,6 +424,20 @@ public class WavAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.skratchdot.riff.wav.ChunkUnknown <em>Chunk Unknown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.skratchdot.riff.wav.ChunkUnknown
+	 * @generated
+	 */
+	public Adapter createChunkUnknownAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.skratchdot.riff.wav.ChunkWaveList <em>Chunk Wave List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -458,6 +462,20 @@ public class WavAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCuePointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.skratchdot.riff.wav.ParseChunkException <em>Parse Chunk Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.skratchdot.riff.wav.ParseChunkException
+	 * @generated
+	 */
+	public Adapter createParseChunkExceptionAdapter() {
 		return null;
 	}
 

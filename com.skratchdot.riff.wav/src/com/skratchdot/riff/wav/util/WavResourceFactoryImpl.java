@@ -12,40 +12,42 @@
  *
  * $Id$
  */
-package com.skratchdot.riff.wav.impl;
+package com.skratchdot.riff.wav.util;
 
-import com.skratchdot.riff.wav.ChunkHeader;
-import com.skratchdot.riff.wav.WavPackage;
+import org.eclipse.emf.common.util.URI;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.resource.Resource;
+
+import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Chunk Header</b></em>'.
+ * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * <p>
- * </p>
- *
+ * @see com.skratchdot.riff.wav.util.WavResourceImpl
  * @generated
  */
-public class ChunkHeaderImpl extends ChunkImpl implements ChunkHeader {
+public class WavResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
+	 * Creates an instance of the resource factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChunkHeaderImpl() {
+	public WavResourceFactoryImpl() {
 		super();
 	}
 
 	/**
+	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return WavPackage.Literals.CHUNK_HEADER;
+	public Resource createResource(URI uri) {
+		Resource result = new WavResourceImpl(uri);
+		return result;
 	}
 
-} //ChunkHeaderImpl
+} //WavResourceFactoryImpl

@@ -14,26 +14,28 @@
  */
 package com.skratchdot.riff.wav.impl;
 
-import com.skratchdot.riff.wav.Chunk;
-import com.skratchdot.riff.wav.ChunkHeader;
-import com.skratchdot.riff.wav.RIFFWave;
-import com.skratchdot.riff.wav.WavPackage;
-
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.skratchdot.riff.wav.Chunk;
+import com.skratchdot.riff.wav.ParseChunkException;
+import com.skratchdot.riff.wav.ChunkTypeID;
+import com.skratchdot.riff.wav.RIFFWave;
+import com.skratchdot.riff.wav.WavFactory;
+import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.RiffWaveException;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
+import com.skratchdot.riff.wav.util.WavUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,25 +44,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.skratchdot.riff.wav.impl.RIFFWaveImpl#getHeaderChunk <em>Header Chunk</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.RIFFWaveImpl#getChunks <em>Chunks</em>}</li>
- *   <li>{@link com.skratchdot.riff.wav.impl.RIFFWaveImpl#getRiffType <em>Riff Type</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.RIFFWaveImpl#getParseChunkExceptions <em>Parse Chunk Exceptions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
-	/**
-	 * The cached value of the '{@link #getHeaderChunk() <em>Header Chunk</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHeaderChunk()
-	 * @generated
-	 * @ordered
-	 */
-	protected ChunkHeader headerChunk;
-
 	/**
 	 * The cached value of the '{@link #getChunks() <em>Chunks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -72,24 +63,14 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	protected EList<Chunk> chunks;
 
 	/**
-	 * The default value of the '{@link #getRiffType() <em>Riff Type</em>}' attribute.
+	 * The cached value of the '{@link #getParseChunkExceptions() <em>Parse Chunk Exceptions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRiffType()
+	 * @see #getParseChunkExceptions()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int RIFF_TYPE_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getRiffType() <em>Riff Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRiffType()
-	 * @generated
-	 * @ordered
-	 */
-	protected int riffType = RIFF_TYPE_EDEFAULT;
+	protected EList<ParseChunkException> parseChunkExceptions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,6 +82,58 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	}
 
 	/**
+	 * @param file a valid RIFF Wave file
+	 * @throws RiffWaveException
+	 */
+	public RIFFWaveImpl(File file) throws RiffWaveException {
+		try {
+			WavRandomAccessFile in = new WavRandomAccessFile(file, "r");
+			init(in);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RiffWaveException("The file was not a valid RIFF Wave file.\n"+e.getMessage(), e.getCause());
+		}
+	}
+
+	/**
+	 * @param in a valid RIFF Wave file in WavRandomAccessFile format
+	 * @throws RiffWaveException
+	 */
+	private void init(WavRandomAccessFile in) throws RiffWaveException {
+		try {
+			// First read in the header info
+			ChunkTypeID riffChunkTypeID = ChunkTypeID.get((int)in.readUnsignedInt());
+			long chunkDataSize = in.readUnsignedInt();
+			ChunkTypeID waveChunkTypeID = ChunkTypeID.get((int)in.readUnsignedInt());
+
+			if(riffChunkTypeID!=ChunkTypeID.RIFF)
+				throw new RiffWaveException("Invalid Header: missing RIFF");
+			if(chunkDataSize!=in.length()-8)
+				throw new RiffWaveException("Invalid Header: chunk data size");
+			if(waveChunkTypeID!=ChunkTypeID.WAVE)
+				throw new RiffWaveException("Invalid Header: missing WAVE");
+
+			// Now we can parse all the chunks
+			while(in.getFilePointer()<in.length()) {
+				Chunk currentChunk = WavUtil.parseChunk(this, in);
+				// If we got a chunk, add it to our list
+				if(currentChunk!=null) {
+					this.getChunks().add(currentChunk);
+				}
+				// We need to block align
+				if(in.getFilePointer()%2==1 && in.getFilePointer()<in.length()-1) {
+					in.seek(in.getFilePointer()+1);
+				}
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RiffWaveException(e.getMessage(), e.getCause());
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,49 +141,6 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	@Override
 	protected EClass eStaticClass() {
 		return WavPackage.Literals.RIFF_WAVE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ChunkHeader getHeaderChunk() {
-		return headerChunk;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetHeaderChunk(ChunkHeader newHeaderChunk, NotificationChain msgs) {
-		ChunkHeader oldHeaderChunk = headerChunk;
-		headerChunk = newHeaderChunk;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WavPackage.RIFF_WAVE__HEADER_CHUNK, oldHeaderChunk, newHeaderChunk);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setHeaderChunk(ChunkHeader newHeaderChunk) {
-		if (newHeaderChunk != headerChunk) {
-			NotificationChain msgs = null;
-			if (headerChunk != null)
-				msgs = ((InternalEObject)headerChunk).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WavPackage.RIFF_WAVE__HEADER_CHUNK, null, msgs);
-			if (newHeaderChunk != null)
-				msgs = ((InternalEObject)newHeaderChunk).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WavPackage.RIFF_WAVE__HEADER_CHUNK, null, msgs);
-			msgs = basicSetHeaderChunk(newHeaderChunk, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.RIFF_WAVE__HEADER_CHUNK, newHeaderChunk, newHeaderChunk));
 	}
 
 	/**
@@ -170,20 +160,11 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getRiffType() {
-		return riffType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRiffType(int newRiffType) {
-		int oldRiffType = riffType;
-		riffType = newRiffType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.RIFF_WAVE__RIFF_TYPE, oldRiffType, riffType));
+	public EList<ParseChunkException> getParseChunkExceptions() {
+		if (parseChunkExceptions == null) {
+			parseChunkExceptions = new EObjectContainmentEList<ParseChunkException>(ParseChunkException.class, this, WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS);
+		}
+		return parseChunkExceptions;
 	}
 
 	/**
@@ -194,10 +175,10 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
-				return basicSetHeaderChunk(null, msgs);
 			case WavPackage.RIFF_WAVE__CHUNKS:
 				return ((InternalEList<?>)getChunks()).basicRemove(otherEnd, msgs);
+			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
+				return ((InternalEList<?>)getParseChunkExceptions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -210,12 +191,10 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
-				return getHeaderChunk();
 			case WavPackage.RIFF_WAVE__CHUNKS:
 				return getChunks();
-			case WavPackage.RIFF_WAVE__RIFF_TYPE:
-				return getRiffType();
+			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
+				return getParseChunkExceptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,15 +208,13 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
-				setHeaderChunk((ChunkHeader)newValue);
-				return;
 			case WavPackage.RIFF_WAVE__CHUNKS:
 				getChunks().clear();
 				getChunks().addAll((Collection<? extends Chunk>)newValue);
 				return;
-			case WavPackage.RIFF_WAVE__RIFF_TYPE:
-				setRiffType((Integer)newValue);
+			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
+				getParseChunkExceptions().clear();
+				getParseChunkExceptions().addAll((Collection<? extends ParseChunkException>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,14 +228,11 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
-				setHeaderChunk((ChunkHeader)null);
-				return;
 			case WavPackage.RIFF_WAVE__CHUNKS:
 				getChunks().clear();
 				return;
-			case WavPackage.RIFF_WAVE__RIFF_TYPE:
-				setRiffType(RIFF_TYPE_EDEFAULT);
+			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
+				getParseChunkExceptions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -272,30 +246,12 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
-				return headerChunk != null;
 			case WavPackage.RIFF_WAVE__CHUNKS:
 				return chunks != null && !chunks.isEmpty();
-			case WavPackage.RIFF_WAVE__RIFF_TYPE:
-				return riffType != RIFF_TYPE_EDEFAULT;
+			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
+				return parseChunkExceptions != null && !parseChunkExceptions.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (riffType: ");
-		result.append(riffType);
-		result.append(')');
-		return result.toString();
 	}
 
 } //RIFFWaveImpl

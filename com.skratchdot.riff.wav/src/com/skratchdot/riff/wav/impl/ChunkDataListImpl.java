@@ -17,7 +17,9 @@ package com.skratchdot.riff.wav.impl;
 import com.skratchdot.riff.wav.ChunkDataList;
 import com.skratchdot.riff.wav.ChunkDataListType;
 import com.skratchdot.riff.wav.ChunkDataListTypeID;
+import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import java.util.Collection;
 
@@ -83,6 +85,10 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 	 */
 	protected ChunkDataListImpl() {
 		super();
+	}
+
+	public ChunkDataListImpl(RIFFWave riffWave, WavRandomAccessFile in) {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**

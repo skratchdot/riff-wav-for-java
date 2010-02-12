@@ -179,13 +179,6 @@ public class WavSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case WavPackage.CHUNK_HEADER: {
-				ChunkHeader chunkHeader = (ChunkHeader)theEObject;
-				T result = caseChunkHeader(chunkHeader);
-				if (result == null) result = caseChunk(chunkHeader);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case WavPackage.CHUNK_INSTRUMENT: {
 				ChunkInstrument chunkInstrument = (ChunkInstrument)theEObject;
 				T result = caseChunkInstrument(chunkInstrument);
@@ -214,6 +207,13 @@ public class WavSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WavPackage.CHUNK_UNKNOWN: {
+				ChunkUnknown chunkUnknown = (ChunkUnknown)theEObject;
+				T result = caseChunkUnknown(chunkUnknown);
+				if (result == null) result = caseChunk(chunkUnknown);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case WavPackage.CHUNK_WAVE_LIST: {
 				ChunkWaveList chunkWaveList = (ChunkWaveList)theEObject;
 				T result = caseChunkWaveList(chunkWaveList);
@@ -224,6 +224,12 @@ public class WavSwitch<T> {
 			case WavPackage.CUE_POINT: {
 				CuePoint cuePoint = (CuePoint)theEObject;
 				T result = caseCuePoint(cuePoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WavPackage.PARSE_CHUNK_EXCEPTION: {
+				ParseChunkException parseChunkException = (ParseChunkException)theEObject;
+				T result = caseParseChunkException(parseChunkException);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -444,21 +450,6 @@ public class WavSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Chunk Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Chunk Header</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseChunkHeader(ChunkHeader object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Chunk Instrument</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -519,6 +510,21 @@ public class WavSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chunk Unknown</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chunk Unknown</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChunkUnknown(ChunkUnknown object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Chunk Wave List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -545,6 +551,21 @@ public class WavSwitch<T> {
 	 * @generated
 	 */
 	public T caseCuePoint(CuePoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parse Chunk Exception</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parse Chunk Exception</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParseChunkException(ParseChunkException object) {
 		return null;
 	}
 

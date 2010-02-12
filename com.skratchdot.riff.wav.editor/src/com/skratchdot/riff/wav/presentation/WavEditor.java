@@ -846,9 +846,42 @@ public class WavEditor
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void createModel() {
+		URI resourceURI = EditUIUtil.getURI(getEditorInput());
+		Exception exception = null;
+		Resource resource = null;
+		try {
+			if(resourceURI.isFile()) {
+				editingDomain.getResourceSet().getLoadOptions().put("FileString", resourceURI.toFileString());
+			}
+
+			// Load the resource through the editing domain.
+			//
+			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+			
+			editingDomain.getResourceSet().getLoadOptions().clear();
+		}
+		catch (Exception e) {
+			exception = e;
+			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+		}
+
+		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
+		if (diagnostic.getSeverity() != Diagnostic.OK) {
+			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
+		}
+		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+	}
+
+	/**
+	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void createModelGen() {
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
 		Exception exception = null;
 		Resource resource = null;

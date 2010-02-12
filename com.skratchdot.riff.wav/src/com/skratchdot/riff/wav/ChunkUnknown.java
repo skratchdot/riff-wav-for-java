@@ -17,13 +17,13 @@ package com.skratchdot.riff.wav;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Chunk Header</b></em>'.
+ * A representation of the model object '<em><b>Chunk Unknown</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see com.skratchdot.riff.wav.WavPackage#getChunkHeader()
+ * @see com.skratchdot.riff.wav.WavPackage#getChunkUnknown()
  * @model
  * @generated
  */
-public interface ChunkHeader extends Chunk {
-} // ChunkHeader
+public interface ChunkUnknown extends Chunk {
+} // ChunkUnknown

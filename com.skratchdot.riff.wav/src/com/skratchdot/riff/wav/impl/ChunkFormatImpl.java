@@ -16,7 +16,9 @@ package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.ChunkFormat;
 import com.skratchdot.riff.wav.CompressionCode;
+import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -212,6 +214,10 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 	 */
 	protected ChunkFormatImpl() {
 		super();
+	}
+
+	public ChunkFormatImpl(RIFFWave riffWave, WavRandomAccessFile in) {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**

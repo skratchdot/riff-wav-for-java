@@ -6,27 +6,27 @@
     modelName="RIFFWave" richClientPlatform="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>RIFFWave.ecore</foreignModel>
-  <genPackages prefix="Wav" basePackage="com.skratchdot.riff" disposableProviderFactory="true"
+  <genPackages prefix="Wav" basePackage="com.skratchdot.riff" resource="Basic" disposableProviderFactory="true"
       generateModelWizard="false" ecorePackage="RIFFWave.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="RIFFWave.ecore#//ChunkDataListTypeID">
       <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkDataListTypeID/UNKNOWN"/>
       <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkDataListTypeID/ADTL"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="RIFFWave.ecore#//ChunkID">
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/UNKNOWN"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/CUE"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/DATA"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/FACT"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/FORMAT"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/INSTRUMENT"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/LABEL"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/DATA_LIST"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/LABELED_TEXT"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/NOTE"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/PLAYLIST"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/SILENT"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/SAMPLER"/>
-      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkID/WAVE_LIST"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="RIFFWave.ecore#//ChunkTypeID">
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/UNKNOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/CUE"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/DATA"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/FACT"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/FORMAT"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/INSTRUMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/LABEL"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/DATA_LIST"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/LABELED_TEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/NOTE"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/PLAYLIST"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/SILENT"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/SAMPLER"/>
+      <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//ChunkTypeID/WAVE_LIST"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="RIFFWave.ecore#//CompressionCode">
       <genEnumLiterals ecoreEnumLiteral="RIFFWave.ecore#//CompressionCode/COMPRESSION_CODE_0"/>
@@ -66,8 +66,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RIFFWave.ecore#//Channel/sampleData"/>
     </genClasses>
     <genClasses image="false" ecoreClass="RIFFWave.ecore#//Chunk">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//Chunk/chunkID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//Chunk/chunkDataSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//Chunk/chunkID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//Chunk/chunkTypeID"/>
     </genClasses>
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkCue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkCue/numberOfCuePoints"/>

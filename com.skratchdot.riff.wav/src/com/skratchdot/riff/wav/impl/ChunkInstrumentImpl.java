@@ -15,7 +15,9 @@
 package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.ChunkInstrument;
+import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -190,6 +192,10 @@ public class ChunkInstrumentImpl extends ChunkImpl implements ChunkInstrument {
 	 */
 	protected ChunkInstrumentImpl() {
 		super();
+	}
+
+	public ChunkInstrumentImpl(RIFFWave riffWave, WavRandomAccessFile in) {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**

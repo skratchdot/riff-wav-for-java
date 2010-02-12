@@ -314,29 +314,6 @@ public class WavItemProviderAdapterFactory extends WavAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.skratchdot.riff.wav.ChunkHeader} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChunkHeaderItemProvider chunkHeaderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.skratchdot.riff.wav.ChunkHeader}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChunkHeaderAdapter() {
-		if (chunkHeaderItemProvider == null) {
-			chunkHeaderItemProvider = new ChunkHeaderItemProvider(this);
-		}
-
-		return chunkHeaderItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.skratchdot.riff.wav.ChunkInstrument} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -429,6 +406,29 @@ public class WavItemProviderAdapterFactory extends WavAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.skratchdot.riff.wav.ChunkUnknown} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChunkUnknownItemProvider chunkUnknownItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.skratchdot.riff.wav.ChunkUnknown}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChunkUnknownAdapter() {
+		if (chunkUnknownItemProvider == null) {
+			chunkUnknownItemProvider = new ChunkUnknownItemProvider(this);
+		}
+
+		return chunkUnknownItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.skratchdot.riff.wav.ChunkWaveList} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,6 +472,29 @@ public class WavItemProviderAdapterFactory extends WavAdapterFactory implements 
 		}
 
 		return cuePointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.skratchdot.riff.wav.ParseChunkException} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParseChunkExceptionItemProvider parseChunkExceptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.skratchdot.riff.wav.ParseChunkException}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParseChunkExceptionAdapter() {
+		if (parseChunkExceptionItemProvider == null) {
+			parseChunkExceptionItemProvider = new ParseChunkExceptionItemProvider(this);
+		}
+
+		return parseChunkExceptionItemProvider;
 	}
 
 	/**
@@ -675,13 +698,14 @@ public class WavItemProviderAdapterFactory extends WavAdapterFactory implements 
 		if (chunkDataListTypeNoteItemProvider != null) chunkDataListTypeNoteItemProvider.dispose();
 		if (chunkFactItemProvider != null) chunkFactItemProvider.dispose();
 		if (chunkFormatItemProvider != null) chunkFormatItemProvider.dispose();
-		if (chunkHeaderItemProvider != null) chunkHeaderItemProvider.dispose();
 		if (chunkInstrumentItemProvider != null) chunkInstrumentItemProvider.dispose();
 		if (chunkPlayListItemProvider != null) chunkPlayListItemProvider.dispose();
 		if (chunkSamplerItemProvider != null) chunkSamplerItemProvider.dispose();
 		if (chunkSilentItemProvider != null) chunkSilentItemProvider.dispose();
+		if (chunkUnknownItemProvider != null) chunkUnknownItemProvider.dispose();
 		if (chunkWaveListItemProvider != null) chunkWaveListItemProvider.dispose();
 		if (cuePointItemProvider != null) cuePointItemProvider.dispose();
+		if (parseChunkExceptionItemProvider != null) parseChunkExceptionItemProvider.dispose();
 		if (sampleData8BitItemProvider != null) sampleData8BitItemProvider.dispose();
 		if (sampleData16BitItemProvider != null) sampleData16BitItemProvider.dispose();
 		if (sampleLoopItemProvider != null) sampleLoopItemProvider.dispose();

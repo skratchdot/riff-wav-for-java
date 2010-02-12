@@ -15,7 +15,7 @@
 package com.skratchdot.riff.wav.provider;
 
 
-import com.skratchdot.riff.wav.ChunkHeader;
+import com.skratchdot.riff.wav.ChunkUnknown;
 
 import java.util.Collection;
 import java.util.List;
@@ -31,12 +31,12 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link com.skratchdot.riff.wav.ChunkHeader} object.
+ * This is the item provider adapter for a {@link com.skratchdot.riff.wav.ChunkUnknown} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChunkHeaderItemProvider
+public class ChunkUnknownItemProvider
 	extends ChunkItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -50,7 +50,7 @@ public class ChunkHeaderItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChunkHeaderItemProvider(AdapterFactory adapterFactory) {
+	public ChunkUnknownItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,14 +70,14 @@ public class ChunkHeaderItemProvider
 	}
 
 	/**
-	 * This returns ChunkHeader.gif.
+	 * This returns ChunkUnknown.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ChunkHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ChunkUnknown"));
 	}
 
 	/**
@@ -88,8 +88,8 @@ public class ChunkHeaderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ChunkHeader chunkHeader = (ChunkHeader)object;
-		return getString("_UI_ChunkHeader_type") + " " + chunkHeader.getChunkDataSize();
+		ChunkUnknown chunkUnknown = (ChunkUnknown)object;
+		return getString("_UI_ChunkUnknown_type") + " " + chunkUnknown.getChunkDataSize();
 	}
 
 	/**

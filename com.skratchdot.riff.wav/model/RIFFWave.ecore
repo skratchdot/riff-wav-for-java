@@ -4,11 +4,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="wav"
     nsURI="http:///com/skratchdot/riff/wav/RIFFWave.ecore" nsPrefix="com.skratchdot.riff.wav">
   <eClassifiers xsi:type="ecore:EClass" name="RIFFWave">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="headerChunk" lowerBound="1"
-        eType="#//ChunkHeader" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="chunks" upperBound="-1"
         eType="#//Chunk" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="riffType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parseChunkExceptions" upperBound="-1"
+        eType="#//ParseChunkException" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Channel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sampleData" eType="#//SampleData"
@@ -64,7 +63,6 @@
         eType="#//UnsignedShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraFormatBytes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChunkHeader" eSuperTypes="#//Chunk"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkInstrument" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unshiftedNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fineTune" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
@@ -97,6 +95,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSilentSamples"
         eType="#//UnsignedInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkUnknown" eSuperTypes="#//Chunk"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkWaveList" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EReference" name="alternatingSilentAndDataChunks"
         upperBound="-1" eType="#//Chunk" containment="true"/>
@@ -108,6 +107,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkStart" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockStart" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleOffset" eType="#//UnsignedInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParseChunkException">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exception" eType="#//Exception"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SampleData" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SampleData8Bit" eSuperTypes="#//SampleData">
@@ -130,24 +132,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfRepeats" eType="#//UnsignedInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ChunkDataListTypeID">
-    <eLiterals name="UNKNOWN" literal="Unknown"/>
-    <eLiterals name="ADTL" value="1819541504" literal="Associated Data Type List - 'adtl'"/>
+    <eLiterals name="UNKNOWN" value="-1" literal="Unknown"/>
+    <eLiterals name="ADTL" value="1819567201" literal="Associated Data Type List - 'adtl'"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ChunkTypeID">
-    <eLiterals name="UNKNOWN" literal="Unknown Chunk"/>
-    <eLiterals name="CUE" value="1668637984" literal="Cue Chunk - 'cue '"/>
-    <eLiterals name="DATA" value="1684108385" literal="Data Chunk - 'data'"/>
-    <eLiterals name="FACT" value="1717658484" literal="Fact Chunk - 'fact'"/>
-    <eLiterals name="FORMAT" value="1718449184" literal="Format Chunk - 'fmt '"/>
-    <eLiterals name="INSTRUMENT" value="1768846196" literal="Instrument Chunk - 'inst'"/>
-    <eLiterals name="LABEL" value="1818321516" literal="Label Chunk - 'labl'"/>
-    <eLiterals name="DATA_LIST" value="1818850164" literal="Data List Chunk - 'list'"/>
-    <eLiterals name="LABELED_TEXT" value="1819572340" literal="Labeled Text Chunk - 'ltxt'"/>
-    <eLiterals name="NOTE" value="1852798053" literal="Note Chunk - 'note'"/>
-    <eLiterals name="PLAYLIST" value="1886155636" literal="Playlist Chunk - 'plst'"/>
-    <eLiterals name="SILENT" value="1936486004" literal="Silent Chunk - 'slnt'"/>
-    <eLiterals name="SAMPLER" value="1936552044" literal="Sampler Chunk - 'smpl'"/>
-    <eLiterals name="WAVE_LIST" value="2002876012" literal="Wave List Chunk - 'wavl'"/>
+    <eLiterals name="UNKNOWN" value="-1" literal="Unknown Chunk"/>
+    <eLiterals name="RIFF" value="1179011410" literal="RIFF Header Chunk - 'RIFF'"/>
+    <eLiterals name="WAVE" value="1163280727" literal="WAVE Header Chunk - 'WAVE'"/>
+    <eLiterals name="CUE_" value="543520099" literal="Cue Chunk - 'cue '"/>
+    <eLiterals name="DATA" value="1635017060" literal="Data Chunk - 'data'"/>
+    <eLiterals name="FACT" value="1952670054" literal="Fact Chunk - 'fact'"/>
+    <eLiterals name="FMT_" value="544501094" literal="Format Chunk - 'fmt '"/>
+    <eLiterals name="INST" value="1953721961" literal="Instrument Chunk - 'inst'"/>
+    <eLiterals name="LABL" value="1818386796" literal="Label Chunk - 'labl'"/>
+    <eLiterals name="LIST" value="1953720684" literal="Data List Chunk - 'list'"/>
+    <eLiterals name="LTXT" value="1954051180" literal="Labeled Text Chunk - 'ltxt'"/>
+    <eLiterals name="NOTE" value="1702129518" literal="Note Chunk - 'note'"/>
+    <eLiterals name="PLST" value="1953721456" literal="Playlist Chunk - 'plst'"/>
+    <eLiterals name="SINT" value="1953393779" literal="Silent Chunk - 'slnt'"/>
+    <eLiterals name="SMPL" value="1819307379" literal="Sampler Chunk - 'smpl'"/>
+    <eLiterals name="WAVL" value="1819697527" literal="Wave List Chunk - 'wavl'"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CompressionCode">
     <eLiterals name="COMPRESSION_CODE_0" literal="Unknown"/>
@@ -175,7 +179,7 @@
     <eLiterals name="SMPTE_29" value="29" literal="30 frames per second with frame dropping (30 drop)"/>
     <eLiterals name="SMPTE_30" value="30" literal="30 frames per second"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UnsignedShort" instanceClassName="java.lang.Integer"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UnsignedInt" instanceClassName="java.lang.Long"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="UnsupportedType" instanceClassName="java.lang.Exception"/>
 </ecore:EPackage>

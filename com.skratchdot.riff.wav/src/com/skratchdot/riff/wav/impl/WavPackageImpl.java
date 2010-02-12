@@ -14,6 +14,14 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import com.skratchdot.riff.wav.Channel;
 import com.skratchdot.riff.wav.Chunk;
 import com.skratchdot.riff.wav.ChunkCue;
@@ -26,15 +34,16 @@ import com.skratchdot.riff.wav.ChunkDataListTypeLabeledText;
 import com.skratchdot.riff.wav.ChunkDataListTypeNote;
 import com.skratchdot.riff.wav.ChunkFact;
 import com.skratchdot.riff.wav.ChunkFormat;
-import com.skratchdot.riff.wav.ChunkHeader;
 import com.skratchdot.riff.wav.ChunkInstrument;
 import com.skratchdot.riff.wav.ChunkPlayList;
 import com.skratchdot.riff.wav.ChunkSampler;
 import com.skratchdot.riff.wav.ChunkSilent;
 import com.skratchdot.riff.wav.ChunkTypeID;
+import com.skratchdot.riff.wav.ChunkUnknown;
 import com.skratchdot.riff.wav.ChunkWaveList;
 import com.skratchdot.riff.wav.CompressionCode;
 import com.skratchdot.riff.wav.CuePoint;
+import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.SMPTEFormat;
 import com.skratchdot.riff.wav.SampleData;
@@ -45,15 +54,6 @@ import com.skratchdot.riff.wav.SampleLoopType;
 import com.skratchdot.riff.wav.Segment;
 import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -151,13 +151,6 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass chunkHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass chunkInstrumentEClass = null;
 
 	/**
@@ -186,6 +179,13 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass chunkUnknownEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass chunkWaveListEClass = null;
 
 	/**
@@ -194,6 +194,13 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * @generated
 	 */
 	private EClass cuePointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parseChunkExceptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,6 +277,13 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType exceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType unsignedShortEDataType = null;
 
 	/**
@@ -278,13 +292,6 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * @generated
 	 */
 	private EDataType unsignedIntEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType unsupportedTypeEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -361,7 +368,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRIFFWave_HeaderChunk() {
+	public EReference getRIFFWave_Chunks() {
 		return (EReference)riffWaveEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -370,17 +377,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRIFFWave_Chunks() {
+	public EReference getRIFFWave_ParseChunkExceptions() {
 		return (EReference)riffWaveEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRIFFWave_RiffType() {
-		return (EAttribute)riffWaveEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -730,15 +728,6 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getChunkHeader() {
-		return chunkHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getChunkInstrument() {
 		return chunkInstrumentEClass;
 	}
@@ -964,6 +953,15 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getChunkUnknown() {
+		return chunkUnknownEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getChunkWaveList() {
 		return chunkWaveListEClass;
 	}
@@ -1038,6 +1036,24 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 */
 	public EAttribute getCuePoint_SampleOffset() {
 		return (EAttribute)cuePointEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParseChunkException() {
+		return parseChunkExceptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParseChunkException_Exception() {
+		return (EAttribute)parseChunkExceptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1234,6 +1250,15 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getException() {
+		return exceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getUnsignedShort() {
 		return unsignedShortEDataType;
 	}
@@ -1245,15 +1270,6 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 */
 	public EDataType getUnsignedInt() {
 		return unsignedIntEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getUnsupportedType() {
-		return unsupportedTypeEDataType;
 	}
 
 	/**
@@ -1285,9 +1301,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		// Create classes and their features
 		riffWaveEClass = createEClass(RIFF_WAVE);
-		createEReference(riffWaveEClass, RIFF_WAVE__HEADER_CHUNK);
 		createEReference(riffWaveEClass, RIFF_WAVE__CHUNKS);
-		createEAttribute(riffWaveEClass, RIFF_WAVE__RIFF_TYPE);
+		createEReference(riffWaveEClass, RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS);
 
 		channelEClass = createEClass(CHANNEL);
 		createEReference(channelEClass, CHANNEL__SAMPLE_DATA);
@@ -1338,8 +1353,6 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		createEAttribute(chunkFormatEClass, CHUNK_FORMAT__NUMBER_OF_EXTRA_FORMAT_BYTES);
 		createEAttribute(chunkFormatEClass, CHUNK_FORMAT__EXTRA_FORMAT_BYTES);
 
-		chunkHeaderEClass = createEClass(CHUNK_HEADER);
-
 		chunkInstrumentEClass = createEClass(CHUNK_INSTRUMENT);
 		createEAttribute(chunkInstrumentEClass, CHUNK_INSTRUMENT__UNSHIFTED_NOTE);
 		createEAttribute(chunkInstrumentEClass, CHUNK_INSTRUMENT__FINE_TUNE);
@@ -1369,6 +1382,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		chunkSilentEClass = createEClass(CHUNK_SILENT);
 		createEAttribute(chunkSilentEClass, CHUNK_SILENT__NUMBER_OF_SILENT_SAMPLES);
 
+		chunkUnknownEClass = createEClass(CHUNK_UNKNOWN);
+
 		chunkWaveListEClass = createEClass(CHUNK_WAVE_LIST);
 		createEReference(chunkWaveListEClass, CHUNK_WAVE_LIST__ALTERNATING_SILENT_AND_DATA_CHUNKS);
 
@@ -1379,6 +1394,9 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		createEAttribute(cuePointEClass, CUE_POINT__CHUNK_START);
 		createEAttribute(cuePointEClass, CUE_POINT__BLOCK_START);
 		createEAttribute(cuePointEClass, CUE_POINT__SAMPLE_OFFSET);
+
+		parseChunkExceptionEClass = createEClass(PARSE_CHUNK_EXCEPTION);
+		createEAttribute(parseChunkExceptionEClass, PARSE_CHUNK_EXCEPTION__EXCEPTION);
 
 		sampleDataEClass = createEClass(SAMPLE_DATA);
 
@@ -1409,9 +1427,9 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		smpteFormatEEnum = createEEnum(SMPTE_FORMAT);
 
 		// Create data types
+		exceptionEDataType = createEDataType(EXCEPTION);
 		unsignedShortEDataType = createEDataType(UNSIGNED_SHORT);
 		unsignedIntEDataType = createEDataType(UNSIGNED_INT);
-		unsupportedTypeEDataType = createEDataType(UNSUPPORTED_TYPE);
 	}
 
 	/**
@@ -1451,20 +1469,19 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		chunkDataListTypeNoteEClass.getESuperTypes().add(this.getChunkDataListType());
 		chunkFactEClass.getESuperTypes().add(this.getChunk());
 		chunkFormatEClass.getESuperTypes().add(this.getChunk());
-		chunkHeaderEClass.getESuperTypes().add(this.getChunk());
 		chunkInstrumentEClass.getESuperTypes().add(this.getChunk());
 		chunkPlayListEClass.getESuperTypes().add(this.getChunk());
 		chunkSamplerEClass.getESuperTypes().add(this.getChunk());
 		chunkSilentEClass.getESuperTypes().add(this.getChunk());
+		chunkUnknownEClass.getESuperTypes().add(this.getChunk());
 		chunkWaveListEClass.getESuperTypes().add(this.getChunk());
 		sampleData8BitEClass.getESuperTypes().add(this.getSampleData());
 		sampleData16BitEClass.getESuperTypes().add(this.getSampleData());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(riffWaveEClass, RIFFWave.class, "RIFFWave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRIFFWave_HeaderChunk(), this.getChunkHeader(), null, "headerChunk", null, 1, 1, RIFFWave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRIFFWave_Chunks(), this.getChunk(), null, "chunks", null, 0, -1, RIFFWave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRIFFWave_RiffType(), ecorePackage.getEInt(), "riffType", null, 0, 1, RIFFWave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRIFFWave_ParseChunkExceptions(), this.getParseChunkException(), null, "parseChunkExceptions", null, 0, -1, RIFFWave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(channelEClass, Channel.class, "Channel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChannel_SampleData(), this.getSampleData(), null, "sampleData", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1515,8 +1532,6 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEAttribute(getChunkFormat_NumberOfExtraFormatBytes(), this.getUnsignedShort(), "numberOfExtraFormatBytes", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkFormat_ExtraFormatBytes(), ecorePackage.getEByteArray(), "extraFormatBytes", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(chunkHeaderEClass, ChunkHeader.class, "ChunkHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(chunkInstrumentEClass, ChunkInstrument.class, "ChunkInstrument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkInstrument_UnshiftedNote(), ecorePackage.getEByte(), "unshiftedNote", null, 0, 1, ChunkInstrument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkInstrument_FineTune(), ecorePackage.getEByte(), "fineTune", null, 0, 1, ChunkInstrument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1546,6 +1561,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEClass(chunkSilentEClass, ChunkSilent.class, "ChunkSilent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkSilent_NumberOfSilentSamples(), this.getUnsignedInt(), "numberOfSilentSamples", null, 0, 1, ChunkSilent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(chunkUnknownEClass, ChunkUnknown.class, "ChunkUnknown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(chunkWaveListEClass, ChunkWaveList.class, "ChunkWaveList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChunkWaveList_AlternatingSilentAndDataChunks(), this.getChunk(), null, "alternatingSilentAndDataChunks", null, 0, -1, ChunkWaveList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1556,6 +1573,9 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEAttribute(getCuePoint_ChunkStart(), this.getUnsignedInt(), "chunkStart", null, 0, 1, CuePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCuePoint_BlockStart(), this.getUnsignedInt(), "blockStart", null, 0, 1, CuePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCuePoint_SampleOffset(), this.getUnsignedInt(), "sampleOffset", null, 0, 1, CuePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parseChunkExceptionEClass, ParseChunkException.class, "ParseChunkException", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParseChunkException_Exception(), this.getException(), "exception", null, 0, 1, ParseChunkException.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sampleDataEClass, SampleData.class, "SampleData", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1585,19 +1605,21 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		initEEnum(chunkTypeIDEEnum, ChunkTypeID.class, "ChunkTypeID");
 		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.UNKNOWN);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.CUE);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.RIFF);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.WAVE);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.CUE_);
 		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.DATA);
 		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.FACT);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.FORMAT);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.INSTRUMENT);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.LABEL);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.DATA_LIST);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.LABELED_TEXT);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.FMT_);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.INST);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.LABL);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.LIST);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.LTXT);
 		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.NOTE);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.PLAYLIST);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.SILENT);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.SAMPLER);
-		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.WAVE_LIST);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.PLST);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.SINT);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.SMPL);
+		addEEnumLiteral(chunkTypeIDEEnum, ChunkTypeID.WAVL);
 
 		initEEnum(compressionCodeEEnum, CompressionCode.class, "CompressionCode");
 		addEEnumLiteral(compressionCodeEEnum, CompressionCode.COMPRESSION_CODE_0);
@@ -1626,9 +1648,9 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		addEEnumLiteral(smpteFormatEEnum, SMPTEFormat.SMPTE_30);
 
 		// Initialize data types
+		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(unsignedShortEDataType, Integer.class, "UnsignedShort", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(unsignedIntEDataType, Long.class, "UnsignedInt", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(unsupportedTypeEDataType, Exception.class, "UnsupportedType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

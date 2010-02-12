@@ -14,18 +14,28 @@
  */
 package com.skratchdot.riff.wav.tests;
 
-import com.skratchdot.riff.wav.ChunkHeader;
+import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.WavFactory;
+
+import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Chunk Header</b></em>'.
+ * A test case for the model object '<em><b>Parse Chunk Exception</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChunkHeaderTest extends ChunkTest {
+public class ParseChunkExceptionTest extends TestCase {
+
+	/**
+	 * The fixture for this Parse Chunk Exception test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParseChunkException fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -33,28 +43,37 @@ public class ChunkHeaderTest extends ChunkTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ChunkHeaderTest.class);
+		TestRunner.run(ParseChunkExceptionTest.class);
 	}
 
 	/**
-	 * Constructs a new Chunk Header test case with the given name.
+	 * Constructs a new Parse Chunk Exception test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChunkHeaderTest(String name) {
+	public ParseChunkExceptionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Chunk Header test case.
+	 * Sets the fixture for this Parse Chunk Exception test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected ChunkHeader getFixture() {
-		return (ChunkHeader)fixture;
+	protected void setFixture(ParseChunkException fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * Returns the fixture for this Parse Chunk Exception test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParseChunkException getFixture() {
+		return fixture;
 	}
 
 	/**
@@ -65,7 +84,7 @@ public class ChunkHeaderTest extends ChunkTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(WavFactory.eINSTANCE.createChunkHeader());
+		setFixture(WavFactory.eINSTANCE.createParseChunkException());
 	}
 
 	/**
@@ -79,4 +98,4 @@ public class ChunkHeaderTest extends ChunkTest {
 		setFixture(null);
 	}
 
-} //ChunkHeaderTest
+} //ParseChunkExceptionTest

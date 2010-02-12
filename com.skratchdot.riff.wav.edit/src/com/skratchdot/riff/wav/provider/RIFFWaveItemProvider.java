@@ -75,31 +75,8 @@ public class RIFFWaveItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRiffTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Riff Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRiffTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RIFFWave_riffType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RIFFWave_riffType_feature", "_UI_RIFFWave_type"),
-				 WavPackage.Literals.RIFF_WAVE__RIFF_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -114,8 +91,8 @@ public class RIFFWaveItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WavPackage.Literals.RIFF_WAVE__HEADER_CHUNK);
 			childrenFeatures.add(WavPackage.Literals.RIFF_WAVE__CHUNKS);
+			childrenFeatures.add(WavPackage.Literals.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -152,8 +129,7 @@ public class RIFFWaveItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		RIFFWave riffWave = (RIFFWave)object;
-		return getString("_UI_RIFFWave_type") + " " + riffWave.getRiffType();
+		return getString("_UI_RIFFWave_type");
 	}
 
 	/**
@@ -168,11 +144,8 @@ public class RIFFWaveItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RIFFWave.class)) {
-			case WavPackage.RIFF_WAVE__RIFF_TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case WavPackage.RIFF_WAVE__HEADER_CHUNK:
 			case WavPackage.RIFF_WAVE__CHUNKS:
+			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,11 +162,6 @@ public class RIFFWaveItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WavPackage.Literals.RIFF_WAVE__HEADER_CHUNK,
-				 WavFactory.eINSTANCE.createChunkHeader()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -238,11 +206,6 @@ public class RIFFWaveItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WavPackage.Literals.RIFF_WAVE__CHUNKS,
-				 WavFactory.eINSTANCE.createChunkHeader()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WavPackage.Literals.RIFF_WAVE__CHUNKS,
 				 WavFactory.eINSTANCE.createChunkInstrument()));
 
 		newChildDescriptors.add
@@ -263,30 +226,17 @@ public class RIFFWaveItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WavPackage.Literals.RIFF_WAVE__CHUNKS,
+				 WavFactory.eINSTANCE.createChunkUnknown()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WavPackage.Literals.RIFF_WAVE__CHUNKS,
 				 WavFactory.eINSTANCE.createChunkWaveList()));
-	}
 
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == WavPackage.Literals.RIFF_WAVE__HEADER_CHUNK ||
-			childFeature == WavPackage.Literals.RIFF_WAVE__CHUNKS;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+		newChildDescriptors.add
+			(createChildParameter
+				(WavPackage.Literals.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS,
+				 WavFactory.eINSTANCE.createParseChunkException()));
 	}
 
 	/**

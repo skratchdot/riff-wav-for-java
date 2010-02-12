@@ -15,7 +15,9 @@
 package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.ChunkDataListTypeLabeledText;
+import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -169,6 +171,11 @@ public class ChunkDataListTypeLabeledTextImpl extends ChunkDataListTypeImpl impl
 	 */
 	protected ChunkDataListTypeLabeledTextImpl() {
 		super();
+	}
+
+	public ChunkDataListTypeLabeledTextImpl(RIFFWave riffWave,
+			WavRandomAccessFile in) {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**

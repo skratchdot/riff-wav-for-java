@@ -14,62 +14,57 @@
  */
 package com.skratchdot.riff.wav.impl;
 
-import com.skratchdot.riff.wav.ChunkFact;
-import com.skratchdot.riff.wav.RIFFWave;
+import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.WavPackage;
-import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Chunk Fact</b></em>'.
+ * An implementation of the model object '<em><b>Parse Chunk Exception</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.skratchdot.riff.wav.impl.ChunkFactImpl#getFormatDependantData <em>Format Dependant Data</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl#getException <em>Exception</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
+public class ParseChunkExceptionImpl extends EObjectImpl implements ParseChunkException {
 	/**
-	 * The default value of the '{@link #getFormatDependantData() <em>Format Dependant Data</em>}' attribute.
+	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFormatDependantData()
+	 * @see #getException()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final byte FORMAT_DEPENDANT_DATA_EDEFAULT = 0x00;
+	protected static final Exception EXCEPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFormatDependantData() <em>Format Dependant Data</em>}' attribute.
+	 * The cached value of the '{@link #getException() <em>Exception</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFormatDependantData()
+	 * @see #getException()
 	 * @generated
 	 * @ordered
 	 */
-	protected byte formatDependantData = FORMAT_DEPENDANT_DATA_EDEFAULT;
+	protected Exception exception = EXCEPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChunkFactImpl() {
+	protected ParseChunkExceptionImpl() {
 		super();
-	}
-
-	public ChunkFactImpl(RIFFWave riffWave, WavRandomAccessFile in) {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -79,7 +74,7 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return WavPackage.Literals.CHUNK_FACT;
+		return WavPackage.Literals.PARSE_CHUNK_EXCEPTION;
 	}
 
 	/**
@@ -87,8 +82,8 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public byte getFormatDependantData() {
-		return formatDependantData;
+	public Exception getException() {
+		return exception;
 	}
 
 	/**
@@ -96,11 +91,11 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFormatDependantData(byte newFormatDependantData) {
-		byte oldFormatDependantData = formatDependantData;
-		formatDependantData = newFormatDependantData;
+	public void setException(Exception newException) {
+		Exception oldException = exception;
+		exception = newException;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA, oldFormatDependantData, formatDependantData));
+			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION, oldException, exception));
 	}
 
 	/**
@@ -111,8 +106,8 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA:
-				return getFormatDependantData();
+			case WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION:
+				return getException();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,8 +120,8 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA:
-				setFormatDependantData((Byte)newValue);
+			case WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION:
+				setException((Exception)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -140,8 +135,8 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA:
-				setFormatDependantData(FORMAT_DEPENDANT_DATA_EDEFAULT);
+			case WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION:
+				setException(EXCEPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -155,8 +150,8 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA:
-				return formatDependantData != FORMAT_DEPENDANT_DATA_EDEFAULT;
+			case WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION:
+				return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -171,10 +166,10 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (formatDependantData: ");
-		result.append(formatDependantData);
+		result.append(" (exception: ");
+		result.append(exception);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ChunkFactImpl
+} //ParseChunkExceptionImpl

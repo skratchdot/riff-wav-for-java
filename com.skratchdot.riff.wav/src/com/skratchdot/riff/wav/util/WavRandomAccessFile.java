@@ -3,9 +3,11 @@ package com.skratchdot.riff.wav.util;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
 
 /**
  * A RandomAccessFile wrapper that converts data to Little Endian format.
@@ -194,6 +196,48 @@ public final class WavRandomAccessFile implements DataInput, DataOutput {
 	public void writeUTF(String s) throws IOException {
 		raf.writeUTF(s);
 	}
+	
+	/**
+	 * @see java.io.RandomAccessFile#length()
+	 * @return
+	 * @throws IOException
+	 */
+	public long length() throws IOException {
+		return raf.length();
+	}
 
+	/**
+	 * @see java.io.RandomAccessFile#getChannel()
+	 * @return
+	 */
+	public final FileChannel getChannel() {
+		return raf.getChannel();
+	}
+
+	/**
+	 * @see java.io.RandomAccessFile#getFilePointer()
+	 * @return
+	 * @throws IOException
+	 */
+	public long getFilePointer() throws IOException {
+		return raf.getFilePointer();
+	}
+	
+	/**
+	 * @see java.io.RandomAccessFile#seek(long)
+	 * @param pos
+	 * @throws IOException
+	 */
+	public void seek(long pos) throws IOException {
+		raf.seek(pos);
+	}
+	
+	/**
+	 * @return Returns the RandomAccessFile that this class wraps
+	 * @throws IOException
+	 */
+	public RandomAccessFile getRandomAccessFile() throws IOException {
+		return raf;
+	}
 	
 }
