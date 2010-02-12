@@ -18,6 +18,7 @@ import com.skratchdot.riff.wav.ChunkDataListTypeLabeledText;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -174,9 +175,27 @@ public class ChunkDataListTypeLabeledTextImpl extends ChunkDataListTypeImpl impl
 		super();
 	}
 
+	/**
+	 * @param riffWave a valid RIFFWave object
+	 * @param in a valid WavRandomAccessFile
+	 * @throws RiffWaveException
+	 */
 	public ChunkDataListTypeLabeledTextImpl(RIFFWave riffWave,
-			WavRandomAccessFile in) {
-		// TODO Auto-generated constructor stub
+			WavRandomAccessFile in) throws RiffWaveException {
+		super();
+		try {
+			// Check Chunk Type ID
+			if(ChunkTypeID.get((int)in.readUnsignedInt())!=this.getChunkTypeID())
+				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
+
+			// Read in data size
+			long chunkSize = in.readUnsignedInt();
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RiffWaveException(e.getMessage(), e.getCause());
+		}
 	}
 
 	/**

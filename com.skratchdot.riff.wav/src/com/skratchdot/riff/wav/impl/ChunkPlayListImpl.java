@@ -19,6 +19,7 @@ import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.Segment;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 import java.util.Collection;
@@ -87,8 +88,26 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 		super();
 	}
 
-	public ChunkPlayListImpl(RIFFWave riffWave, WavRandomAccessFile in) {
-		// TODO Auto-generated constructor stub
+	/**
+	 * @param riffWave a valid RIFFWave object
+	 * @param in a valid WavRandomAccessFile
+	 * @throws RiffWaveException
+	 */
+	public ChunkPlayListImpl(RIFFWave riffWave, WavRandomAccessFile in) throws RiffWaveException {
+		super();
+		try {
+			// Check Chunk Type ID
+			if(ChunkTypeID.get((int)in.readUnsignedInt())!=this.getChunkTypeID())
+				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
+
+			// Read in data size
+			long chunkSize = in.readUnsignedInt();
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RiffWaveException(e.getMessage(), e.getCause());
+		}
 	}
 
 	/**

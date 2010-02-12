@@ -102,20 +102,17 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	private void init(WavRandomAccessFile in) throws RiffWaveException {
 		try {
 			// First read in the header info
-			ChunkTypeID riffChunkTypeID = ChunkTypeID.get((int)in.readUnsignedInt());
-			long chunkDataSize = in.readUnsignedInt();
-			ChunkTypeID waveChunkTypeID = ChunkTypeID.get((int)in.readUnsignedInt());
-
-			if(riffChunkTypeID!=ChunkTypeID.RIFF)
+			if(ChunkTypeID.get((int)in.readUnsignedInt())!=ChunkTypeID.RIFF)
 				throw new RiffWaveException("Invalid Header: missing RIFF");
-			if(chunkDataSize!=in.length()-8)
+			if(in.readUnsignedInt()!=in.length()-8)
 				throw new RiffWaveException("Invalid Header: chunk data size");
-			if(waveChunkTypeID!=ChunkTypeID.WAVE)
+			if(ChunkTypeID.get((int)in.readUnsignedInt())!=ChunkTypeID.WAVE)
 				throw new RiffWaveException("Invalid Header: missing WAVE");
 
 			// loopPointer prevents an infinite loop if we try to parse a
 			// chunk and the filePointer doesn't advance for some reason
 			long loopPointer = 0;
+
 			// Loop through file reading in chunks
 			while(in.getFilePointer()<in.length() && in.getFilePointer()!=loopPointer) {
 				// If the filePointer doesn't advance in this loop iteration,

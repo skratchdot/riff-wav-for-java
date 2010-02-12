@@ -221,7 +221,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	}
 
 	@Override
-	public ChunkCue createChunkCue(RIFFWave riffWave, WavRandomAccessFile in) {
+	public ChunkCue createChunkCue(RIFFWave riffWave, WavRandomAccessFile in) throws RiffWaveException {
 		ChunkCueImpl chunkCue = new ChunkCueImpl(riffWave, in);
 		return chunkCue;
 	}
@@ -236,7 +236,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	}
 
 	@Override
-	public ChunkData createChunkData(RIFFWave riffWave, WavRandomAccessFile in) {
+	public ChunkData createChunkData(RIFFWave riffWave, WavRandomAccessFile in) throws RiffWaveException {
 		ChunkData chunkData = new ChunkDataImpl(riffWave, in);
 		return chunkData;
 	}
@@ -252,7 +252,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkDataList createChunkDataList(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkDataList chunkDataList = new ChunkDataListImpl(riffWave, in);
 		return chunkDataList;
 	}
@@ -268,7 +268,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkDataListTypeLabel createChunkDataListTypeLabel(
-			RIFFWave riffWave, WavRandomAccessFile in) {
+			RIFFWave riffWave, WavRandomAccessFile in) throws RiffWaveException {
 		ChunkDataListTypeLabel chunkDataListTypeLabel = new ChunkDataListTypeLabelImpl(
 				riffWave, in);
 		return chunkDataListTypeLabel;
@@ -285,7 +285,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkDataListTypeLabeledText createChunkDataListTypeLabeledText(
-			RIFFWave riffWave, WavRandomAccessFile in) {
+			RIFFWave riffWave, WavRandomAccessFile in) throws RiffWaveException {
 		ChunkDataListTypeLabeledText chunkDataListTypeLabeledText = new ChunkDataListTypeLabeledTextImpl(
 				riffWave, in);
 		return chunkDataListTypeLabeledText;
@@ -302,7 +302,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkDataListTypeNote createChunkDataListTypeNote(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkDataListTypeNote chunkDataListTypeNote = new ChunkDataListTypeNoteImpl(
 				riffWave, in);
 		return chunkDataListTypeNote;
@@ -318,7 +318,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	}
 
 	@Override
-	public ChunkFact createChunkFact(RIFFWave riffWave, WavRandomAccessFile in) {
+	public ChunkFact createChunkFact(RIFFWave riffWave, WavRandomAccessFile in) throws RiffWaveException {
 		ChunkFact chunkFact = new ChunkFactImpl(riffWave, in);
 		return chunkFact;
 	}
@@ -334,7 +334,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkFormat createChunkFormat(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkFormat chunkFormat = new ChunkFormatImpl(riffWave, in);
 		return chunkFormat;
 	}
@@ -350,7 +350,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkInstrument createChunkInstrument(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkInstrument chunkInstrument = new ChunkInstrumentImpl(riffWave, in);
 		return chunkInstrument;
 	}
@@ -366,7 +366,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkPlayList createChunkPlayList(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkPlayList chunkPlayList = new ChunkPlayListImpl(riffWave, in);
 		return chunkPlayList;
 	}
@@ -382,7 +382,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkSampler createChunkSampler(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkSampler chunkSampler = new ChunkSamplerImpl(riffWave, in);
 		return chunkSampler;
 	}
@@ -398,7 +398,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkSilent createChunkSilent(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkSilent chunkSilent = new ChunkSilentImpl(riffWave, in);
 		return chunkSilent;
 	}
@@ -414,7 +414,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkUnknown createChunkUnknown(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkUnknown chunkUnknown = new ChunkUnknownImpl(riffWave, in);
 		return chunkUnknown;
 	}
@@ -430,7 +430,7 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 
 	@Override
 	public ChunkWaveList createChunkWaveList(RIFFWave riffWave,
-			WavRandomAccessFile in) {
+			WavRandomAccessFile in) throws RiffWaveException {
 		ChunkWaveList chunkWaveList = new ChunkWaveListImpl(riffWave, in);
 		return chunkWaveList;
 	}
