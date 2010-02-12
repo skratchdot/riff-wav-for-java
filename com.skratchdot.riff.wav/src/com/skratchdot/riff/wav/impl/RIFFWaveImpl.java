@@ -113,13 +113,23 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 			if(waveChunkTypeID!=ChunkTypeID.WAVE)
 				throw new RiffWaveException("Invalid Header: missing WAVE");
 
-			// Now we can parse all the chunks
-			while(in.getFilePointer()<in.length()) {
+			// loopPointer prevents an infinite loop if we try to parse a
+			// chunk and the filePointer doesn't advance for some reason
+			long loopPointer = 0;
+			// Loop through file reading in chunks
+			while(in.getFilePointer()<in.length() && in.getFilePointer()!=loopPointer) {
+				// If the filePointer doesn't advance in this loop iteration,
+				// then we'll break out of the loop
+				loopPointer = in.getFilePointer();
+
+				// Grab the current chunk
 				Chunk currentChunk = WavUtil.parseChunk(this, in);
+
 				// If we got a chunk, add it to our list
 				if(currentChunk!=null) {
 					this.getChunks().add(currentChunk);
 				}
+
 				// We need to block align
 				if(in.getFilePointer()%2==1 && in.getFilePointer()<in.length()-1) {
 					in.seek(in.getFilePointer()+1);
