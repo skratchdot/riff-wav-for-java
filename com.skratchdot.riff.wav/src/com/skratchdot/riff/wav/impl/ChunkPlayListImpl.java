@@ -105,7 +105,6 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

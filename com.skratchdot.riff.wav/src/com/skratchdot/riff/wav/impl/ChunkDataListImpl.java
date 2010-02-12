@@ -106,7 +106,6 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

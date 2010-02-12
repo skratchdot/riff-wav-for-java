@@ -297,7 +297,6 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

@@ -135,7 +135,6 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

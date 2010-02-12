@@ -84,7 +84,6 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

@@ -140,7 +140,10 @@
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkSilent">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkSilent/numberOfSilentSamples"/>
     </genClasses>
-    <genClasses ecoreClass="RIFFWave.ecore#//ChunkUnknown"/>
+    <genClasses ecoreClass="RIFFWave.ecore#//ChunkUnknown">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkUnknown/data"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkUnknown/offsetWavRandomAccessFile"/>
+    </genClasses>
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkWaveList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RIFFWave.ecore#//ChunkWaveList/alternatingSilentAndDataChunks"/>
     </genClasses>

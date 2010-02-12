@@ -104,11 +104,14 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
-			long chunkSize = in.readUnsignedInt();
+			int chunkSize = (int) in.readUnsignedInt();
 
+			// Read in original sample data
+			byte[] b = new byte[chunkSize];
+			in.readFully(b, 0, chunkSize);
+			this.setSampleDataOriginal(b);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

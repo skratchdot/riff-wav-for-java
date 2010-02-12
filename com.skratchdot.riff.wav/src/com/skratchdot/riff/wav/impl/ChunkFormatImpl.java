@@ -233,11 +233,28 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
+			@SuppressWarnings("unused")
 			long chunkSize = in.readUnsignedInt();
 
+			// Set member variables
+			this.setCompressionCode(CompressionCode.get(in.readUnsignedShort()));
+			this.setNumberOfChannels(in.readUnsignedShort());
+			this.setSampleRate(in.readUnsignedInt());
+			this.setAverageBytesPerSecond(in.readUnsignedInt());
+			this.setBlockAlign(in.readUnsignedShort());
+			this.setSignificantBitsPerSample(in.readUnsignedShort());
 			
+			if(this.getCompressionCode().getValue()!=CompressionCode.COMPRESSION_CODE_1_VALUE) {
+				this.setNumberOfExtraFormatBytes(in.readUnsignedShort());
+				
+				if(this.getNumberOfExtraFormatBytes()>0) {
+					byte[] b = new byte[this.getNumberOfExtraFormatBytes()];
+					in.readFully(b, 0, this.getNumberOfExtraFormatBytes());
+					this.setExtraFormatBytes(b);
+				}
+			}
+
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

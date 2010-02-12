@@ -20,10 +20,69 @@ package com.skratchdot.riff.wav;
  * A representation of the model object '<em><b>Chunk Unknown</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkUnknown#getData <em>Data</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkUnknown#getWavRandomAccessFilePointer <em>Wav Random Access File Pointer</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see com.skratchdot.riff.wav.WavPackage#getChunkUnknown()
  * @model
  * @generated
  */
 public interface ChunkUnknown extends Chunk {
+
+	/**
+	 * Returns the value of the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data</em>' attribute.
+	 * @see #setData(byte[])
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunkUnknown_Data()
+	 * @model
+	 * @generated
+	 */
+	byte[] getData();
+
+	/**
+	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkUnknown#getData <em>Data</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data</em>' attribute.
+	 * @see #getData()
+	 * @generated
+	 */
+	void setData(byte[] value);
+
+	/**
+	 * Returns the value of the '<em><b>Wav Random Access File Pointer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Wav Random Access File Pointer</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wav Random Access File Pointer</em>' attribute.
+	 * @see #setWavRandomAccessFilePointer(long)
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunkUnknown_WavRandomAccessFilePointer()
+	 * @model
+	 * @generated
+	 */
+	long getWavRandomAccessFilePointer();
+
+	/**
+	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkUnknown#getWavRandomAccessFilePointer <em>Wav Random Access File Pointer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Wav Random Access File Pointer</em>' attribute.
+	 * @see #getWavRandomAccessFilePointer()
+	 * @generated
+	 */
+	void setWavRandomAccessFilePointer(long value);
 } // ChunkUnknown

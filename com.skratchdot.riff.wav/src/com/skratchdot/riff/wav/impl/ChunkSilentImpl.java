@@ -87,7 +87,6 @@ public class ChunkSilentImpl extends ChunkImpl implements ChunkSilent {
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

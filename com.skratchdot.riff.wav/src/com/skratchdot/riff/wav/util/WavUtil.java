@@ -53,7 +53,6 @@ public class WavUtil {
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			ParseChunkException pce = WavFactory.eINSTANCE.createParseChunkException();
 			pce.setException(e);
 			riffWave.getParseChunkExceptions().add(pce);

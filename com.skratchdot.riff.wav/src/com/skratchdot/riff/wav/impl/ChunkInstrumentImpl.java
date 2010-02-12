@@ -213,7 +213,6 @@ public class ChunkInstrumentImpl extends ChunkImpl implements ChunkInstrument {
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

@@ -1266,13 +1266,31 @@ public interface WavPackage extends EPackage {
 	int CHUNK_UNKNOWN__CHUNK_TYPE_ID_VALUE = CHUNK__CHUNK_TYPE_ID_VALUE;
 
 	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN__DATA = CHUNK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Wav Random Access File Pointer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER = CHUNK_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Chunk Unknown</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_UNKNOWN_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 0;
+	int CHUNK_UNKNOWN_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkWaveListImpl <em>Chunk Wave List</em>}' class.
@@ -2425,6 +2443,28 @@ public interface WavPackage extends EPackage {
 	EClass getChunkUnknown();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ChunkUnknown#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Data</em>'.
+	 * @see com.skratchdot.riff.wav.ChunkUnknown#getData()
+	 * @see #getChunkUnknown()
+	 * @generated
+	 */
+	EAttribute getChunkUnknown_Data();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ChunkUnknown#getWavRandomAccessFilePointer <em>Wav Random Access File Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Wav Random Access File Pointer</em>'.
+	 * @see com.skratchdot.riff.wav.ChunkUnknown#getWavRandomAccessFilePointer()
+	 * @see #getChunkUnknown()
+	 * @generated
+	 */
+	EAttribute getChunkUnknown_WavRandomAccessFilePointer();
+
+	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ChunkWaveList <em>Chunk Wave List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3387,6 +3427,22 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CHUNK_UNKNOWN = eINSTANCE.getChunkUnknown();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHUNK_UNKNOWN__DATA = eINSTANCE.getChunkUnknown_Data();
+
+		/**
+		 * The meta object literal for the '<em><b>Wav Random Access File Pointer</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER = eINSTANCE.getChunkUnknown_WavRandomAccessFilePointer();
 
 		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChunkWaveListImpl <em>Chunk Wave List</em>}' class.

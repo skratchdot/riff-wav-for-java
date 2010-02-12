@@ -105,7 +105,6 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}

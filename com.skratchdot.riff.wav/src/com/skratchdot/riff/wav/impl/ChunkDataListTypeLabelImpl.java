@@ -59,7 +59,6 @@ public class ChunkDataListTypeLabelImpl extends ChunkDataListTypeImpl implements
 
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
 	}
