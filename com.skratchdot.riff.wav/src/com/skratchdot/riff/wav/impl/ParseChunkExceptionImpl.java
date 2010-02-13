@@ -32,6 +32,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl#getException <em>Exception</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl#getStringCause <em>String Cause</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl#getStringMessage <em>String Message</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ParseChunkExceptionImpl#getStringStackTrace <em>String Stack Trace</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +60,36 @@ public class ParseChunkExceptionImpl extends EObjectImpl implements ParseChunkEx
 	 * @ordered
 	 */
 	protected Exception exception = EXCEPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStringCause() <em>String Cause</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStringCause()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STRING_CAUSE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getStringMessage() <em>String Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStringMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STRING_MESSAGE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getStringStackTrace() <em>String Stack Trace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStringStackTrace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STRING_STACK_TRACE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,6 +134,33 @@ public class ParseChunkExceptionImpl extends EObjectImpl implements ParseChunkEx
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getStringCause() {
+		return this.getException()==null?"":this.getException().getCause().toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getStringMessage() {
+		return this.getException()==null?"":this.getException().getMessage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getStringStackTrace() {
+		return this.getException()==null?"":this.getException().getStackTrace().toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -108,6 +168,12 @@ public class ParseChunkExceptionImpl extends EObjectImpl implements ParseChunkEx
 		switch (featureID) {
 			case WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION:
 				return getException();
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_CAUSE:
+				return getStringCause();
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_MESSAGE:
+				return getStringMessage();
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_STACK_TRACE:
+				return getStringStackTrace();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,6 +218,12 @@ public class ParseChunkExceptionImpl extends EObjectImpl implements ParseChunkEx
 		switch (featureID) {
 			case WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION:
 				return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_CAUSE:
+				return STRING_CAUSE_EDEFAULT == null ? getStringCause() != null : !STRING_CAUSE_EDEFAULT.equals(getStringCause());
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_MESSAGE:
+				return STRING_MESSAGE_EDEFAULT == null ? getStringMessage() != null : !STRING_MESSAGE_EDEFAULT.equals(getStringMessage());
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_STACK_TRACE:
+				return STRING_STACK_TRACE_EDEFAULT == null ? getStringStackTrace() != null : !STRING_STACK_TRACE_EDEFAULT.equals(getStringStackTrace());
 		}
 		return super.eIsSet(featureID);
 	}

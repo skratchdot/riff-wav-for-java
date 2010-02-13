@@ -124,6 +124,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParseChunkException">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exception" eType="#//Exception"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringCause" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringStackTrace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SampleData" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SampleData8Bit" eSuperTypes="#//SampleData">

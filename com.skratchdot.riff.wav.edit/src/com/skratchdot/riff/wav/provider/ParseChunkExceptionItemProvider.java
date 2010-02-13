@@ -73,6 +73,9 @@ public class ParseChunkExceptionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExceptionPropertyDescriptor(object);
+			addStringCausePropertyDescriptor(object);
+			addStringMessagePropertyDescriptor(object);
+			addStringStackTracePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,6 +103,72 @@ public class ParseChunkExceptionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the String Cause feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStringCausePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParseChunkException_stringCause_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParseChunkException_stringCause_feature", "_UI_ParseChunkException_type"),
+				 WavPackage.Literals.PARSE_CHUNK_EXCEPTION__STRING_CAUSE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the String Message feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStringMessagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParseChunkException_stringMessage_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParseChunkException_stringMessage_feature", "_UI_ParseChunkException_type"),
+				 WavPackage.Literals.PARSE_CHUNK_EXCEPTION__STRING_MESSAGE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the String Stack Trace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStringStackTracePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParseChunkException_stringStackTrace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParseChunkException_stringStackTrace_feature", "_UI_ParseChunkException_type"),
+				 WavPackage.Literals.PARSE_CHUNK_EXCEPTION__STRING_STACK_TRACE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ParseChunkException.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,8 +187,7 @@ public class ParseChunkExceptionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Exception labelValue = ((ParseChunkException)object).getException();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ParseChunkException)object).getStringMessage();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ParseChunkException_type") :
 			getString("_UI_ParseChunkException_type") + " " + label;
@@ -138,6 +206,9 @@ public class ParseChunkExceptionItemProvider
 
 		switch (notification.getFeatureID(ParseChunkException.class)) {
 			case WavPackage.PARSE_CHUNK_EXCEPTION__EXCEPTION:
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_CAUSE:
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_MESSAGE:
+			case WavPackage.PARSE_CHUNK_EXCEPTION__STRING_STACK_TRACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

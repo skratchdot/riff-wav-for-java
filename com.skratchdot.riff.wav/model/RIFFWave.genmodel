@@ -156,8 +156,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//CuePoint/blockStart"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//CuePoint/sampleOffset"/>
     </genClasses>
-    <genClasses ecoreClass="RIFFWave.ecore#//ParseChunkException">
+    <genClasses ecoreClass="RIFFWave.ecore#//ParseChunkException" labelFeature="#//wav/ParseChunkException/stringMessage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ParseChunkException/exception"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ParseChunkException/stringCause"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ParseChunkException/stringMessage"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ParseChunkException/stringStackTrace"/>
     </genClasses>
     <genClasses image="false" ecoreClass="RIFFWave.ecore#//SampleData"/>
     <genClasses ecoreClass="RIFFWave.ecore#//SampleData8Bit">

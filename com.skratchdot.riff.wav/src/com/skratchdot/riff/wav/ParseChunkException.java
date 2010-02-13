@@ -25,6 +25,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.ParseChunkException#getException <em>Exception</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ParseChunkException#getStringCause <em>String Cause</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ParseChunkException#getStringMessage <em>String Message</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ParseChunkException#getStringStackTrace <em>String Stack Trace</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,5 +61,50 @@ public interface ParseChunkException extends EObject {
 	 * @generated
 	 */
 	void setException(Exception value);
+
+	/**
+	 * Returns the value of the '<em><b>String Cause</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>String Cause</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>String Cause</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getParseChunkException_StringCause()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getStringCause();
+
+	/**
+	 * Returns the value of the '<em><b>String Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>String Message</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>String Message</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getParseChunkException_StringMessage()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getStringMessage();
+
+	/**
+	 * Returns the value of the '<em><b>String Stack Trace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>String Stack Trace</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>String Stack Trace</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getParseChunkException_StringStackTrace()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getStringStackTrace();
 
 } // ParseChunkException

@@ -57,6 +57,7 @@ public class WavTests extends TestSuite {
 		suite.addTestSuite(ChunkSilentTest.class);
 		suite.addTestSuite(ChunkUnknownTest.class);
 		suite.addTestSuite(ChunkWaveListTest.class);
+		suite.addTestSuite(ParseChunkExceptionTest.class);
 		return suite;
 	}
 

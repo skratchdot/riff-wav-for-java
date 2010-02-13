@@ -25,6 +25,14 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Parse Chunk Exception</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.ParseChunkException#getStringCause() <em>String Cause</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ParseChunkException#getStringMessage() <em>String Message</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ParseChunkException#getStringStackTrace() <em>String Stack Trace</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ParseChunkExceptionTest extends TestCase {
@@ -96,6 +104,45 @@ public class ParseChunkExceptionTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ParseChunkException#getStringCause() <em>String Cause</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ParseChunkException#getStringCause()
+	 * @generated
+	 */
+	public void testGetStringCause() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ParseChunkException#getStringMessage() <em>String Message</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ParseChunkException#getStringMessage()
+	 * @generated
+	 */
+	public void testGetStringMessage() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ParseChunkException#getStringStackTrace() <em>String Stack Trace</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ParseChunkException#getStringStackTrace()
+	 * @generated
+	 */
+	public void testGetStringStackTrace() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ParseChunkExceptionTest

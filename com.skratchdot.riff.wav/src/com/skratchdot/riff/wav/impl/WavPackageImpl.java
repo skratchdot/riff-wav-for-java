@@ -1088,6 +1088,33 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParseChunkException_StringCause() {
+		return (EAttribute)parseChunkExceptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParseChunkException_StringMessage() {
+		return (EAttribute)parseChunkExceptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParseChunkException_StringStackTrace() {
+		return (EAttribute)parseChunkExceptionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSampleData() {
 		return sampleDataEClass;
 	}
@@ -1427,6 +1454,9 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		parseChunkExceptionEClass = createEClass(PARSE_CHUNK_EXCEPTION);
 		createEAttribute(parseChunkExceptionEClass, PARSE_CHUNK_EXCEPTION__EXCEPTION);
+		createEAttribute(parseChunkExceptionEClass, PARSE_CHUNK_EXCEPTION__STRING_CAUSE);
+		createEAttribute(parseChunkExceptionEClass, PARSE_CHUNK_EXCEPTION__STRING_MESSAGE);
+		createEAttribute(parseChunkExceptionEClass, PARSE_CHUNK_EXCEPTION__STRING_STACK_TRACE);
 
 		sampleDataEClass = createEClass(SAMPLE_DATA);
 
@@ -1609,6 +1639,9 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		initEClass(parseChunkExceptionEClass, ParseChunkException.class, "ParseChunkException", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParseChunkException_Exception(), this.getException(), "exception", null, 0, 1, ParseChunkException.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParseChunkException_StringCause(), ecorePackage.getEString(), "stringCause", null, 0, 1, ParseChunkException.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParseChunkException_StringMessage(), ecorePackage.getEString(), "stringMessage", null, 0, 1, ParseChunkException.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParseChunkException_StringStackTrace(), ecorePackage.getEString(), "stringStackTrace", null, 0, 1, ParseChunkException.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(sampleDataEClass, SampleData.class, "SampleData", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

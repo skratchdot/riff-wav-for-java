@@ -1476,13 +1476,40 @@ public interface WavPackage extends EPackage {
 	int PARSE_CHUNK_EXCEPTION__EXCEPTION = 0;
 
 	/**
+	 * The feature id for the '<em><b>String Cause</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSE_CHUNK_EXCEPTION__STRING_CAUSE = 1;
+
+	/**
+	 * The feature id for the '<em><b>String Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSE_CHUNK_EXCEPTION__STRING_MESSAGE = 2;
+
+	/**
+	 * The feature id for the '<em><b>String Stack Trace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSE_CHUNK_EXCEPTION__STRING_STACK_TRACE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Parse Chunk Exception</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARSE_CHUNK_EXCEPTION_FEATURE_COUNT = 1;
+	int PARSE_CHUNK_EXCEPTION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.SampleDataImpl <em>Sample Data</em>}' class.
@@ -2630,6 +2657,39 @@ public interface WavPackage extends EPackage {
 	EAttribute getParseChunkException_Exception();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ParseChunkException#getStringCause <em>String Cause</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>String Cause</em>'.
+	 * @see com.skratchdot.riff.wav.ParseChunkException#getStringCause()
+	 * @see #getParseChunkException()
+	 * @generated
+	 */
+	EAttribute getParseChunkException_StringCause();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ParseChunkException#getStringMessage <em>String Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>String Message</em>'.
+	 * @see com.skratchdot.riff.wav.ParseChunkException#getStringMessage()
+	 * @see #getParseChunkException()
+	 * @generated
+	 */
+	EAttribute getParseChunkException_StringMessage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ParseChunkException#getStringStackTrace <em>String Stack Trace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>String Stack Trace</em>'.
+	 * @see com.skratchdot.riff.wav.ParseChunkException#getStringStackTrace()
+	 * @see #getParseChunkException()
+	 * @generated
+	 */
+	EAttribute getParseChunkException_StringStackTrace();
+
+	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.SampleData <em>Sample Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3592,6 +3652,30 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARSE_CHUNK_EXCEPTION__EXCEPTION = eINSTANCE.getParseChunkException_Exception();
+
+		/**
+		 * The meta object literal for the '<em><b>String Cause</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARSE_CHUNK_EXCEPTION__STRING_CAUSE = eINSTANCE.getParseChunkException_StringCause();
+
+		/**
+		 * The meta object literal for the '<em><b>String Message</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARSE_CHUNK_EXCEPTION__STRING_MESSAGE = eINSTANCE.getParseChunkException_StringMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>String Stack Trace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARSE_CHUNK_EXCEPTION__STRING_STACK_TRACE = eINSTANCE.getParseChunkException_StringStackTrace();
 
 		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.SampleDataImpl <em>Sample Data</em>}' class.
