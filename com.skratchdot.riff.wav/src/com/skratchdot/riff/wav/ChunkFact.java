@@ -41,12 +41,12 @@ public interface ChunkFact extends Chunk {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Format Dependant Data</em>' attribute.
-	 * @see #setFormatDependantData(byte)
+	 * @see #setFormatDependantData(byte[])
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkFact_FormatDependantData()
 	 * @model
 	 * @generated
 	 */
-	byte getFormatDependantData();
+	byte[] getFormatDependantData();
 
 	/**
 	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkFact#getFormatDependantData <em>Format Dependant Data</em>}' attribute.
@@ -56,6 +56,6 @@ public interface ChunkFact extends Chunk {
 	 * @see #getFormatDependantData()
 	 * @generated
 	 */
-	void setFormatDependantData(byte value);
+	void setFormatDependantData(byte[] value);
 
 } // ChunkFact

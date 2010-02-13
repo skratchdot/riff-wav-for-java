@@ -83,9 +83,11 @@ public class ChunkSilentImpl extends ChunkImpl implements ChunkSilent {
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
-			long chunkSize = in.readUnsignedInt();
+			if(in.readUnsignedInt()!=this.getSize())
+				throw new RiffWaveException("sInt Chunk Size is too big. Should be 4.");
 
-			
+			this.setNumberOfSilentSamples(in.readUnsignedInt());
+
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
@@ -143,7 +145,7 @@ public class ChunkSilentImpl extends ChunkImpl implements ChunkSilent {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		return 4;
 	}
 
 	/**

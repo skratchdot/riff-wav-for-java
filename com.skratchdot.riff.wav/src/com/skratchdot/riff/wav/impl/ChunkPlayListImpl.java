@@ -14,25 +14,20 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import com.skratchdot.riff.wav.ChunkPlayList;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.Segment;
+import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,17 +53,6 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	 * @ordered
 	 */
 	protected static final Long NUMBER_OF_SEGMENTS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNumberOfSegments() <em>Number Of Segments</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumberOfSegments()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long numberOfSegments = NUMBER_OF_SEGMENTS_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -103,7 +87,24 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 			// Read in data size
 			long chunkSize = in.readUnsignedInt();
 
-			
+			// Read in segments
+			long numSegments = in.readUnsignedInt();
+			for(int i=0; i<numSegments; i++) {
+				Segment segment = WavFactory.eINSTANCE.createSegment();
+				segment.setCuePointID(in.readUnsignedInt());
+				segment.setLengthInSamples(in.readUnsignedInt());
+				segment.setNumberOfRepeats(in.readUnsignedInt());
+				this.getSegments().add(segment);
+			}
+
+			// Does the size we read in match the size we calculate from the data read in?
+			if(chunkSize!=this.getSize()) {
+				throw new RiffWaveException("Invalid chunk size for cue chunk." +
+					"From File: " + Long.toString(chunkSize) +
+					"Calculated: " + Long.toString(this.getSize())
+				);
+			}
+
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
@@ -122,22 +123,10 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Long getNumberOfSegments() {
-		return numberOfSegments;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNumberOfSegments(Long newNumberOfSegments) {
-		Long oldNumberOfSegments = numberOfSegments;
-		numberOfSegments = newNumberOfSegments;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_PLAY_LIST__NUMBER_OF_SEGMENTS, oldNumberOfSegments, numberOfSegments));
+		return this.getSegments()==null?0:(long)this.getSegments().size();
 	}
 
 	/**
@@ -173,7 +162,7 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		return 4 + (this.getNumberOfSegments() * 12);
 	}
 
 	/**
@@ -201,9 +190,6 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WavPackage.CHUNK_PLAY_LIST__NUMBER_OF_SEGMENTS:
-				setNumberOfSegments((Long)newValue);
-				return;
 			case WavPackage.CHUNK_PLAY_LIST__SEGMENTS:
 				getSegments().clear();
 				getSegments().addAll((Collection<? extends Segment>)newValue);
@@ -220,9 +206,6 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WavPackage.CHUNK_PLAY_LIST__NUMBER_OF_SEGMENTS:
-				setNumberOfSegments(NUMBER_OF_SEGMENTS_EDEFAULT);
-				return;
 			case WavPackage.CHUNK_PLAY_LIST__SEGMENTS:
 				getSegments().clear();
 				return;
@@ -239,27 +222,11 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case WavPackage.CHUNK_PLAY_LIST__NUMBER_OF_SEGMENTS:
-				return NUMBER_OF_SEGMENTS_EDEFAULT == null ? numberOfSegments != null : !NUMBER_OF_SEGMENTS_EDEFAULT.equals(numberOfSegments);
+				return NUMBER_OF_SEGMENTS_EDEFAULT == null ? getNumberOfSegments() != null : !NUMBER_OF_SEGMENTS_EDEFAULT.equals(getNumberOfSegments());
 			case WavPackage.CHUNK_PLAY_LIST__SEGMENTS:
 				return segments != null && !segments.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (numberOfSegments: ");
-		result.append(numberOfSegments);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ChunkPlayListImpl

@@ -33,8 +33,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getSmpteOffset <em>Smpte Offset</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getNumberOfSampleLoops <em>Number Of Sample Loops</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getSamplerDataSize <em>Sampler Data Size</em>}</li>
- *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getSamplerData <em>Sampler Data</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getSampleLoops <em>Sample Loops</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getSamplerData <em>Sampler Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -234,22 +234,11 @@ public interface ChunkSampler extends Chunk {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Sample Loops</em>' attribute.
-	 * @see #setNumberOfSampleLoops(Long)
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkSampler_NumberOfSampleLoops()
-	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt"
+	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Long getNumberOfSampleLoops();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkSampler#getNumberOfSampleLoops <em>Number Of Sample Loops</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Sample Loops</em>' attribute.
-	 * @see #getNumberOfSampleLoops()
-	 * @generated
-	 */
-	void setNumberOfSampleLoops(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Sampler Data Size</b></em>' attribute.
@@ -260,22 +249,11 @@ public interface ChunkSampler extends Chunk {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sampler Data Size</em>' attribute.
-	 * @see #setSamplerDataSize(Long)
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkSampler_SamplerDataSize()
-	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt"
+	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Long getSamplerDataSize();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkSampler#getSamplerDataSize <em>Sampler Data Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sampler Data Size</em>' attribute.
-	 * @see #getSamplerDataSize()
-	 * @generated
-	 */
-	void setSamplerDataSize(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Sampler Data</b></em>' attribute.

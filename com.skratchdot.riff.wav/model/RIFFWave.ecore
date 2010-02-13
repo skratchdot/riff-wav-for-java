@@ -22,7 +22,8 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkCue" eSuperTypes="#//Chunk">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfCuePoints" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfCuePoints" eType="#//UnsignedInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cuePoints" upperBound="-1"
         eType="#//CuePoint"/>
   </eClassifiers>
@@ -38,7 +39,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListType" abstract="true" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cuePointID" eType="#//UnsignedInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabel" eSuperTypes="#//ChunkDataListType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabeledText" eSuperTypes="#//ChunkDataListType">
@@ -51,7 +54,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeNote" eSuperTypes="#//ChunkDataListType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkFact" eSuperTypes="#//Chunk">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatDependantData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatDependantData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkFormat" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="compressionCode" eType="#//CompressionCode"/>
@@ -63,7 +66,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="significantBitsPerSample"
         eType="#//UnsignedShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfExtraFormatBytes"
-        eType="#//UnsignedShort"/>
+        eType="#//UnsignedShort" changeable="false" volatile="true" transient="true"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraFormatBytes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkInstrument" eSuperTypes="#//Chunk">
@@ -76,7 +80,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="highVelocity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkPlayList" eSuperTypes="#//Chunk">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSegments" eType="#//UnsignedInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSegments" eType="#//UnsignedInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="segments" upperBound="-1"
         eType="#//Segment"/>
   </eClassifiers>
@@ -88,11 +93,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="midiPitchFraction" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="smpteFormat" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="smpteOffset" eType="#//UnsignedInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSampleLoops" eType="#//UnsignedInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerDataSize" eType="#//UnsignedInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSampleLoops" eType="#//UnsignedInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerDataSize" eType="#//UnsignedInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sampleLoops" upperBound="-1"
         eType="#//SampleLoop" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkSilent" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSilentSamples"

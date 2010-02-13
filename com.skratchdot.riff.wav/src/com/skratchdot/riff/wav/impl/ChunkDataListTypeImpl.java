@@ -30,6 +30,7 @@ import com.skratchdot.riff.wav.WavPackage;
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkDataListTypeImpl#getCuePointID <em>Cue Point ID</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkDataListTypeImpl#getText <em>Text</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ChunkDataListTypeImpl#getTextAsString <em>Text As String</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,7 +65,7 @@ public abstract class ChunkDataListTypeImpl extends ChunkImpl implements ChunkDa
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = null;
+	protected static final byte[] TEXT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -74,7 +75,17 @@ public abstract class ChunkDataListTypeImpl extends ChunkImpl implements ChunkDa
 	 * @generated
 	 * @ordered
 	 */
-	protected String text = TEXT_EDEFAULT;
+	protected byte[] text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTextAsString() <em>Text As String</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTextAsString()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TEXT_AS_STRING_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +132,7 @@ public abstract class ChunkDataListTypeImpl extends ChunkImpl implements ChunkDa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getText() {
+	public byte[] getText() {
 		return text;
 	}
 
@@ -130,11 +141,20 @@ public abstract class ChunkDataListTypeImpl extends ChunkImpl implements ChunkDa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setText(String newText) {
-		String oldText = text;
+	public void setText(byte[] newText) {
+		byte[] oldText = text;
 		text = newText;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_DATA_LIST_TYPE__TEXT, oldText, text));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getTextAsString() {
+		return this.getText()==null?"":new String(this.getText());
 	}
 
 	/**
@@ -149,6 +169,8 @@ public abstract class ChunkDataListTypeImpl extends ChunkImpl implements ChunkDa
 				return getCuePointID();
 			case WavPackage.CHUNK_DATA_LIST_TYPE__TEXT:
 				return getText();
+			case WavPackage.CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING:
+				return getTextAsString();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,7 +187,7 @@ public abstract class ChunkDataListTypeImpl extends ChunkImpl implements ChunkDa
 				setCuePointID((Long)newValue);
 				return;
 			case WavPackage.CHUNK_DATA_LIST_TYPE__TEXT:
-				setText((String)newValue);
+				setText((byte[])newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,6 +223,8 @@ public abstract class ChunkDataListTypeImpl extends ChunkImpl implements ChunkDa
 				return CUE_POINT_ID_EDEFAULT == null ? cuePointID != null : !CUE_POINT_ID_EDEFAULT.equals(cuePointID);
 			case WavPackage.CHUNK_DATA_LIST_TYPE__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case WavPackage.CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING:
+				return TEXT_AS_STRING_EDEFAULT == null ? getTextAsString() != null : !TEXT_AS_STRING_EDEFAULT.equals(getTextAsString());
 		}
 		return super.eIsSet(featureID);
 	}

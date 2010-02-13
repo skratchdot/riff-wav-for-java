@@ -180,7 +180,10 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		if(this.getSampleDataOriginal()!=null) {
+			return this.getSampleDataOriginal().length;
+		}
+		return 0;
 	}
 
 	/**

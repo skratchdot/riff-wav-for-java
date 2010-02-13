@@ -209,8 +209,16 @@ public class ChunkInstrumentImpl extends ChunkImpl implements ChunkInstrument {
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
-			long chunkSize = in.readUnsignedInt();
+			if(in.readUnsignedInt()!=this.getSize())
+				throw new RiffWaveException("inst Chunk Size is too big. Should be 7.");
 
+			this.setUnshiftedNote(in.readByte());
+			this.setFineTune(in.readByte());
+			this.setGain(in.readByte());
+			this.setLowNote(in.readByte());
+			this.setHighNote(in.readByte());
+			this.setLowVelocity(in.readByte());
+			this.setHighVelocity(in.readByte());
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
@@ -395,7 +403,7 @@ public class ChunkInstrumentImpl extends ChunkImpl implements ChunkInstrument {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		return 7;
 	}
 
 	/**

@@ -15,8 +15,6 @@
 package com.skratchdot.riff.wav.impl;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,10 +26,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.skratchdot.riff.wav.Chunk;
-import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.ChunkTypeID;
+import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.RIFFWave;
-import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;

@@ -14,6 +14,15 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import com.skratchdot.riff.wav.Chunk;
 import com.skratchdot.riff.wav.ChunkDataList;
 import com.skratchdot.riff.wav.ChunkDataListType;
 import com.skratchdot.riff.wav.ChunkDataListTypeID;
@@ -22,18 +31,7 @@ import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import com.skratchdot.riff.wav.util.WavUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,6 +102,38 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 			// Read in data size
 			long chunkSize = in.readUnsignedInt();
 
+			// We cannot read in chunks past this point
+			long maxPointer = in.getFilePointer() + chunkSize;
+
+			// Check Chunk Data List Type ID
+			if(ChunkDataListTypeID.get((int)in.readUnsignedInt())!=ChunkDataListTypeID.ADTL)
+				throw new RiffWaveException("Invalid Chunk Data List Type ID");
+
+			// loopPointer prevents an infinite loop if we try to parse a
+			// chunk and the filePointer doesn't advance for some reason
+			long loopPointer = 0;
+
+			// Loop through file reading in chunks
+			while(in.getFilePointer()<in.length() && in.getFilePointer()!=loopPointer && in.getFilePointer()<maxPointer) {
+				// If the filePointer doesn't advance in this loop iteration,
+				// then we'll break out of the loop
+				loopPointer = in.getFilePointer();
+
+				// Grab the current chunk
+				Chunk currentChunk = WavUtil.parseChunk(riffWave, in);
+
+				// If we got a chunk, add it to our list
+				if(currentChunk!=null) {
+					// Add to our list of chunks
+					this.getDataListChunks().add((ChunkDataListType) currentChunk);
+				}
+
+				// We need to block align
+				if(in.getFilePointer()%2==1 && in.getFilePointer()<in.length()-1) {
+					in.seek(in.getFilePointer()+1);
+				}
+
+			}
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());

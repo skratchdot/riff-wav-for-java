@@ -49,7 +49,7 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final byte FORMAT_DEPENDANT_DATA_EDEFAULT = 0x00;
+	protected static final byte[] FORMAT_DEPENDANT_DATA_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getFormatDependantData() <em>Format Dependant Data</em>}' attribute.
@@ -59,7 +59,7 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 * @generated
 	 * @ordered
 	 */
-	protected byte formatDependantData = FORMAT_DEPENDANT_DATA_EDEFAULT;
+	protected byte[] formatDependantData = FORMAT_DEPENDANT_DATA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,8 +83,13 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
-			long chunkSize = in.readUnsignedInt();
+			int chunkSize = (int) in.readUnsignedInt();
 
+			if(chunkSize>0) {
+				byte[] b = new byte[chunkSize];
+				in.readFully(b, 0, chunkSize);
+				this.setFormatDependantData(b);
+			}
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
@@ -106,7 +111,7 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public byte getFormatDependantData() {
+	public byte[] getFormatDependantData() {
 		return formatDependantData;
 	}
 
@@ -115,8 +120,8 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFormatDependantData(byte newFormatDependantData) {
-		byte oldFormatDependantData = formatDependantData;
+	public void setFormatDependantData(byte[] newFormatDependantData) {
+		byte[] oldFormatDependantData = formatDependantData;
 		formatDependantData = newFormatDependantData;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA, oldFormatDependantData, formatDependantData));
@@ -143,7 +148,10 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		if(this.getFormatDependantData()!=null) {
+			return this.getFormatDependantData().length;
+		}
+		return 0;
 	}
 
 	/**
@@ -169,7 +177,7 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA:
-				setFormatDependantData((Byte)newValue);
+				setFormatDependantData((byte[])newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -199,7 +207,7 @@ public class ChunkFactImpl extends ChunkImpl implements ChunkFact {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case WavPackage.CHUNK_FACT__FORMAT_DEPENDANT_DATA:
-				return formatDependantData != FORMAT_DEPENDANT_DATA_EDEFAULT;
+				return FORMAT_DEPENDANT_DATA_EDEFAULT == null ? formatDependantData != null : !FORMAT_DEPENDANT_DATA_EDEFAULT.equals(formatDependantData);
 		}
 		return super.eIsSet(featureID);
 	}

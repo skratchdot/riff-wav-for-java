@@ -189,8 +189,22 @@ public class ChunkDataListTypeLabeledTextImpl extends ChunkDataListTypeImpl impl
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
-			long chunkSize = in.readUnsignedInt();
+			int chunkSize = (int) in.readUnsignedInt();
 
+			this.setCuePointID(in.readUnsignedInt());
+			this.setSampleLength(in.readUnsignedInt());
+			this.setPurposeID(in.readUnsignedInt());
+			this.setCountry(in.readUnsignedShort());
+			this.setLanguage(in.readUnsignedShort());
+			this.setDialect(in.readUnsignedShort());
+			this.setCodePage(in.readUnsignedShort());
+
+			int textSize = chunkSize-20;
+			if(textSize>0) {
+				byte[] b = new byte[textSize];
+				in.readFully(b, 0, textSize);
+				this.setText(b);
+			}
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
@@ -354,7 +368,7 @@ public class ChunkDataListTypeLabeledTextImpl extends ChunkDataListTypeImpl impl
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		return this.getText()==null?20:20+this.getText().length;
 	}
 
 	/**

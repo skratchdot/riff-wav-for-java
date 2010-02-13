@@ -428,13 +428,22 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST_TYPE__TEXT = CHUNK_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Text As String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING = CHUNK_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Chunk Data List Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_DATA_LIST_TYPE_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 2;
+	int CHUNK_DATA_LIST_TYPE_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkDataListTypeLabelImpl <em>Chunk Data List Type Label</em>}' class.
@@ -490,6 +499,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST_TYPE_LABEL__TEXT = CHUNK_DATA_LIST_TYPE__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Text As String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_LABEL__TEXT_AS_STRING = CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING;
 
 	/**
 	 * The number of structural features of the '<em>Chunk Data List Type Label</em>' class.
@@ -554,6 +572,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__TEXT = CHUNK_DATA_LIST_TYPE__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Text As String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__TEXT_AS_STRING = CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING;
 
 	/**
 	 * The feature id for the '<em><b>Sample Length</b></em>' attribute.
@@ -672,6 +699,15 @@ public interface WavPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHUNK_DATA_LIST_TYPE_NOTE__TEXT = CHUNK_DATA_LIST_TYPE__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Text As String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_NOTE__TEXT_AS_STRING = CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING;
 
 	/**
 	 * The number of structural features of the '<em>Chunk Data List Type Note</em>' class.
@@ -1147,22 +1183,22 @@ public interface WavPackage extends EPackage {
 	int CHUNK_SAMPLER__SAMPLER_DATA_SIZE = CHUNK_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Sampler Data</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHUNK_SAMPLER__SAMPLER_DATA = CHUNK_FEATURE_COUNT + 9;
-
-	/**
 	 * The feature id for the '<em><b>Sample Loops</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_SAMPLER__SAMPLE_LOOPS = CHUNK_FEATURE_COUNT + 10;
+	int CHUNK_SAMPLER__SAMPLE_LOOPS = CHUNK_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Sampler Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_SAMPLER__SAMPLER_DATA = CHUNK_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Chunk Sampler</em>' class.
@@ -1945,6 +1981,17 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getChunkDataListType_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ChunkDataListType#getTextAsString <em>Text As String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text As String</em>'.
+	 * @see com.skratchdot.riff.wav.ChunkDataListType#getTextAsString()
+	 * @see #getChunkDataListType()
+	 * @generated
+	 */
+	EAttribute getChunkDataListType_TextAsString();
 
 	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.ChunkDataListTypeLabel <em>Chunk Data List Type Label</em>}'.
@@ -3039,6 +3086,14 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHUNK_DATA_LIST_TYPE__TEXT = eINSTANCE.getChunkDataListType_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Text As String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING = eINSTANCE.getChunkDataListType_TextAsString();
 
 		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChunkDataListTypeLabelImpl <em>Chunk Data List Type Label</em>}' class.

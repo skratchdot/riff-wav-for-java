@@ -20,6 +20,12 @@ import com.skratchdot.riff.wav.ChunkDataListType;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Chunk Data List Type</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkDataListType#getTextAsString() <em>Text As String</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class ChunkDataListTypeTest extends ChunkTest {
@@ -43,6 +49,19 @@ public abstract class ChunkDataListTypeTest extends ChunkTest {
 	@Override
 	protected ChunkDataListType getFixture() {
 		return (ChunkDataListType)fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ChunkDataListType#getTextAsString() <em>Text As String</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ChunkDataListType#getTextAsString()
+	 * @generated
+	 */
+	public void testGetTextAsString() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ChunkDataListTypeTest

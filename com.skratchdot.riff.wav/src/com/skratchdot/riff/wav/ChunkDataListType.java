@@ -25,6 +25,7 @@ package com.skratchdot.riff.wav;
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.ChunkDataListType#getCuePointID <em>Cue Point ID</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkDataListType#getText <em>Text</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkDataListType#getTextAsString <em>Text As String</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,12 +69,12 @@ public interface ChunkDataListType extends Chunk {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
-	 * @see #setText(String)
+	 * @see #setText(byte[])
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkDataListType_Text()
 	 * @model
 	 * @generated
 	 */
-	String getText();
+	byte[] getText();
 
 	/**
 	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkDataListType#getText <em>Text</em>}' attribute.
@@ -83,6 +84,21 @@ public interface ChunkDataListType extends Chunk {
 	 * @see #getText()
 	 * @generated
 	 */
-	void setText(String value);
+	void setText(byte[] value);
+
+	/**
+	 * Returns the value of the '<em><b>Text As String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Text As String</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Text As String</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunkDataListType_TextAsString()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getTextAsString();
 
 } // ChunkDataListType

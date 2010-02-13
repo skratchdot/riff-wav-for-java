@@ -43,22 +43,11 @@ public interface ChunkCue extends Chunk {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Cue Points</em>' attribute.
-	 * @see #setNumberOfCuePoints(Long)
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkCue_NumberOfCuePoints()
-	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt"
+	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Long getNumberOfCuePoints();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkCue#getNumberOfCuePoints <em>Number Of Cue Points</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Cue Points</em>' attribute.
-	 * @see #getNumberOfCuePoints()
-	 * @generated
-	 */
-	void setNumberOfCuePoints(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Cue Points</b></em>' reference list.

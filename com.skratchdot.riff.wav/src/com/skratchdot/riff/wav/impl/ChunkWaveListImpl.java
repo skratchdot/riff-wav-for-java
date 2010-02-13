@@ -15,12 +15,17 @@
 package com.skratchdot.riff.wav.impl;
 
 import com.skratchdot.riff.wav.Chunk;
+import com.skratchdot.riff.wav.ChunkData;
+import com.skratchdot.riff.wav.ChunkSilent;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.ChunkWaveList;
+import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.RIFFWave;
+import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
+import com.skratchdot.riff.wav.util.WavUtil;
 
 import java.util.Collection;
 
@@ -81,7 +86,45 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 
 			// Read in data size
 			long chunkSize = in.readUnsignedInt();
+			
+			// We cannot read in chunks past this point
+			long maxPointer = in.getFilePointer() + chunkSize;
 
+			// loopPointer prevents an infinite loop if we try to parse a
+			// chunk and the filePointer doesn't advance for some reason
+			long loopPointer = 0;
+
+			// Loop through file reading in chunks
+			while(in.getFilePointer()<in.length() && in.getFilePointer()!=loopPointer && in.getFilePointer()<maxPointer) {
+				// If the filePointer doesn't advance in this loop iteration,
+				// then we'll break out of the loop
+				loopPointer = in.getFilePointer();
+
+				// Grab the current chunk
+				Chunk currentChunk = WavUtil.parseChunk(riffWave, in);
+
+				// If we got a chunk, add it to our list
+				if(currentChunk!=null) {
+					// Wave List chunks are only supposed to contain sInt and data chunks
+					if(currentChunk instanceof ChunkSilent == false && 
+						currentChunk instanceof ChunkData == false) {
+						ParseChunkException pce = WavFactory.eINSTANCE.createParseChunkException();
+						pce.setException(new Exception("Invalid Chunk Type: Not sInt or data"));
+						riffWave.getParseChunkExceptions().add(pce);
+					}
+					// Add to our list of chunks
+					this.getAlternatingSilentAndDataChunks().add(currentChunk);
+				}
+
+				// We need to block align
+				if(in.getFilePointer()%2==1 && in.getFilePointer()<in.length()-1) {
+					in.seek(in.getFilePointer()+1);
+				}
+				
+			}
+
+			
+			
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());

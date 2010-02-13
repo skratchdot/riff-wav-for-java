@@ -3,7 +3,6 @@ package com.skratchdot.riff.wav.util;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.File;
-import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;

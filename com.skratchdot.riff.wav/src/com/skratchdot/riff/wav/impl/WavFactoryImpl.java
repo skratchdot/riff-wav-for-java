@@ -14,7 +14,6 @@
  */
 package com.skratchdot.riff.wav.impl;
 
-import com.skratchdot.riff.wav.*;
 import java.io.File;
 
 import org.eclipse.emf.ecore.EClass;

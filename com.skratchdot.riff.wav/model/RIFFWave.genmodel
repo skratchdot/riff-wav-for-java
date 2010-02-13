@@ -86,7 +86,8 @@
     </genClasses>
     <genClasses image="false" ecoreClass="RIFFWave.ecore#//ChunkDataListType">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkDataListType/cuePointID"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkDataListType/text"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkDataListType/text"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkDataListType/textAsString"/>
     </genClasses>
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkDataListTypeLabel"/>
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkDataListTypeLabeledText">
@@ -134,15 +135,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkSampler/smpteOffset"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkSampler/numberOfSampleLoops"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkSampler/samplerDataSize"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkSampler/samplerData"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RIFFWave.ecore#//ChunkSampler/sampleLoops"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkSampler/samplerData"/>
     </genClasses>
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkSilent">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkSilent/numberOfSilentSamples"/>
     </genClasses>
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkUnknown">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkUnknown/data"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkUnknown/offsetWavRandomAccessFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RIFFWave.ecore#//ChunkUnknown/wavRandomAccessFilePointer"/>
     </genClasses>
     <genClasses ecoreClass="RIFFWave.ecore#//ChunkWaveList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RIFFWave.ecore#//ChunkWaveList/alternatingSilentAndDataChunks"/>

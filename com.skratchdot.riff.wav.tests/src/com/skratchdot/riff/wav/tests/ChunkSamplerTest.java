@@ -23,6 +23,13 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Chunk Sampler</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getNumberOfSampleLoops() <em>Number Of Sample Loops</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkSampler#getSamplerDataSize() <em>Sampler Data Size</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ChunkSamplerTest extends ChunkTest {
@@ -77,6 +84,32 @@ public class ChunkSamplerTest extends ChunkTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ChunkSampler#getNumberOfSampleLoops() <em>Number Of Sample Loops</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ChunkSampler#getNumberOfSampleLoops()
+	 * @generated
+	 */
+	public void testGetNumberOfSampleLoops() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ChunkSampler#getSamplerDataSize() <em>Sampler Data Size</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ChunkSampler#getSamplerDataSize()
+	 * @generated
+	 */
+	public void testGetSamplerDataSize() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ChunkSamplerTest

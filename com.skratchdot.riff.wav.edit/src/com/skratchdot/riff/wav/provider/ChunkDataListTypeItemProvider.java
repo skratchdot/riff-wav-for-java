@@ -71,6 +71,7 @@ public class ChunkDataListTypeItemProvider
 
 			addCuePointIDPropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
+			addTextAsStringPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,7 +112,29 @@ public class ChunkDataListTypeItemProvider
 				 getString("_UI_ChunkDataListType_text_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkDataListType_text_feature", "_UI_ChunkDataListType_type"),
 				 WavPackage.Literals.CHUNK_DATA_LIST_TYPE__TEXT,
-				 true,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Text As String feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTextAsStringPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ChunkDataListType_textAsString_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkDataListType_textAsString_feature", "_UI_ChunkDataListType_type"),
+				 WavPackage.Literals.CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -145,6 +168,7 @@ public class ChunkDataListTypeItemProvider
 		switch (notification.getFeatureID(ChunkDataListType.class)) {
 			case WavPackage.CHUNK_DATA_LIST_TYPE__CUE_POINT_ID:
 			case WavPackage.CHUNK_DATA_LIST_TYPE__TEXT:
+			case WavPackage.CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

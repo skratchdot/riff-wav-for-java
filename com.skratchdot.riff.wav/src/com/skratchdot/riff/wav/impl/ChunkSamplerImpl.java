@@ -14,28 +14,25 @@
  */
 package com.skratchdot.riff.wav.impl;
 
-import com.skratchdot.riff.wav.ChunkSampler;
-import com.skratchdot.riff.wav.ChunkTypeID;
-import com.skratchdot.riff.wav.RIFFWave;
-import com.skratchdot.riff.wav.SampleLoop;
-import com.skratchdot.riff.wav.WavPackage;
-import com.skratchdot.riff.wav.util.RiffWaveException;
-import com.skratchdot.riff.wav.util.WavRandomAccessFile;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.skratchdot.riff.wav.ChunkSampler;
+import com.skratchdot.riff.wav.ChunkTypeID;
+import com.skratchdot.riff.wav.RIFFWave;
+import com.skratchdot.riff.wav.SampleLoop;
+import com.skratchdot.riff.wav.WavFactory;
+import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.RiffWaveException;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,8 +50,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkSamplerImpl#getSmpteOffset <em>Smpte Offset</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkSamplerImpl#getNumberOfSampleLoops <em>Number Of Sample Loops</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkSamplerImpl#getSamplerDataSize <em>Sampler Data Size</em>}</li>
- *   <li>{@link com.skratchdot.riff.wav.impl.ChunkSamplerImpl#getSamplerData <em>Sampler Data</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkSamplerImpl#getSampleLoops <em>Sample Loops</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ChunkSamplerImpl#getSamplerData <em>Sampler Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -212,16 +209,6 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	protected static final Long NUMBER_OF_SAMPLE_LOOPS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNumberOfSampleLoops() <em>Number Of Sample Loops</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumberOfSampleLoops()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long numberOfSampleLoops = NUMBER_OF_SAMPLE_LOOPS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSamplerDataSize() <em>Sampler Data Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,14 +219,14 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	protected static final Long SAMPLER_DATA_SIZE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSamplerDataSize() <em>Sampler Data Size</em>}' attribute.
+	 * The cached value of the '{@link #getSampleLoops() <em>Sample Loops</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSamplerDataSize()
+	 * @see #getSampleLoops()
 	 * @generated
 	 * @ordered
 	 */
-	protected Long samplerDataSize = SAMPLER_DATA_SIZE_EDEFAULT;
+	protected EList<SampleLoop> sampleLoops;
 
 	/**
 	 * The default value of the '{@link #getSamplerData() <em>Sampler Data</em>}' attribute.
@@ -260,16 +247,6 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	 * @ordered
 	 */
 	protected byte[] samplerData = SAMPLER_DATA_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSampleLoops() <em>Sample Loops</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSampleLoops()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SampleLoop> sampleLoops;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -294,7 +271,44 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 
 			// Read in data size
 			long chunkSize = in.readUnsignedInt();
+			
+			// Set member variables
+			this.setManufacturer(in.readUnsignedInt());
+			this.setProduct(in.readUnsignedInt());
+			this.setSamplePeriod(in.readUnsignedInt());
+			this.setMidiUnityNote(in.readUnsignedInt());
+			this.setMidiPitchFraction(in.readUnsignedInt());
+			this.setSmpteFormat(in.readUnsignedInt());
+			this.setSmpteOffset(in.readUnsignedInt());
 
+			long numSampleLoops = in.readUnsignedInt();
+			int samplerDataSize = (int) in.readUnsignedInt();
+
+			// Read in sampleLoops
+			for(int i=0; i<numSampleLoops; i++) {
+				SampleLoop sampleLoop = WavFactory.eINSTANCE.createSampleLoop();
+				sampleLoop.setCuePointID(in.readUnsignedInt());
+				sampleLoop.setType(in.readUnsignedInt());
+				sampleLoop.setStart(in.readUnsignedInt());
+				sampleLoop.setEnd(in.readUnsignedInt());
+				sampleLoop.setFraction(in.readUnsignedInt());
+				sampleLoop.setPlayCount(in.readUnsignedInt());
+				this.getSampleLoops().add(sampleLoop);
+			}
+
+			// Read in sampler data
+			if(samplerDataSize>0) {
+				byte[] b = new byte[samplerDataSize];
+				in.readFully(b, 0, samplerDataSize);
+			}
+
+			// Does the size we read in match the size we calculate from the data read in?
+			if(chunkSize!=this.getSize()) {
+				throw new RiffWaveException("Invalid chunk size for cue chunk." +
+					"From File: " + Long.toString(chunkSize) +
+					"Calculated: " + Long.toString(this.getSize())
+				);
+			}
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
@@ -461,43 +475,19 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Long getNumberOfSampleLoops() {
-		return numberOfSampleLoops;
+		return this.getSampleLoops()==null?0:(long)this.getSampleLoops().size();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNumberOfSampleLoops(Long newNumberOfSampleLoops) {
-		Long oldNumberOfSampleLoops = numberOfSampleLoops;
-		numberOfSampleLoops = newNumberOfSampleLoops;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_SAMPLER__NUMBER_OF_SAMPLE_LOOPS, oldNumberOfSampleLoops, numberOfSampleLoops));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Long getSamplerDataSize() {
-		return samplerDataSize;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSamplerDataSize(Long newSamplerDataSize) {
-		Long oldSamplerDataSize = samplerDataSize;
-		samplerDataSize = newSamplerDataSize;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_SAMPLER__SAMPLER_DATA_SIZE, oldSamplerDataSize, samplerDataSize));
+		return this.getSamplerData()==null?0:(long)this.getSamplerData().length;
 	}
 
 	/**
@@ -554,7 +544,7 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		return 36 + (this.getNumberOfSampleLoops() * 24) + this.getSamplerDataSize();
 	}
 
 	/**
@@ -597,10 +587,10 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 				return getNumberOfSampleLoops();
 			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA_SIZE:
 				return getSamplerDataSize();
-			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
-				return getSamplerData();
 			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
 				return getSampleLoops();
+			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
+				return getSamplerData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -635,18 +625,12 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 			case WavPackage.CHUNK_SAMPLER__SMPTE_OFFSET:
 				setSmpteOffset((Long)newValue);
 				return;
-			case WavPackage.CHUNK_SAMPLER__NUMBER_OF_SAMPLE_LOOPS:
-				setNumberOfSampleLoops((Long)newValue);
-				return;
-			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA_SIZE:
-				setSamplerDataSize((Long)newValue);
-				return;
-			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
-				setSamplerData((byte[])newValue);
-				return;
 			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
 				getSampleLoops().clear();
 				getSampleLoops().addAll((Collection<? extends SampleLoop>)newValue);
+				return;
+			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
+				setSamplerData((byte[])newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -681,17 +665,11 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 			case WavPackage.CHUNK_SAMPLER__SMPTE_OFFSET:
 				setSmpteOffset(SMPTE_OFFSET_EDEFAULT);
 				return;
-			case WavPackage.CHUNK_SAMPLER__NUMBER_OF_SAMPLE_LOOPS:
-				setNumberOfSampleLoops(NUMBER_OF_SAMPLE_LOOPS_EDEFAULT);
-				return;
-			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA_SIZE:
-				setSamplerDataSize(SAMPLER_DATA_SIZE_EDEFAULT);
+			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
+				getSampleLoops().clear();
 				return;
 			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
 				setSamplerData(SAMPLER_DATA_EDEFAULT);
-				return;
-			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
-				getSampleLoops().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -720,13 +698,13 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 			case WavPackage.CHUNK_SAMPLER__SMPTE_OFFSET:
 				return SMPTE_OFFSET_EDEFAULT == null ? smpteOffset != null : !SMPTE_OFFSET_EDEFAULT.equals(smpteOffset);
 			case WavPackage.CHUNK_SAMPLER__NUMBER_OF_SAMPLE_LOOPS:
-				return NUMBER_OF_SAMPLE_LOOPS_EDEFAULT == null ? numberOfSampleLoops != null : !NUMBER_OF_SAMPLE_LOOPS_EDEFAULT.equals(numberOfSampleLoops);
+				return NUMBER_OF_SAMPLE_LOOPS_EDEFAULT == null ? getNumberOfSampleLoops() != null : !NUMBER_OF_SAMPLE_LOOPS_EDEFAULT.equals(getNumberOfSampleLoops());
 			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA_SIZE:
-				return SAMPLER_DATA_SIZE_EDEFAULT == null ? samplerDataSize != null : !SAMPLER_DATA_SIZE_EDEFAULT.equals(samplerDataSize);
-			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
-				return SAMPLER_DATA_EDEFAULT == null ? samplerData != null : !SAMPLER_DATA_EDEFAULT.equals(samplerData);
+				return SAMPLER_DATA_SIZE_EDEFAULT == null ? getSamplerDataSize() != null : !SAMPLER_DATA_SIZE_EDEFAULT.equals(getSamplerDataSize());
 			case WavPackage.CHUNK_SAMPLER__SAMPLE_LOOPS:
 				return sampleLoops != null && !sampleLoops.isEmpty();
+			case WavPackage.CHUNK_SAMPLER__SAMPLER_DATA:
+				return SAMPLER_DATA_EDEFAULT == null ? samplerData != null : !SAMPLER_DATA_EDEFAULT.equals(samplerData);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -755,10 +733,6 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 		result.append(smpteFormat);
 		result.append(", smpteOffset: ");
 		result.append(smpteOffset);
-		result.append(", numberOfSampleLoops: ");
-		result.append(numberOfSampleLoops);
-		result.append(", samplerDataSize: ");
-		result.append(samplerDataSize);
 		result.append(", samplerData: ");
 		result.append(samplerData);
 		result.append(')');

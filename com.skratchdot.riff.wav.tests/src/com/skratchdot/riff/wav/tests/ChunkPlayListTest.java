@@ -23,6 +23,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Chunk Play List</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkPlayList#getNumberOfSegments() <em>Number Of Segments</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ChunkPlayListTest extends ChunkTest {
@@ -77,6 +83,19 @@ public class ChunkPlayListTest extends ChunkTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ChunkPlayList#getNumberOfSegments() <em>Number Of Segments</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ChunkPlayList#getNumberOfSegments()
+	 * @generated
+	 */
+	public void testGetNumberOfSegments() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ChunkPlayListTest

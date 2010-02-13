@@ -136,7 +136,10 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		if(this.getData()!=null) {
+			return this.getData().length;
+		}
+		return 0;
 	}
 
 	/**

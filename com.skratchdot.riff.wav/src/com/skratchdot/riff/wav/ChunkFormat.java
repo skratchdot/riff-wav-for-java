@@ -207,22 +207,11 @@ public interface ChunkFormat extends Chunk {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Extra Format Bytes</em>' attribute.
-	 * @see #setNumberOfExtraFormatBytes(Integer)
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkFormat_NumberOfExtraFormatBytes()
-	 * @model dataType="com.skratchdot.riff.wav.UnsignedShort"
+	 * @model dataType="com.skratchdot.riff.wav.UnsignedShort" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Integer getNumberOfExtraFormatBytes();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkFormat#getNumberOfExtraFormatBytes <em>Number Of Extra Format Bytes</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Extra Format Bytes</em>' attribute.
-	 * @see #getNumberOfExtraFormatBytes()
-	 * @generated
-	 */
-	void setNumberOfExtraFormatBytes(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Extra Format Bytes</b></em>' attribute.

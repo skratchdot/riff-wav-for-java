@@ -14,7 +14,9 @@
  */
 package com.skratchdot.riff.wav.impl;
 
-import java.io.IOException;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.skratchdot.riff.wav.ChunkFormat;
 import com.skratchdot.riff.wav.ChunkTypeID;
@@ -23,12 +25,6 @@ import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -182,16 +178,6 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 	protected static final Integer NUMBER_OF_EXTRA_FORMAT_BYTES_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNumberOfExtraFormatBytes() <em>Number Of Extra Format Bytes</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumberOfExtraFormatBytes()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer numberOfExtraFormatBytes = NUMBER_OF_EXTRA_FORMAT_BYTES_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getExtraFormatBytes() <em>Extra Format Bytes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,7 +219,6 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
-			@SuppressWarnings("unused")
 			long chunkSize = in.readUnsignedInt();
 
 			// Set member variables
@@ -245,13 +230,21 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 			this.setSignificantBitsPerSample(in.readUnsignedShort());
 			
 			if(this.getCompressionCode().getValue()!=CompressionCode.COMPRESSION_CODE_1_VALUE) {
-				this.setNumberOfExtraFormatBytes(in.readUnsignedShort());
-				
-				if(this.getNumberOfExtraFormatBytes()>0) {
+				int numberOfExtraFormatBytes = in.readUnsignedShort();
+
+				if(numberOfExtraFormatBytes>0) {
 					byte[] b = new byte[this.getNumberOfExtraFormatBytes()];
 					in.readFully(b, 0, this.getNumberOfExtraFormatBytes());
 					this.setExtraFormatBytes(b);
 				}
+			}
+
+			// Does the size we read in, match the size we calculate from the data read
+			if(chunkSize!=this.getSize()) {
+				throw new RiffWaveException("Invalid chunk size for format chunk." +
+					"From File: " + Long.toString(chunkSize) +
+					"Calculated: " + Long.toString(this.getSize())
+				);
 			}
 
 		} catch (Exception e) {
@@ -398,22 +391,10 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Integer getNumberOfExtraFormatBytes() {
-		return numberOfExtraFormatBytes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNumberOfExtraFormatBytes(Integer newNumberOfExtraFormatBytes) {
-		Integer oldNumberOfExtraFormatBytes = numberOfExtraFormatBytes;
-		numberOfExtraFormatBytes = newNumberOfExtraFormatBytes;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_FORMAT__NUMBER_OF_EXTRA_FORMAT_BYTES, oldNumberOfExtraFormatBytes, numberOfExtraFormatBytes));
+		return this.getExtraFormatBytes()==null?0:this.getExtraFormatBytes().length;
 	}
 
 	/**
@@ -458,7 +439,10 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		if(this.getNumberOfExtraFormatBytes()>0) {
+			return 18 + this.getNumberOfExtraFormatBytes();
+		}
+		return 16;
 	}
 
 	/**
@@ -515,9 +499,6 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 			case WavPackage.CHUNK_FORMAT__SIGNIFICANT_BITS_PER_SAMPLE:
 				setSignificantBitsPerSample((Integer)newValue);
 				return;
-			case WavPackage.CHUNK_FORMAT__NUMBER_OF_EXTRA_FORMAT_BYTES:
-				setNumberOfExtraFormatBytes((Integer)newValue);
-				return;
 			case WavPackage.CHUNK_FORMAT__EXTRA_FORMAT_BYTES:
 				setExtraFormatBytes((byte[])newValue);
 				return;
@@ -551,9 +532,6 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 			case WavPackage.CHUNK_FORMAT__SIGNIFICANT_BITS_PER_SAMPLE:
 				setSignificantBitsPerSample(SIGNIFICANT_BITS_PER_SAMPLE_EDEFAULT);
 				return;
-			case WavPackage.CHUNK_FORMAT__NUMBER_OF_EXTRA_FORMAT_BYTES:
-				setNumberOfExtraFormatBytes(NUMBER_OF_EXTRA_FORMAT_BYTES_EDEFAULT);
-				return;
 			case WavPackage.CHUNK_FORMAT__EXTRA_FORMAT_BYTES:
 				setExtraFormatBytes(EXTRA_FORMAT_BYTES_EDEFAULT);
 				return;
@@ -582,7 +560,7 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 			case WavPackage.CHUNK_FORMAT__SIGNIFICANT_BITS_PER_SAMPLE:
 				return SIGNIFICANT_BITS_PER_SAMPLE_EDEFAULT == null ? significantBitsPerSample != null : !SIGNIFICANT_BITS_PER_SAMPLE_EDEFAULT.equals(significantBitsPerSample);
 			case WavPackage.CHUNK_FORMAT__NUMBER_OF_EXTRA_FORMAT_BYTES:
-				return NUMBER_OF_EXTRA_FORMAT_BYTES_EDEFAULT == null ? numberOfExtraFormatBytes != null : !NUMBER_OF_EXTRA_FORMAT_BYTES_EDEFAULT.equals(numberOfExtraFormatBytes);
+				return NUMBER_OF_EXTRA_FORMAT_BYTES_EDEFAULT == null ? getNumberOfExtraFormatBytes() != null : !NUMBER_OF_EXTRA_FORMAT_BYTES_EDEFAULT.equals(getNumberOfExtraFormatBytes());
 			case WavPackage.CHUNK_FORMAT__EXTRA_FORMAT_BYTES:
 				return EXTRA_FORMAT_BYTES_EDEFAULT == null ? extraFormatBytes != null : !EXTRA_FORMAT_BYTES_EDEFAULT.equals(extraFormatBytes);
 		}
@@ -611,8 +589,6 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		result.append(blockAlign);
 		result.append(", significantBitsPerSample: ");
 		result.append(significantBitsPerSample);
-		result.append(", numberOfExtraFormatBytes: ");
-		result.append(numberOfExtraFormatBytes);
 		result.append(", extraFormatBytes: ");
 		result.append(extraFormatBytes);
 		result.append(')');

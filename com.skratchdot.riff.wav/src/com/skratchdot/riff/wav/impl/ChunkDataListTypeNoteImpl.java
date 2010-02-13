@@ -55,8 +55,16 @@ public class ChunkDataListTypeNoteImpl extends ChunkDataListTypeImpl implements 
 				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
 
 			// Read in data size
-			long chunkSize = in.readUnsignedInt();
+			int chunkSize = (int) in.readUnsignedInt();
 
+			this.setCuePointID(in.readUnsignedInt());
+
+			int textSize = chunkSize-4;
+			if(textSize>0) {
+				byte[] b = new byte[textSize];
+				in.readFully(b, 0, textSize);
+				this.setText(b);
+			}
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
@@ -84,7 +92,7 @@ public class ChunkDataListTypeNoteImpl extends ChunkDataListTypeImpl implements 
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		return this.getText()==null?4:4+this.getText().length;
 	}
 
 	/**

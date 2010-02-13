@@ -43,22 +43,11 @@ public interface ChunkPlayList extends Chunk {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Segments</em>' attribute.
-	 * @see #setNumberOfSegments(Long)
 	 * @see com.skratchdot.riff.wav.WavPackage#getChunkPlayList_NumberOfSegments()
-	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt"
+	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Long getNumberOfSegments();
-
-	/**
-	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkPlayList#getNumberOfSegments <em>Number Of Segments</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Segments</em>' attribute.
-	 * @see #getNumberOfSegments()
-	 * @generated
-	 */
-	void setNumberOfSegments(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Segments</b></em>' reference list.

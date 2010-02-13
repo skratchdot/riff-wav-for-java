@@ -14,25 +14,20 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import com.skratchdot.riff.wav.ChunkCue;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.CuePoint;
 import com.skratchdot.riff.wav.RIFFWave;
+import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +44,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
+
 	/**
 	 * The default value of the '{@link #getNumberOfCuePoints() <em>Number Of Cue Points</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -58,17 +54,6 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	 * @ordered
 	 */
 	protected static final Long NUMBER_OF_CUE_POINTS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNumberOfCuePoints() <em>Number Of Cue Points</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumberOfCuePoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long numberOfCuePoints = NUMBER_OF_CUE_POINTS_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getCuePoints() <em>Cue Points</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -103,6 +88,26 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 			// Read in data size
 			long chunkSize = in.readUnsignedInt();
 
+			// Read in cue points
+			long numCuePoints = in.readUnsignedInt();
+			for(int i=0; i<numCuePoints; i++) {
+				CuePoint cuePoint = WavFactory.eINSTANCE.createCuePoint();
+				cuePoint.setCuePointID(in.readUnsignedInt());
+				cuePoint.setPosition(in.readUnsignedInt());
+				cuePoint.setDataChunkID(in.readUnsignedInt());
+				cuePoint.setChunkStart(in.readUnsignedInt());
+				cuePoint.setBlockStart(in.readUnsignedInt());
+				cuePoint.setSampleOffset(in.readUnsignedInt());
+				this.getCuePoints().add(cuePoint);
+			}
+
+			// Does the size we read in match the size we calculate from the data read in?
+			if(chunkSize!=this.getSize()) {
+				throw new RiffWaveException("Invalid chunk size for cue chunk." +
+					"From File: " + Long.toString(chunkSize) +
+					"Calculated: " + Long.toString(this.getSize())
+				);
+			}
 			
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
@@ -122,22 +127,10 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Long getNumberOfCuePoints() {
-		return numberOfCuePoints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNumberOfCuePoints(Long newNumberOfCuePoints) {
-		Long oldNumberOfCuePoints = numberOfCuePoints;
-		numberOfCuePoints = newNumberOfCuePoints;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_CUE__NUMBER_OF_CUE_POINTS, oldNumberOfCuePoints, numberOfCuePoints));
+		return this.getCuePoints()==null?0:(long)this.getCuePoints().size();
 	}
 
 	/**
@@ -173,7 +166,7 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		return 4 + (this.getNumberOfCuePoints() * 24);
 	}
 
 	/**
@@ -201,9 +194,6 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WavPackage.CHUNK_CUE__NUMBER_OF_CUE_POINTS:
-				setNumberOfCuePoints((Long)newValue);
-				return;
 			case WavPackage.CHUNK_CUE__CUE_POINTS:
 				getCuePoints().clear();
 				getCuePoints().addAll((Collection<? extends CuePoint>)newValue);
@@ -220,9 +210,6 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WavPackage.CHUNK_CUE__NUMBER_OF_CUE_POINTS:
-				setNumberOfCuePoints(NUMBER_OF_CUE_POINTS_EDEFAULT);
-				return;
 			case WavPackage.CHUNK_CUE__CUE_POINTS:
 				getCuePoints().clear();
 				return;
@@ -239,27 +226,15 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case WavPackage.CHUNK_CUE__NUMBER_OF_CUE_POINTS:
-				return NUMBER_OF_CUE_POINTS_EDEFAULT == null ? numberOfCuePoints != null : !NUMBER_OF_CUE_POINTS_EDEFAULT.equals(numberOfCuePoints);
+				return NUMBER_OF_CUE_POINTS_EDEFAULT == null ? getNumberOfCuePoints() != null : !NUMBER_OF_CUE_POINTS_EDEFAULT.equals(getNumberOfCuePoints());
 			case WavPackage.CHUNK_CUE__CUE_POINTS:
 				return cuePoints != null && !cuePoints.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (numberOfCuePoints: ");
-		result.append(numberOfCuePoints);
-		result.append(')');
-		return result.toString();
-	}
+
+
 
 } //ChunkCueImpl

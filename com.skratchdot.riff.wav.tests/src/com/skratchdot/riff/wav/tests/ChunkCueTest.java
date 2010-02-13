@@ -23,6 +23,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Chunk Cue</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkCue#getNumberOfCuePoints() <em>Number Of Cue Points</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ChunkCueTest extends ChunkTest {
@@ -77,6 +83,19 @@ public class ChunkCueTest extends ChunkTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ChunkCue#getNumberOfCuePoints() <em>Number Of Cue Points</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ChunkCue#getNumberOfCuePoints()
+	 * @generated
+	 */
+	public void testGetNumberOfCuePoints() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ChunkCueTest

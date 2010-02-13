@@ -548,6 +548,15 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getChunkDataListType_TextAsString() {
+		return (EAttribute)chunkDataListTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getChunkDataListTypeLabel() {
 		return chunkDataListTypeLabelEClass;
 	}
@@ -918,7 +927,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * @generated
 	 */
 	public EAttribute getChunkSampler_SamplerData() {
-		return (EAttribute)chunkSamplerEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)chunkSamplerEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -927,7 +936,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * @generated
 	 */
 	public EReference getChunkSampler_SampleLoops() {
-		return (EReference)chunkSamplerEClass.getEStructuralFeatures().get(10);
+		return (EReference)chunkSamplerEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1345,6 +1354,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		chunkDataListTypeEClass = createEClass(CHUNK_DATA_LIST_TYPE);
 		createEAttribute(chunkDataListTypeEClass, CHUNK_DATA_LIST_TYPE__CUE_POINT_ID);
 		createEAttribute(chunkDataListTypeEClass, CHUNK_DATA_LIST_TYPE__TEXT);
+		createEAttribute(chunkDataListTypeEClass, CHUNK_DATA_LIST_TYPE__TEXT_AS_STRING);
 
 		chunkDataListTypeLabelEClass = createEClass(CHUNK_DATA_LIST_TYPE_LABEL);
 
@@ -1394,8 +1404,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		createEAttribute(chunkSamplerEClass, CHUNK_SAMPLER__SMPTE_OFFSET);
 		createEAttribute(chunkSamplerEClass, CHUNK_SAMPLER__NUMBER_OF_SAMPLE_LOOPS);
 		createEAttribute(chunkSamplerEClass, CHUNK_SAMPLER__SAMPLER_DATA_SIZE);
-		createEAttribute(chunkSamplerEClass, CHUNK_SAMPLER__SAMPLER_DATA);
 		createEReference(chunkSamplerEClass, CHUNK_SAMPLER__SAMPLE_LOOPS);
+		createEAttribute(chunkSamplerEClass, CHUNK_SAMPLER__SAMPLER_DATA);
 
 		chunkSilentEClass = createEClass(CHUNK_SILENT);
 		createEAttribute(chunkSilentEClass, CHUNK_SILENT__NUMBER_OF_SILENT_SAMPLES);
@@ -1512,7 +1522,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEAttribute(getChunk_ChunkTypeIDValue(), ecorePackage.getEInt(), "chunkTypeIDValue", null, 0, 1, Chunk.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkCueEClass, ChunkCue.class, "ChunkCue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChunkCue_NumberOfCuePoints(), this.getUnsignedInt(), "numberOfCuePoints", null, 0, 1, ChunkCue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkCue_NumberOfCuePoints(), this.getUnsignedInt(), "numberOfCuePoints", null, 0, 1, ChunkCue.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getChunkCue_CuePoints(), this.getCuePoint(), null, "cuePoints", null, 0, -1, ChunkCue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkDataEClass, ChunkData.class, "ChunkData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1525,7 +1535,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		initEClass(chunkDataListTypeEClass, ChunkDataListType.class, "ChunkDataListType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkDataListType_CuePointID(), this.getUnsignedInt(), "cuePointID", null, 0, 1, ChunkDataListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChunkDataListType_Text(), ecorePackage.getEString(), "text", null, 0, 1, ChunkDataListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkDataListType_Text(), ecorePackage.getEByteArray(), "text", null, 0, 1, ChunkDataListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkDataListType_TextAsString(), ecorePackage.getEString(), "textAsString", null, 0, 1, ChunkDataListType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkDataListTypeLabelEClass, ChunkDataListTypeLabel.class, "ChunkDataListTypeLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1540,7 +1551,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEClass(chunkDataListTypeNoteEClass, ChunkDataListTypeNote.class, "ChunkDataListTypeNote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chunkFactEClass, ChunkFact.class, "ChunkFact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChunkFact_FormatDependantData(), ecorePackage.getEByte(), "formatDependantData", null, 0, 1, ChunkFact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkFact_FormatDependantData(), ecorePackage.getEByteArray(), "formatDependantData", null, 0, 1, ChunkFact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkFormatEClass, ChunkFormat.class, "ChunkFormat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkFormat_CompressionCode(), this.getCompressionCode(), "compressionCode", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1549,7 +1560,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEAttribute(getChunkFormat_AverageBytesPerSecond(), this.getUnsignedInt(), "averageBytesPerSecond", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkFormat_BlockAlign(), this.getUnsignedShort(), "blockAlign", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkFormat_SignificantBitsPerSample(), this.getUnsignedShort(), "significantBitsPerSample", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChunkFormat_NumberOfExtraFormatBytes(), this.getUnsignedShort(), "numberOfExtraFormatBytes", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkFormat_NumberOfExtraFormatBytes(), this.getUnsignedShort(), "numberOfExtraFormatBytes", null, 0, 1, ChunkFormat.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkFormat_ExtraFormatBytes(), ecorePackage.getEByteArray(), "extraFormatBytes", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkInstrumentEClass, ChunkInstrument.class, "ChunkInstrument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1562,7 +1573,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEAttribute(getChunkInstrument_HighVelocity(), ecorePackage.getEByte(), "highVelocity", null, 0, 1, ChunkInstrument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkPlayListEClass, ChunkPlayList.class, "ChunkPlayList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChunkPlayList_NumberOfSegments(), this.getUnsignedInt(), "numberOfSegments", null, 0, 1, ChunkPlayList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkPlayList_NumberOfSegments(), this.getUnsignedInt(), "numberOfSegments", null, 0, 1, ChunkPlayList.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getChunkPlayList_Segments(), this.getSegment(), null, "segments", null, 0, -1, ChunkPlayList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkSamplerEClass, ChunkSampler.class, "ChunkSampler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1573,10 +1584,10 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEAttribute(getChunkSampler_MidiPitchFraction(), this.getUnsignedInt(), "midiPitchFraction", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkSampler_SmpteFormat(), this.getUnsignedInt(), "smpteFormat", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkSampler_SmpteOffset(), this.getUnsignedInt(), "smpteOffset", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChunkSampler_NumberOfSampleLoops(), this.getUnsignedInt(), "numberOfSampleLoops", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChunkSampler_SamplerDataSize(), this.getUnsignedInt(), "samplerDataSize", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChunkSampler_SamplerData(), ecorePackage.getEByteArray(), "samplerData", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkSampler_NumberOfSampleLoops(), this.getUnsignedInt(), "numberOfSampleLoops", null, 0, 1, ChunkSampler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkSampler_SamplerDataSize(), this.getUnsignedInt(), "samplerDataSize", null, 0, 1, ChunkSampler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getChunkSampler_SampleLoops(), this.getSampleLoop(), null, "sampleLoops", null, 0, -1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkSampler_SamplerData(), ecorePackage.getEByteArray(), "samplerData", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkSilentEClass, ChunkSilent.class, "ChunkSilent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkSilent_NumberOfSilentSamples(), this.getUnsignedInt(), "numberOfSilentSamples", null, 0, 1, ChunkSilent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
