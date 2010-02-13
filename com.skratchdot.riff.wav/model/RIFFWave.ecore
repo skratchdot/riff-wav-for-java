@@ -107,6 +107,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkUnknown" eSuperTypes="#//Chunk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unknownChunkTypeIdValue"
+        eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wavRandomAccessFilePointer"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>

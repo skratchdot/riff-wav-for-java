@@ -24,6 +24,7 @@ package com.skratchdot.riff.wav;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.ChunkUnknown#getData <em>Data</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkUnknown#getUnknownChunkTypeIdValue <em>Unknown Chunk Type Id Value</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkUnknown#getWavRandomAccessFilePointer <em>Wav Random Access File Pointer</em>}</li>
  * </ul>
  * </p>
@@ -59,6 +60,32 @@ public interface ChunkUnknown extends Chunk {
 	 * @generated
 	 */
 	void setData(byte[] value);
+
+	/**
+	 * Returns the value of the '<em><b>Unknown Chunk Type Id Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unknown Chunk Type Id Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unknown Chunk Type Id Value</em>' attribute.
+	 * @see #setUnknownChunkTypeIdValue(Long)
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunkUnknown_UnknownChunkTypeIdValue()
+	 * @model dataType="com.skratchdot.riff.wav.UnsignedInt"
+	 * @generated
+	 */
+	Long getUnknownChunkTypeIdValue();
+
+	/**
+	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkUnknown#getUnknownChunkTypeIdValue <em>Unknown Chunk Type Id Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unknown Chunk Type Id Value</em>' attribute.
+	 * @see #getUnknownChunkTypeIdValue()
+	 * @generated
+	 */
+	void setUnknownChunkTypeIdValue(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Wav Random Access File Pointer</b></em>' attribute.

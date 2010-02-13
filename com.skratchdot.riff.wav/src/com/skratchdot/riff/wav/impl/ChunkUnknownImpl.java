@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkUnknownImpl#getData <em>Data</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ChunkUnknownImpl#getUnknownChunkTypeIdValue <em>Unknown Chunk Type Id Value</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkUnknownImpl#getWavRandomAccessFilePointer <em>Wav Random Access File Pointer</em>}</li>
  * </ul>
  * </p>
@@ -58,6 +59,24 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 	 * @ordered
 	 */
 	protected byte[] data = DATA_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getUnknownChunkTypeIdValue() <em>Unknown Chunk Type Id Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnknownChunkTypeIdValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long UNKNOWN_CHUNK_TYPE_ID_VALUE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getUnknownChunkTypeIdValue() <em>Unknown Chunk Type Id Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnknownChunkTypeIdValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Long unknownChunkTypeIdValue = UNKNOWN_CHUNK_TYPE_ID_VALUE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getWavRandomAccessFilePointer() <em>Wav Random Access File Pointer</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -99,8 +118,7 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 			this.setWavRandomAccessFilePointer(in.getFilePointer());
 
 			// Check Chunk Type ID
-			if(ChunkTypeID.get((int)in.readUnsignedInt())!=this.getChunkTypeID())
-				throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
+			this.setUnknownChunkTypeIdValue(in.readUnsignedInt());
 
 			// Read in data size
 			int chunkDataSize = (int) in.readUnsignedInt();
@@ -178,6 +196,27 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Long getUnknownChunkTypeIdValue() {
+		return unknownChunkTypeIdValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnknownChunkTypeIdValue(Long newUnknownChunkTypeIdValue) {
+		Long oldUnknownChunkTypeIdValue = unknownChunkTypeIdValue;
+		unknownChunkTypeIdValue = newUnknownChunkTypeIdValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE, oldUnknownChunkTypeIdValue, unknownChunkTypeIdValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public long getWavRandomAccessFilePointer() {
 		return wavRandomAccessFilePointer;
 	}
@@ -204,6 +243,8 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 		switch (featureID) {
 			case WavPackage.CHUNK_UNKNOWN__DATA:
 				return getData();
+			case WavPackage.CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE:
+				return getUnknownChunkTypeIdValue();
 			case WavPackage.CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER:
 				return getWavRandomAccessFilePointer();
 		}
@@ -220,6 +261,9 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 		switch (featureID) {
 			case WavPackage.CHUNK_UNKNOWN__DATA:
 				setData((byte[])newValue);
+				return;
+			case WavPackage.CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE:
+				setUnknownChunkTypeIdValue((Long)newValue);
 				return;
 			case WavPackage.CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER:
 				setWavRandomAccessFilePointer((Long)newValue);
@@ -239,6 +283,9 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 			case WavPackage.CHUNK_UNKNOWN__DATA:
 				setData(DATA_EDEFAULT);
 				return;
+			case WavPackage.CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE:
+				setUnknownChunkTypeIdValue(UNKNOWN_CHUNK_TYPE_ID_VALUE_EDEFAULT);
+				return;
 			case WavPackage.CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER:
 				setWavRandomAccessFilePointer(WAV_RANDOM_ACCESS_FILE_POINTER_EDEFAULT);
 				return;
@@ -256,6 +303,8 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 		switch (featureID) {
 			case WavPackage.CHUNK_UNKNOWN__DATA:
 				return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals(data);
+			case WavPackage.CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE:
+				return UNKNOWN_CHUNK_TYPE_ID_VALUE_EDEFAULT == null ? unknownChunkTypeIdValue != null : !UNKNOWN_CHUNK_TYPE_ID_VALUE_EDEFAULT.equals(unknownChunkTypeIdValue);
 			case WavPackage.CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER:
 				return wavRandomAccessFilePointer != WAV_RANDOM_ACCESS_FILE_POINTER_EDEFAULT;
 		}
@@ -274,6 +323,8 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (data: ");
 		result.append(data);
+		result.append(", unknownChunkTypeIdValue: ");
+		result.append(unknownChunkTypeIdValue);
 		result.append(", wavRandomAccessFilePointer: ");
 		result.append(wavRandomAccessFilePointer);
 		result.append(')');

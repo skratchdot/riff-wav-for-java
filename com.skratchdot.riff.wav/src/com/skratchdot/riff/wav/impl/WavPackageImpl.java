@@ -980,8 +980,17 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkUnknown_WavRandomAccessFilePointer() {
+	public EAttribute getChunkUnknown_UnknownChunkTypeIdValue() {
 		return (EAttribute)chunkUnknownEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChunkUnknown_WavRandomAccessFilePointer() {
+		return (EAttribute)chunkUnknownEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1439,6 +1448,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		chunkUnknownEClass = createEClass(CHUNK_UNKNOWN);
 		createEAttribute(chunkUnknownEClass, CHUNK_UNKNOWN__DATA);
+		createEAttribute(chunkUnknownEClass, CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE);
 		createEAttribute(chunkUnknownEClass, CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER);
 
 		chunkWaveListEClass = createEClass(CHUNK_WAVE_LIST);
@@ -1624,6 +1634,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		initEClass(chunkUnknownEClass, ChunkUnknown.class, "ChunkUnknown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkUnknown_Data(), ecorePackage.getEByteArray(), "data", null, 0, 1, ChunkUnknown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkUnknown_UnknownChunkTypeIdValue(), this.getUnsignedInt(), "unknownChunkTypeIdValue", null, 0, 1, ChunkUnknown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkUnknown_WavRandomAccessFilePointer(), ecorePackage.getELong(), "wavRandomAccessFilePointer", null, 0, 1, ChunkUnknown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chunkWaveListEClass, ChunkWaveList.class, "ChunkWaveList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

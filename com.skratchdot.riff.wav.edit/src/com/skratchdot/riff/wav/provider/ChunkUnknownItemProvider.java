@@ -70,6 +70,7 @@ public class ChunkUnknownItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDataPropertyDescriptor(object);
+			addUnknownChunkTypeIdValuePropertyDescriptor(object);
 			addWavRandomAccessFilePointerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -90,6 +91,28 @@ public class ChunkUnknownItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkUnknown_data_feature", "_UI_ChunkUnknown_type"),
 				 WavPackage.Literals.CHUNK_UNKNOWN__DATA,
 				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unknown Chunk Type Id Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnknownChunkTypeIdValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ChunkUnknown_unknownChunkTypeIdValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkUnknown_unknownChunkTypeIdValue_feature", "_UI_ChunkUnknown_type"),
+				 WavPackage.Literals.CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -155,6 +178,7 @@ public class ChunkUnknownItemProvider
 
 		switch (notification.getFeatureID(ChunkUnknown.class)) {
 			case WavPackage.CHUNK_UNKNOWN__DATA:
+			case WavPackage.CHUNK_UNKNOWN__UNKNOWN_CHUNK_TYPE_ID_VALUE:
 			case WavPackage.CHUNK_UNKNOWN__WAV_RANDOM_ACCESS_FILE_POINTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
