@@ -239,4 +239,15 @@ public final class WavRandomAccessFile implements DataInput, DataOutput {
 		return raf;
 	}
 	
+	/**
+	 * If the filepointer is currently at an odd position, it will advance
+	 * to an even position.
+	 * @throws IOException
+	 */
+	public void blockAlign() throws IOException {
+		if(raf.getFilePointer()%2==1) {
+			raf.seek(raf.getFilePointer()+1);
+		}
+	}
+
 }

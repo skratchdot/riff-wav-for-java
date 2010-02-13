@@ -117,9 +117,7 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 				}
 
 				// We need to block align
-				if(in.getFilePointer()%2==1 && in.getFilePointer()<in.length()-1) {
-					in.seek(in.getFilePointer()+1);
-				}
+				in.blockAlign();
 				
 			}
 
