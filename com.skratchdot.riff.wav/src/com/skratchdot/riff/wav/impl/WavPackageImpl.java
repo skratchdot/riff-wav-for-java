@@ -56,6 +56,8 @@ import com.skratchdot.riff.wav.Segment;
 import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * <!-- begin-user-doc -->
@@ -280,6 +282,20 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * @generated
 	 */
 	private EDataType exceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType fileEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType ioExceptionEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1349,6 +1365,24 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getFile() {
+		return fileEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getIOException() {
+		return ioExceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getUnsignedShort() {
 		return unsignedShortEDataType;
 	}
@@ -1536,6 +1570,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		// Create data types
 		exceptionEDataType = createEDataType(EXCEPTION);
+		fileEDataType = createEDataType(FILE);
+		ioExceptionEDataType = createEDataType(IO_EXCEPTION);
 		unsignedShortEDataType = createEDataType(UNSIGNED_SHORT);
 		unsignedIntEDataType = createEDataType(UNSIGNED_INT);
 		wavRandomAccessFileEDataType = createEDataType(WAV_RANDOM_ACCESS_FILE);
@@ -1594,8 +1630,13 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		initEAttribute(getRIFFWave_Size(), ecorePackage.getELong(), "size", null, 0, 1, RIFFWave.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(riffWaveEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
+
+		op = addEOperation(riffWaveEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(channelEClass, Channel.class, "Channel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChannel_SampleData(), this.getSampleData(), null, "sampleData", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1609,6 +1650,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkCueEClass, ChunkCue.class, "ChunkCue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkCue_NumberOfCuePoints(), this.getUnsignedInt(), "numberOfCuePoints", null, 0, 1, ChunkCue.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1617,6 +1659,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkCueEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkDataEClass, ChunkData.class, "ChunkData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChunkData_Channels(), this.getChannel(), null, "channels", null, 0, -1, ChunkData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1625,6 +1668,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkDataEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkDataListEClass, ChunkDataList.class, "ChunkDataList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkDataList_TypeID(), this.getChunkDataListTypeID(), "typeID", null, 0, 1, ChunkDataList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1633,6 +1677,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkDataListEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkDataListTypeEClass, ChunkDataListType.class, "ChunkDataListType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkDataListType_CuePointID(), this.getUnsignedInt(), "cuePointID", null, 0, 1, ChunkDataListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1644,6 +1689,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkDataListTypeLabelEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkDataListTypeLabeledTextEClass, ChunkDataListTypeLabeledText.class, "ChunkDataListTypeLabeledText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkDataListTypeLabeledText_SampleLength(), this.getUnsignedInt(), "sampleLength", null, 0, 1, ChunkDataListTypeLabeledText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1656,12 +1702,14 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkDataListTypeLabeledTextEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkDataListTypeNoteEClass, ChunkDataListTypeNote.class, "ChunkDataListTypeNote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(chunkDataListTypeNoteEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkFactEClass, ChunkFact.class, "ChunkFact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkFact_FormatDependantData(), ecorePackage.getEByteArray(), "formatDependantData", null, 0, 1, ChunkFact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1669,6 +1717,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkFactEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkFormatEClass, ChunkFormat.class, "ChunkFormat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkFormat_CompressionCode(), this.getCompressionCode(), "compressionCode", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1683,6 +1732,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkFormatEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkInstrumentEClass, ChunkInstrument.class, "ChunkInstrument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkInstrument_UnshiftedNote(), ecorePackage.getEByte(), "unshiftedNote", null, 0, 1, ChunkInstrument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1696,6 +1746,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkInstrumentEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkPlayListEClass, ChunkPlayList.class, "ChunkPlayList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkPlayList_NumberOfSegments(), this.getUnsignedInt(), "numberOfSegments", null, 0, 1, ChunkPlayList.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1704,6 +1755,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkPlayListEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkSamplerEClass, ChunkSampler.class, "ChunkSampler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkSampler_Manufacturer(), this.getUnsignedInt(), "manufacturer", null, 0, 1, ChunkSampler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1721,6 +1773,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkSamplerEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkSilentEClass, ChunkSilent.class, "ChunkSilent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkSilent_NumberOfSilentSamples(), this.getUnsignedInt(), "numberOfSilentSamples", null, 0, 1, ChunkSilent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1728,6 +1781,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkSilentEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkUnknownEClass, ChunkUnknown.class, "ChunkUnknown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkUnknown_Data(), ecorePackage.getEByteArray(), "data", null, 0, 1, ChunkUnknown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1737,6 +1791,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkUnknownEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(chunkWaveListEClass, ChunkWaveList.class, "ChunkWaveList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChunkWaveList_AlternatingSilentAndDataChunks(), this.getChunk(), null, "alternatingSilentAndDataChunks", null, 0, -1, ChunkWaveList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1744,6 +1799,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 		op = addEOperation(chunkWaveListEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRIFFWave(), "riffWave", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWavRandomAccessFile(), "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
 
 		initEClass(cuePointEClass, CuePoint.class, "CuePoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCuePoint_CuePointID(), this.getUnsignedInt(), "cuePointID", null, 0, 1, CuePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1831,6 +1887,8 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		// Initialize data types
 		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(fileEDataType, File.class, "File", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(ioExceptionEDataType, IOException.class, "IOException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(unsignedShortEDataType, Integer.class, "UnsignedShort", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(unsignedIntEDataType, Long.class, "UnsignedInt", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(wavRandomAccessFileEDataType, WavRandomAccessFile.class, "WavRandomAccessFile", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

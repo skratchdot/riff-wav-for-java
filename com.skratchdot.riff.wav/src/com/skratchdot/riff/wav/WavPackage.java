@@ -1928,6 +1928,26 @@ public interface WavPackage extends EPackage {
 	int EXCEPTION = 30;
 
 	/**
+	 * The meta object id for the '<em>File</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.File
+	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getFile()
+	 * @generated
+	 */
+	int FILE = 31;
+
+	/**
+	 * The meta object id for the '<em>IO Exception</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.IOException
+	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getIOException()
+	 * @generated
+	 */
+	int IO_EXCEPTION = 32;
+
+	/**
 	 * The meta object id for the '<em>Unsigned Short</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1935,7 +1955,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getUnsignedShort()
 	 * @generated
 	 */
-	int UNSIGNED_SHORT = 31;
+	int UNSIGNED_SHORT = 33;
 
 	/**
 	 * The meta object id for the '<em>Unsigned Int</em>' data type.
@@ -1945,7 +1965,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getUnsignedInt()
 	 * @generated
 	 */
-	int UNSIGNED_INT = 32;
+	int UNSIGNED_INT = 34;
 
 	/**
 	 * The meta object id for the '<em>Random Access File</em>' data type.
@@ -1955,7 +1975,7 @@ public interface WavPackage extends EPackage {
 	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getWavRandomAccessFile()
 	 * @generated
 	 */
-	int WAV_RANDOM_ACCESS_FILE = 33;
+	int WAV_RANDOM_ACCESS_FILE = 35;
 
 	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.RIFFWave <em>RIFF Wave</em>}'.
@@ -3127,6 +3147,28 @@ public interface WavPackage extends EPackage {
 	EDataType getException();
 
 	/**
+	 * Returns the meta object for data type '{@link java.io.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>File</em>'.
+	 * @see java.io.File
+	 * @model instanceClass="java.io.File"
+	 * @generated
+	 */
+	EDataType getFile();
+
+	/**
+	 * Returns the meta object for data type '{@link java.io.IOException <em>IO Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IO Exception</em>'.
+	 * @see java.io.IOException
+	 * @model instanceClass="java.io.IOException"
+	 * @generated
+	 */
+	EDataType getIOException();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Integer <em>Unsigned Short</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4114,6 +4156,26 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EXCEPTION = eINSTANCE.getException();
+
+		/**
+		 * The meta object literal for the '<em>File</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.File
+		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getFile()
+		 * @generated
+		 */
+		EDataType FILE = eINSTANCE.getFile();
+
+		/**
+		 * The meta object literal for the '<em>IO Exception</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.IOException
+		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getIOException()
+		 * @generated
+		 */
+		EDataType IO_EXCEPTION = eINSTANCE.getIOException();
 
 		/**
 		 * The meta object literal for the '<em>Unsigned Short</em>' data type.

@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav;
 
+import java.io.File;
 import java.io.IOException;
 
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
@@ -90,10 +91,18 @@ public interface RIFFWave extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @model outDataType="com.skratchdot.riff.wav.WavRandomAccessFile"
-	 * @generated NOT
+	 * @model exceptions="com.skratchdot.riff.wav.IOException" fileDataType="com.skratchdot.riff.wav.File"
+	 * @generated
+	 */
+	void write(File file) throws IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.skratchdot.riff.wav.IOException" outDataType="com.skratchdot.riff.wav.WavRandomAccessFile"
+	 * @generated
 	 */
 	void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException;
+
 
 } // RIFFWave

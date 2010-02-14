@@ -510,7 +510,6 @@ public class ChunkDataListTypeLabeledTextImpl extends ChunkDataListTypeImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
 	 * @generated NOT
 	 */
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {

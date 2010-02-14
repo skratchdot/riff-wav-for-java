@@ -743,7 +743,6 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
 	 * @generated NOT
 	 */
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {

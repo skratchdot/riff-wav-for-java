@@ -34,6 +34,7 @@ import junit.textui.TestRunner;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#write(java.io.File) <em>Write</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.RIFFWave#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile) <em>Write</em>}</li>
  * </ul>
  * </p>
@@ -119,6 +120,19 @@ public class RIFFWaveTest extends TestCase {
 	 */
 	public void testGetSize() {
 		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#write(java.io.File) <em>Write</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#write(java.io.File)
+	 * @generated
+	 */
+	public void testWrite__File() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

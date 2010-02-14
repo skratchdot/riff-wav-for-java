@@ -15,6 +15,7 @@
 package com.skratchdot.riff.wav.impl;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -143,6 +144,10 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 				return createSMPTEFormatFromString(eDataType, initialValue);
 			case WavPackage.EXCEPTION:
 				return createExceptionFromString(eDataType, initialValue);
+			case WavPackage.FILE:
+				return createFileFromString(eDataType, initialValue);
+			case WavPackage.IO_EXCEPTION:
+				return createIOExceptionFromString(eDataType, initialValue);
 			case WavPackage.UNSIGNED_SHORT:
 				return createUnsignedShortFromString(eDataType, initialValue);
 			case WavPackage.UNSIGNED_INT:
@@ -173,6 +178,10 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 				return convertSMPTEFormatToString(eDataType, instanceValue);
 			case WavPackage.EXCEPTION:
 				return convertExceptionToString(eDataType, instanceValue);
+			case WavPackage.FILE:
+				return convertFileToString(eDataType, instanceValue);
+			case WavPackage.IO_EXCEPTION:
+				return convertIOExceptionToString(eDataType, instanceValue);
 			case WavPackage.UNSIGNED_SHORT:
 				return convertUnsignedShortToString(eDataType, instanceValue);
 			case WavPackage.UNSIGNED_INT:
@@ -607,6 +616,42 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	 */
 	public String convertExceptionToString(EDataType eDataType,
 			Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public File createFileFromString(EDataType eDataType, String initialValue) {
+		return (File)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFileToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IOException createIOExceptionFromString(EDataType eDataType, String initialValue) {
+		return (IOException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIOExceptionToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

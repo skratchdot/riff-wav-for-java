@@ -253,7 +253,6 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
 	 * @generated NOT
 	 */
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {

@@ -1471,6 +1471,57 @@ public class WavEditor
 	 * @generated
 	 */
 	public void doSaveGen(IProgressMonitor progressMonitor) {
+		// Save only resources that have actually changed.
+		//
+		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+
+		// Do the work within an operation because this is a long running activity that modifies the workbench.
+		//
+		IRunnableWithProgress operation =
+			new IRunnableWithProgress() {
+				// This is the method that gets invoked when the operation runs.
+				//
+				public void run(IProgressMonitor monitor) {
+					// Save the resources to the file system.
+					//
+					boolean first = true;
+					for (Resource resource : editingDomain.getResourceSet().getResources()) {
+						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
+							try {
+								long timeStamp = resource.getTimeStamp();
+								resource.save(saveOptions);
+								if (resource.getTimeStamp() != timeStamp) {
+									savedResources.add(resource);
+								}
+							}
+							catch (Exception exception) {
+								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							}
+							first = false;
+						}
+					}
+				}
+			};
+
+		updateProblemIndication = false;
+		try {
+			// This runs the options, and shows progress.
+			//
+			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
+
+			// Refresh the necessary state.
+			//
+			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
+			firePropertyChange(IEditorPart.PROP_DIRTY);
+		}
+		catch (Exception exception) {
+			// Something went wrong that shouldn't.
+			//
+			RIFFWaveEditorPlugin.INSTANCE.log(exception);
+		}
+		updateProblemIndication = true;
+		updateProblemIndication();
 	}
 
 	/**

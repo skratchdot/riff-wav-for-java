@@ -227,7 +227,6 @@ public class ChunkSilentImpl extends ChunkImpl implements ChunkSilent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
 	 * @generated NOT
 	 */
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {

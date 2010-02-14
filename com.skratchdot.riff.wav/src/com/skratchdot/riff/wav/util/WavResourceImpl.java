@@ -73,12 +73,13 @@ public class WavResourceImpl extends ResourceImpl {
 		if(options!=null && options.containsKey("FileString")) {
 			try {
 				String fileString = (String) options.get("FileString");
-				out = new WavRandomAccessFile(new File(fileString), "rwd");
+				File file = new File(fileString);
 				RIFFWave riffWave = (RIFFWave) this.getContents().get(0);
-				riffWave.write(riffWave, out);
+				riffWave.write(file);
 
 				byte[] buffer = new byte[16384];
 				int len;
+				out = new WavRandomAccessFile(new File(fileString), "rwd");
 				out.seek(0);
 				while((len = out.read(buffer)) >= 0) {
 					outputStream.write(buffer, 0, len);

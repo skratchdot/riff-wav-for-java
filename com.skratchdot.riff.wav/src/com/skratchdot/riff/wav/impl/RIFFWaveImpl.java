@@ -287,7 +287,17 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(File file) throws IOException {
+		WavRandomAccessFile out = new WavRandomAccessFile(file, "rwd");
+		this.write(this, out);
+		out.close();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {

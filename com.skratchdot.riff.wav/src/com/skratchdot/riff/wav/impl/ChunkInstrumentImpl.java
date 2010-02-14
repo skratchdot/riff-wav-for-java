@@ -557,7 +557,6 @@ public class ChunkInstrumentImpl extends ChunkImpl implements ChunkInstrument {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
 	 * @generated NOT
 	 */
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {

@@ -120,9 +120,8 @@ public interface ChunkUnknown extends Chunk {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @model outDataType="com.skratchdot.riff.wav.WavRandomAccessFile"
-	 * @generated NOT
+	 * @model exceptions="com.skratchdot.riff.wav.IOException" outDataType="com.skratchdot.riff.wav.WavRandomAccessFile"
+	 * @generated
 	 */
 	void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException;
 } // ChunkUnknown

@@ -4,7 +4,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="wav"
     nsURI="http:///com/skratchdot/riff/wav/RIFFWave.ecore" nsPrefix="com.skratchdot.riff.wav">
   <eClassifiers xsi:type="ecore:EClass" name="RIFFWave">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
+      <eParameters name="file" eType="#//File"/>
+    </eOperations>
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -20,7 +23,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Chunk" abstract="true">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -34,7 +37,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkCue" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -44,7 +47,7 @@
         eType="#//CuePoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkData" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -53,7 +56,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleDataOriginal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataList" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -68,13 +71,13 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabel" eSuperTypes="#//ChunkDataListType">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabeledText" eSuperTypes="#//ChunkDataListType">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -86,20 +89,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="codePage" eType="#//UnsignedShort"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeNote" eSuperTypes="#//ChunkDataListType">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkFact" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatDependantData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkFormat" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -117,7 +120,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraFormatBytes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkInstrument" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -130,7 +133,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="highVelocity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkPlayList" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -140,7 +143,7 @@
         eType="#//Segment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkSampler" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -160,7 +163,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkSilent" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -168,7 +171,7 @@
         eType="#//UnsignedInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkUnknown" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -179,7 +182,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkWaveList" eSuperTypes="#//Chunk">
-    <eOperations name="write">
+    <eOperations name="write" eExceptions="#//IOException">
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
@@ -272,6 +275,8 @@
     <eLiterals name="SMPTE_30" value="30" literal="30 frames per second"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="File" instanceClassName="java.io.File"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IOException" instanceClassName="java.io.IOException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UnsignedShort" instanceClassName="java.lang.Integer"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UnsignedInt" instanceClassName="java.lang.Long"/>
   <eClassifiers xsi:type="ecore:EDataType" name="WavRandomAccessFile" instanceClassName="com.skratchdot.riff.wav.util.WavRandomAccessFile"/>
