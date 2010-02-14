@@ -14,6 +14,8 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
+
 import com.skratchdot.riff.wav.ChunkDataListTypeLabeledText;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
@@ -503,6 +505,29 @@ public class ChunkDataListTypeLabeledTextImpl extends ChunkDataListTypeImpl impl
 		result.append(codePage);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+		
+		out.writeUnsignedInt(this.getCuePointID());
+		out.writeUnsignedInt(this.getSampleLength());
+		out.writeUnsignedInt(this.getPurposeID());
+		out.writeUnsignedShort(this.getCountry());
+		out.writeUnsignedShort(this.getLanguage());
+		out.writeUnsignedShort(this.getDialect());
+		out.writeUnsignedShort(this.getCodePage());
+		
+		if(this.getText()!=null) {
+			out.write(this.getText());
+		}
 	}
 
 } //ChunkDataListTypeLabeledTextImpl

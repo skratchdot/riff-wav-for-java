@@ -147,6 +147,8 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 				return createUnsignedShortFromString(eDataType, initialValue);
 			case WavPackage.UNSIGNED_INT:
 				return createUnsignedIntFromString(eDataType, initialValue);
+			case WavPackage.WAV_RANDOM_ACCESS_FILE:
+				return createWavRandomAccessFileFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -175,6 +177,8 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 				return convertUnsignedShortToString(eDataType, instanceValue);
 			case WavPackage.UNSIGNED_INT:
 				return convertUnsignedIntToString(eDataType, instanceValue);
+			case WavPackage.WAV_RANDOM_ACCESS_FILE:
+				return convertWavRandomAccessFileToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -639,6 +643,24 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	 */
 	public String convertUnsignedIntToString(EDataType eDataType,
 			Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WavRandomAccessFile createWavRandomAccessFileFromString(EDataType eDataType, String initialValue) {
+		return (WavRandomAccessFile)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertWavRandomAccessFileToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

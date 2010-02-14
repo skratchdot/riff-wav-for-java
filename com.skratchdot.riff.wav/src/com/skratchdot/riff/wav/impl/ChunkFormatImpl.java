@@ -14,6 +14,8 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -593,6 +595,29 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		result.append(extraFormatBytes);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+		
+		out.writeUnsignedShort(this.getCompressionCode().getValue());
+		out.writeUnsignedShort(this.getNumberOfChannels());
+		out.writeUnsignedInt(this.getSampleRate());
+		out.writeUnsignedInt(this.getAverageBytesPerSecond());
+		out.writeUnsignedShort(this.getBlockAlign());
+		out.writeUnsignedShort(this.getSignificantBitsPerSample());
+		
+		if(this.getNumberOfExtraFormatBytes()>0) {
+			out.writeUnsignedShort(this.getNumberOfExtraFormatBytes());
+			out.write(this.getExtraFormatBytes());
+		}
 	}
 
 } //ChunkFormatImpl

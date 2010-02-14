@@ -22,6 +22,7 @@ import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -284,6 +285,20 @@ public class ChunkDataImpl extends ChunkImpl implements ChunkData {
 		result.append(sampleDataOriginal);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+		if(this.getSampleDataOriginal()!=null) {
+			out.write(this.getSampleDataOriginal());
+		}
 	}
 
 } //ChunkDataImpl

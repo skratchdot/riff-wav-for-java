@@ -27,6 +27,7 @@ import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 import com.skratchdot.riff.wav.util.WavUtil;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -119,11 +120,7 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 				// We need to block align
 				in.blockAlign();
 				
-			}
-
-			
-			
-			
+			}	
 		} catch (Exception e) {
 			throw new RiffWaveException(e.getMessage(), e.getCause());
 		}
@@ -247,6 +244,23 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 				return alternatingSilentAndDataChunks != null && !alternatingSilentAndDataChunks.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+
+		for(int i=0; i<this.getAlternatingSilentAndDataChunks().size(); i++) {
+			Chunk currentChunk = this.getAlternatingSilentAndDataChunks().get(i);
+			currentChunk.write(riffWave, out);
+			out.blockAlign();
+		}
 	}
 
 } //ChunkWaveListImpl

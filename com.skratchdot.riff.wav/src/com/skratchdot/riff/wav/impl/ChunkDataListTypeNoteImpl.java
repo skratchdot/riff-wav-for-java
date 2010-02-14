@@ -14,6 +14,8 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
+
 import com.skratchdot.riff.wav.ChunkDataListTypeNote;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.RIFFWave;
@@ -103,6 +105,21 @@ public class ChunkDataListTypeNoteImpl extends ChunkDataListTypeImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return WavPackage.Literals.CHUNK_DATA_LIST_TYPE_NOTE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+		out.writeUnsignedInt(this.getCuePointID());
+		if(this.getText()!=null) {
+			out.write(this.getText());
+		}
 	}
 
 } //ChunkDataListTypeNoteImpl

@@ -14,6 +14,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Chunk" abstract="true">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkTypeID" eType="#//ChunkTypeID"
@@ -22,17 +26,29 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkCue" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfCuePoints" eType="#//UnsignedInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cuePoints" upperBound="-1"
         eType="#//CuePoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkData" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="channels" upperBound="-1"
         eType="#//Channel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleDataOriginal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataList" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeID" eType="#//ChunkDataListTypeID"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataListChunks" upperBound="-1"
         eType="#//ChunkDataListType"/>
@@ -43,8 +59,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabel" eSuperTypes="#//ChunkDataListType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabel" eSuperTypes="#//ChunkDataListType">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeLabeledText" eSuperTypes="#//ChunkDataListType">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleLength" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purposeID" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="country" eType="#//UnsignedShort"/>
@@ -52,11 +77,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dialect" eType="#//UnsignedShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="codePage" eType="#//UnsignedShort"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeNote" eSuperTypes="#//ChunkDataListType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChunkDataListTypeNote" eSuperTypes="#//ChunkDataListType">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkFact" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatDependantData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkFormat" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="compressionCode" eType="#//CompressionCode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfChannels" eType="#//UnsignedShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleRate" eType="#//UnsignedInt"/>
@@ -71,6 +109,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraFormatBytes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkInstrument" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unshiftedNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fineTune" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
@@ -80,12 +122,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="highVelocity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkPlayList" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSegments" eType="#//UnsignedInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="segments" upperBound="-1"
         eType="#//Segment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkSampler" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="product" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplePeriod" eType="#//UnsignedInt"/>
@@ -102,10 +152,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplerData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkSilent" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSilentSamples"
         eType="#//UnsignedInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkUnknown" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unknownChunkTypeIdValue"
         eType="#//UnsignedInt"/>
@@ -113,6 +171,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChunkWaveList" eSuperTypes="#//Chunk">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="alternatingSilentAndDataChunks"
         upperBound="-1" eType="#//Chunk" containment="true"/>
   </eClassifiers>
@@ -204,4 +266,5 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UnsignedShort" instanceClassName="java.lang.Integer"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UnsignedInt" instanceClassName="java.lang.Long"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="WavRandomAccessFile" instanceClassName="com.skratchdot.riff.wav.util.WavRandomAccessFile"/>
 </ecore:EPackage>

@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -271,7 +272,7 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 
 			// Read in data size
 			long chunkSize = in.readUnsignedInt();
-			
+
 			// Set member variables
 			this.setManufacturer(in.readUnsignedInt());
 			this.setProduct(in.readUnsignedInt());
@@ -737,6 +738,40 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 		result.append(samplerData);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+
+		out.writeUnsignedInt(this.getManufacturer());
+		out.writeUnsignedInt(this.getProduct());
+		out.writeUnsignedInt(this.getSamplePeriod());
+		out.writeUnsignedInt(this.getMidiUnityNote());
+		out.writeUnsignedInt(this.getMidiPitchFraction());
+		out.writeUnsignedInt(this.getSmpteFormat());
+		out.writeUnsignedInt(this.getSmpteOffset());
+
+		// Write sampleLoops
+		for(int i=0; i<this.getNumberOfSampleLoops(); i++) {
+			out.writeUnsignedInt(this.getSampleLoops().get(i).getCuePointID());
+			out.writeUnsignedInt(this.getSampleLoops().get(i).getType());
+			out.writeUnsignedInt(this.getSampleLoops().get(i).getStart());
+			out.writeUnsignedInt(this.getSampleLoops().get(i).getEnd());
+			out.writeUnsignedInt(this.getSampleLoops().get(i).getFraction());
+			out.writeUnsignedInt(this.getSampleLoops().get(i).getPlayCount());
+		}
+		
+		// Write Sampler Data
+		if(this.getSamplerDataSize()>0) {
+			out.write(this.getSamplerData());
+		}	
 	}
 
 } //ChunkSamplerImpl

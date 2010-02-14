@@ -14,6 +14,10 @@
  */
 package com.skratchdot.riff.wav;
 
+import java.io.IOException;
+
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -57,5 +61,14 @@ public interface ChunkFact extends Chunk {
 	 * @generated
 	 */
 	void setFormatDependantData(byte[] value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @model outDataType="com.skratchdot.riff.wav.WavRandomAccessFile"
+	 * @generated NOT
+	 */
+	void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException;
 
 } // ChunkFact

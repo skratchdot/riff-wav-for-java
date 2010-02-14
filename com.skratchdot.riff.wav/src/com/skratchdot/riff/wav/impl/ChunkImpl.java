@@ -14,12 +14,16 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import com.skratchdot.riff.wav.Chunk;
 import com.skratchdot.riff.wav.ChunkTypeID;
+import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.WavPackage;
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,6 +116,17 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	 * @generated NOT
 	 */
 	public int getChunkTypeIDValue() {
+		// Implementation should be handled by subclasses
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
 		// Implementation should be handled by subclasses
 		throw new UnsupportedOperationException();
 	}

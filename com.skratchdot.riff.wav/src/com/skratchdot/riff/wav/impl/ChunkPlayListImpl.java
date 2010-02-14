@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
@@ -227,6 +228,22 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 				return segments != null && !segments.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+		for(int i=0; i<this.getNumberOfSegments(); i++) {
+			out.writeUnsignedInt(this.getSegments().get(i).getCuePointID());
+			out.writeUnsignedInt(this.getSegments().get(i).getLengthInSamples());
+			out.writeUnsignedInt(this.getSegments().get(i).getNumberOfRepeats());
+		}
 	}
 
 } //ChunkPlayListImpl

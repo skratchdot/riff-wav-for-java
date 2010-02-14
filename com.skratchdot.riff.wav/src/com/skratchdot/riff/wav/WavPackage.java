@@ -1795,6 +1795,16 @@ public interface WavPackage extends EPackage {
 	int UNSIGNED_INT = 32;
 
 	/**
+	 * The meta object id for the '<em>Random Access File</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.util.WavRandomAccessFile
+	 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getWavRandomAccessFile()
+	 * @generated
+	 */
+	int WAV_RANDOM_ACCESS_FILE = 33;
+
+	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.RIFFWave <em>RIFF Wave</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2964,6 +2974,17 @@ public interface WavPackage extends EPackage {
 	EDataType getUnsignedInt();
 
 	/**
+	 * Returns the meta object for data type '{@link com.skratchdot.riff.wav.util.WavRandomAccessFile <em>Random Access File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Random Access File</em>'.
+	 * @see com.skratchdot.riff.wav.util.WavRandomAccessFile
+	 * @model instanceClass="com.skratchdot.riff.wav.util.WavRandomAccessFile"
+	 * @generated
+	 */
+	EDataType getWavRandomAccessFile();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3922,6 +3943,16 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType UNSIGNED_INT = eINSTANCE.getUnsignedInt();
+
+		/**
+		 * The meta object literal for the '<em>Random Access File</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.skratchdot.riff.wav.util.WavRandomAccessFile
+		 * @see com.skratchdot.riff.wav.impl.WavPackageImpl#getWavRandomAccessFile()
+		 * @generated
+		 */
+		EDataType WAV_RANDOM_ACCESS_FILE = eINSTANCE.getWavRandomAccessFile();
 
 	}
 

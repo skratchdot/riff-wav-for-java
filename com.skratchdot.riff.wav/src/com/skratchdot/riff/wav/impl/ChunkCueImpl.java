@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
@@ -231,6 +232,28 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 				return cuePoints != null && !cuePoints.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+
+		for(int i=0; i<this.getNumberOfCuePoints(); i++) {
+			out.writeUnsignedInt(this.getCuePoints().get(i).getCuePointID());
+			out.writeUnsignedInt(this.getCuePoints().get(i).getPosition());
+			out.writeUnsignedInt(this.getCuePoints().get(i).getDataChunkID());
+			out.writeUnsignedInt(this.getCuePoints().get(i).getChunkStart());
+			out.writeUnsignedInt(this.getCuePoints().get(i).getBlockStart());
+			out.writeUnsignedInt(this.getCuePoints().get(i).getSampleOffset());
+			out.writeUnsignedInt(this.getCuePoints().get(i).getCuePointID());
+		}
+
 	}
 
 

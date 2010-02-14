@@ -14,6 +14,7 @@
  */
 package com.skratchdot.riff.wav.impl;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -289,6 +290,23 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 		result.append(typeID);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getSize());
+		out.writeUnsignedInt(ChunkDataListTypeID.ADTL_VALUE);
+		for(int i=0; i<this.getDataListChunks().size(); i++) {
+			Chunk currentChunk = this.getDataListChunks().get(i);
+			currentChunk.write(riffWave, out);
+			out.blockAlign();
+		}
 	}
 
 } //ChunkDataListImpl
