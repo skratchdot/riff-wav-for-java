@@ -15,12 +15,34 @@ import java.nio.channels.FileChannel;
 public final class WavRandomAccessFile implements DataInput, DataOutput {
 	private final RandomAccessFile raf;
 
+	/**
+	 * @see java.io.RandomAccessFile#RandomAccessFile(File, String)
+	 * @param file
+	 * @param mode
+	 * @throws FileNotFoundException
+	 */
 	public WavRandomAccessFile(File file, String mode) throws FileNotFoundException {
 		this.raf = new RandomAccessFile(file, mode);
 	}
 
+	/**
+	 * @see java.io.RandomAccessFile#RandomAccessFile(String, String)
+	 * @param name
+	 * @param mode
+	 * @throws FileNotFoundException
+	 */
 	public WavRandomAccessFile(String name, String mode) throws FileNotFoundException {
 		this.raf = new RandomAccessFile(name, mode);
+	}
+
+	/**
+	 * @see java.io.RandomAccessFile#read(byte[])
+	 * @param b
+	 * @return
+	 * @throws IOException
+	 */
+	public int read(byte[] b) throws IOException {
+		return raf.read(b);
 	}
 
 	@Override
@@ -179,16 +201,29 @@ public final class WavRandomAccessFile implements DataInput, DataOutput {
 		raf.writeShort(Integer.reverseBytes(v));
 	}
 
+	/**
+	 * @see java.io.RandomAccessFile#writeShort(int)
+	 * @param v
+	 * @throws IOException
+	 */
 	public void writeShort(short v) throws IOException {
 		raf.writeShort(Short.reverseBytes(v));
 	}
 
+	/**
+	 * @param v
+	 * @throws IOException
+	 */
 	public void writeUnsignedShort(int v) throws IOException {
-		raf.writeShort(Integer.reverseBytes(v));
+		raf.writeShort(Short.reverseBytes((short)v));
 	}
 	
+	/**
+	 * @param v
+	 * @throws IOException
+	 */
 	public void writeUnsignedInt(long v) throws IOException {
-		raf.writeInt((int) Long.reverseBytes(v));
+		raf.writeInt(Integer.reverseBytes((int)v));
 	}
 
 	@Override
@@ -248,6 +283,25 @@ public final class WavRandomAccessFile implements DataInput, DataOutput {
 		if(raf.getFilePointer()%2==1) {
 			raf.seek(raf.getFilePointer()+1);
 		}
+	}
+	
+	/**
+	 * If the filepointer is currently at an odd position, it will advance
+	 * to an even position by writing a byte with value 0x00.
+	 * @throws IOException
+	 */
+	public void writeBlockAlign() throws IOException {
+		if(raf.getFilePointer()%2==1) {
+			raf.writeByte(0);
+		}
+	}
+
+	/**
+	 * @see java.io.RandomAccessFile#close()
+	 * @throws IOException
+	 */
+	public void close() throws IOException {
+		raf.close();
 	}
 
 }

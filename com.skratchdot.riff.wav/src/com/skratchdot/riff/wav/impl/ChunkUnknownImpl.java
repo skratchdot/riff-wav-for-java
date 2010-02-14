@@ -340,7 +340,7 @@ public class ChunkUnknownImpl extends ChunkImpl implements ChunkUnknown {
 	 * @generated NOT
 	 */
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
-		out.writeUnsignedInt(this.getChunkTypeIDValue());
+		out.writeUnsignedInt(this.getUnknownChunkTypeIdValue());
 		out.writeUnsignedInt(this.getSize());
 		if(this.getData()!=null) {
 			out.write(this.getData());

@@ -54,7 +54,7 @@ public class WavResourceImpl extends ResourceImpl {
 				String fileString = (String) options.get("FileString");
 				RIFFWave riffWave = WavFactory.eINSTANCE.createRIFFWave(new File(fileString));
 				this.getContents().add(riffWave);		
-			} catch (RiffWaveException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 				throw new IOException(e.getMessage());
 			}
@@ -69,8 +69,34 @@ public class WavResourceImpl extends ResourceImpl {
 	@Override
 	protected void doSave(OutputStream outputStream, Map<?, ?> options)
 			throws IOException {
-		// TODO Auto-generated method stub
-		super.doSave(outputStream, options);
+		WavRandomAccessFile out = null;
+		if(options!=null && options.containsKey("FileString")) {
+			try {
+				String fileString = (String) options.get("FileString");
+				out = new WavRandomAccessFile(new File(fileString), "rwd");
+				RIFFWave riffWave = (RIFFWave) this.getContents().get(0);
+				riffWave.write(riffWave, out);
+
+				byte[] buffer = new byte[16384];
+				int len;
+				out.seek(0);
+				while((len = out.read(buffer)) >= 0) {
+					outputStream.write(buffer, 0, len);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				out.close();
+				throw new IOException(e.getMessage());
+			} finally {
+				out.close();
+			}
+		}
+		else {
+			throw new IOException("Did not pass in the FileString LoadOption.\n" +
+					"This implementation of doSave() ignores the inputStream, and requires\n" +
+					"the FileString LoadOption which points to a valid File.");
+		}
 	}
 
 } //WavResourceImpl

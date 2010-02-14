@@ -243,6 +243,8 @@ public class ChunkCueImpl extends ChunkImpl implements ChunkCue {
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
 		out.writeUnsignedInt(this.getChunkTypeIDValue());
 		out.writeUnsignedInt(this.getSize());
+		
+		out.writeUnsignedInt(this.getNumberOfCuePoints());
 
 		for(int i=0; i<this.getNumberOfCuePoints(); i++) {
 			out.writeUnsignedInt(this.getCuePoints().get(i).getCuePointID());

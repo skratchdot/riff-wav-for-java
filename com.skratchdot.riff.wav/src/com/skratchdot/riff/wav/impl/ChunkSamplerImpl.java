@@ -757,6 +757,9 @@ public class ChunkSamplerImpl extends ChunkImpl implements ChunkSampler {
 		out.writeUnsignedInt(this.getMidiPitchFraction());
 		out.writeUnsignedInt(this.getSmpteFormat());
 		out.writeUnsignedInt(this.getSmpteOffset());
+		
+		out.writeUnsignedInt(this.getNumberOfSampleLoops());
+		out.writeUnsignedInt(this.getSamplerDataSize());
 
 		// Write sampleLoops
 		for(int i=0; i<this.getNumberOfSampleLoops(); i++) {

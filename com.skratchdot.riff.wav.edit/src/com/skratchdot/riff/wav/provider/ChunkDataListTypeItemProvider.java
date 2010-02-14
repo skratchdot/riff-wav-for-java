@@ -151,7 +151,7 @@ public class ChunkDataListTypeItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkDataListType chunkDataListType = (ChunkDataListType)object;
-		return getString("_UI_ChunkDataListType_type") + " " + chunkDataListType.getSize();
+		return getString("_UI_ChunkDataListType_type") + " " + chunkDataListType.getBlockAlignedSize();
 	}
 
 	/**

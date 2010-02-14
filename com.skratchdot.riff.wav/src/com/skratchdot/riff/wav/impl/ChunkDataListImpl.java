@@ -203,7 +203,11 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		long returnSize = 4;
+		for(int i=0; i<this.getDataListChunks().size(); i++) {
+			returnSize += this.getDataListChunks().get(i).getBlockAlignedSize() + 8;
+		}
+		return returnSize;
 	}
 
 	/**
@@ -305,7 +309,7 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 		for(int i=0; i<this.getDataListChunks().size(); i++) {
 			Chunk currentChunk = this.getDataListChunks().get(i);
 			currentChunk.write(riffWave, out);
-			out.blockAlign();
+			out.writeBlockAlign();
 		}
 	}
 

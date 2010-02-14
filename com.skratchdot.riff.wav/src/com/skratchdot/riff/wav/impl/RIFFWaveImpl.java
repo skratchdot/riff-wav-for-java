@@ -186,7 +186,11 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	 * @generated NOT
 	 */
 	public long getSize() {
-		return -1;
+		long returnSize = 4;
+		for(int i=0; i<this.getChunks().size(); i++) {
+			returnSize += this.getChunks().get(i).getBlockAlignedSize() + 8;
+		}
+		return returnSize;
 	}
 
 	/**
@@ -295,8 +299,14 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 		for(int i=0; i<this.getChunks().size(); i++) {
 			Chunk currentChunk = this.getChunks().get(i);
 			currentChunk.write(riffWave, out);
-			out.blockAlign();
+			out.writeBlockAlign();
 		}
+		
+		// confirm the size we wrote/calculated was correct
+		if(this.getSize()!=out.getFilePointer()-8) {
+			throw new IOException("Calculated incorrect chunk data size");
+		}
+
 	}
 
 } //RIFFWaveImpl

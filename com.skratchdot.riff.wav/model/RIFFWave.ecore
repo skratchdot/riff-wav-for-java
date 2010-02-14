@@ -24,6 +24,8 @@
       <eParameters name="riffWave" eType="#//RIFFWave"/>
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockAlignedSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chunkTypeID" eType="#//ChunkTypeID"

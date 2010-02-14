@@ -124,7 +124,7 @@ public class ChunkWaveListItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkWaveList chunkWaveList = (ChunkWaveList)object;
-		return getString("_UI_ChunkWaveList_type") + " " + chunkWaveList.getSize();
+		return getString("_UI_ChunkWaveList_type") + " " + chunkWaveList.getBlockAlignedSize();
 	}
 
 	/**

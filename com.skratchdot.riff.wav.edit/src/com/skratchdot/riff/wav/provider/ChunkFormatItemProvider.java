@@ -277,7 +277,7 @@ public class ChunkFormatItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkFormat chunkFormat = (ChunkFormat)object;
-		return getString("_UI_ChunkFormat_type") + " " + chunkFormat.getSize();
+		return getString("_UI_ChunkFormat_type") + " " + chunkFormat.getBlockAlignedSize();
 	}
 
 	/**

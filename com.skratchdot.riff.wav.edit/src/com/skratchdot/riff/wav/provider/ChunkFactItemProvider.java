@@ -116,7 +116,7 @@ public class ChunkFactItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkFact chunkFact = (ChunkFact)object;
-		return getString("_UI_ChunkFact_type") + " " + chunkFact.getSize();
+		return getString("_UI_ChunkFact_type") + " " + chunkFact.getBlockAlignedSize();
 	}
 
 	/**

@@ -154,13 +154,22 @@ public interface WavPackage extends EPackage {
 	int CHUNK = 2;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK__BLOCK_ALIGNED_SIZE = 0;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK__SIZE = 0;
+	int CHUNK__SIZE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID</b></em>' attribute.
@@ -169,7 +178,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK__CHUNK_TYPE_ID = 1;
+	int CHUNK__CHUNK_TYPE_ID = 2;
 
 	/**
 	 * The feature id for the '<em><b>Chunk Type ID Value</b></em>' attribute.
@@ -178,7 +187,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK__CHUNK_TYPE_ID_VALUE = 2;
+	int CHUNK__CHUNK_TYPE_ID_VALUE = 3;
 
 	/**
 	 * The number of structural features of the '<em>Chunk</em>' class.
@@ -187,7 +196,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FEATURE_COUNT = 3;
+	int CHUNK_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkCueImpl <em>Chunk Cue</em>}' class.
@@ -198,6 +207,15 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	int CHUNK_CUE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_CUE__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -264,6 +282,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA = 4;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -328,6 +355,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST = 5;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,6 +426,15 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	int CHUNK_DATA_LIST_TYPE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -465,6 +510,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST_TYPE_LABEL = 7;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_LABEL__BLOCK_ALIGNED_SIZE = CHUNK_DATA_LIST_TYPE__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -536,6 +590,15 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_LABELED_TEXT__BLOCK_ALIGNED_SIZE = CHUNK_DATA_LIST_TYPE__BLOCK_ALIGNED_SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -665,6 +728,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_DATA_LIST_TYPE_NOTE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_DATA_LIST_TYPE_NOTE__BLOCK_ALIGNED_SIZE = CHUNK_DATA_LIST_TYPE__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -738,6 +810,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_FACT = 10;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_FACT__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -791,6 +872,15 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	int CHUNK_FORMAT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_FORMAT__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -911,6 +1001,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_INSTRUMENT = 12;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_INSTRUMENT__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1020,6 +1119,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_PLAY_LIST = 13;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_PLAY_LIST__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1082,6 +1190,15 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	int CHUNK_SAMPLER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_SAMPLER__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -1229,6 +1346,15 @@ public interface WavPackage extends EPackage {
 	int CHUNK_SILENT = 15;
 
 	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_SILENT__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1282,6 +1408,15 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	int CHUNK_UNKNOWN = 16;
+
+	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_UNKNOWN__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -1355,6 +1490,15 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	int CHUNK_WAVE_LIST = 17;
+
+	/**
+	 * The feature id for the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_WAVE_LIST__BLOCK_ALIGNED_SIZE = CHUNK__BLOCK_ALIGNED_SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -1886,6 +2030,17 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getChunk();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.Chunk#getBlockAlignedSize <em>Block Aligned Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Block Aligned Size</em>'.
+	 * @see com.skratchdot.riff.wav.Chunk#getBlockAlignedSize()
+	 * @see #getChunk()
+	 * @generated
+	 */
+	EAttribute getChunk_BlockAlignedSize();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.Chunk#getSize <em>Size</em>}'.
@@ -3087,6 +3242,14 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CHUNK = eINSTANCE.getChunk();
+
+		/**
+		 * The meta object literal for the '<em><b>Block Aligned Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHUNK__BLOCK_ALIGNED_SIZE = eINSTANCE.getChunk_BlockAlignedSize();
 
 		/**
 		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.

@@ -254,7 +254,7 @@ public class ChunkInstrumentItemProvider
 	@Override
 	public String getText(Object object) {
 		ChunkInstrument chunkInstrument = (ChunkInstrument)object;
-		return getString("_UI_ChunkInstrument_type") + " " + chunkInstrument.getSize();
+		return getString("_UI_ChunkInstrument_type") + " " + chunkInstrument.getBlockAlignedSize();
 	}
 
 	/**

@@ -169,7 +169,11 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 	 */
 	@Override
 	public long getSize() {
-		return -1;
+		long returnSize = 0;
+		for(int i=0; i<this.getAlternatingSilentAndDataChunks().size(); i++) {
+			returnSize += this.getAlternatingSilentAndDataChunks().get(i).getBlockAlignedSize() + 8;
+		}
+		return returnSize;
 	}
 
 	/**
@@ -259,7 +263,7 @@ public class ChunkWaveListImpl extends ChunkImpl implements ChunkWaveList {
 		for(int i=0; i<this.getAlternatingSilentAndDataChunks().size(); i++) {
 			Chunk currentChunk = this.getAlternatingSilentAndDataChunks().get(i);
 			currentChunk.write(riffWave, out);
-			out.blockAlign();
+			out.writeBlockAlign();
 		}
 	}
 

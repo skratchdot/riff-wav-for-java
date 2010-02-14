@@ -25,6 +25,7 @@ import junit.framework.TestCase;
  * <p>
  * The following features are tested:
  * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getBlockAlignedSize() <em>Block Aligned Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getSize() <em>Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID() <em>Chunk Type ID</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue() <em>Chunk Type ID Value</em>}</li>
@@ -76,6 +77,19 @@ public abstract class ChunkTest extends TestCase {
 	 */
 	protected Chunk getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.Chunk#getBlockAlignedSize() <em>Block Aligned Size</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.Chunk#getBlockAlignedSize()
+	 * @generated
+	 */
+	public void testGetBlockAlignedSize() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#getBlockAlignedSize <em>Block Aligned Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getSize <em>Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeID <em>Chunk Type ID</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.Chunk#getChunkTypeIDValue <em>Chunk Type ID Value</em>}</li>
@@ -38,6 +39,21 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Chunk extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Block Aligned Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Block Aligned Size</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Block Aligned Size</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunk_BlockAlignedSize()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	long getBlockAlignedSize();
+
 	/**
 	 * Returns the value of the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->

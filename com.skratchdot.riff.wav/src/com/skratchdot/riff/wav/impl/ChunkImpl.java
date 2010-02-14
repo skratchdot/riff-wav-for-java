@@ -32,6 +32,7 @@ import com.skratchdot.riff.wav.util.WavRandomAccessFile;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getBlockAlignedSize <em>Block Aligned Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getSize <em>Size</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeID <em>Chunk Type ID</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkImpl#getChunkTypeIDValue <em>Chunk Type ID Value</em>}</li>
@@ -41,6 +42,16 @@ import com.skratchdot.riff.wav.util.WavRandomAccessFile;
  * @generated
  */
 public abstract class ChunkImpl extends EObjectImpl implements Chunk {
+	/**
+	 * The default value of the '{@link #getBlockAlignedSize() <em>Block Aligned Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBlockAlignedSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long BLOCK_ALIGNED_SIZE_EDEFAULT = 0L;
+
 	/**
 	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,6 +106,15 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public long getBlockAlignedSize() {
+		return this.getSize()%2==1?this.getSize()+1:this.getSize();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public long getSize() {
 		// Implementation should be handled by subclasses
 		throw new UnsupportedOperationException();
@@ -139,6 +159,8 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case WavPackage.CHUNK__BLOCK_ALIGNED_SIZE:
+				return getBlockAlignedSize();
 			case WavPackage.CHUNK__SIZE:
 				return getSize();
 			case WavPackage.CHUNK__CHUNK_TYPE_ID:
@@ -157,6 +179,8 @@ public abstract class ChunkImpl extends EObjectImpl implements Chunk {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case WavPackage.CHUNK__BLOCK_ALIGNED_SIZE:
+				return getBlockAlignedSize() != BLOCK_ALIGNED_SIZE_EDEFAULT;
 			case WavPackage.CHUNK__SIZE:
 				return getSize() != SIZE_EDEFAULT;
 			case WavPackage.CHUNK__CHUNK_TYPE_ID:

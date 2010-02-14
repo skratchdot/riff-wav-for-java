@@ -1400,7 +1400,7 @@ public class WavEditor
 	 * This is for implementing {@link IEditorPart} and simply saves the model file.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
@@ -1423,7 +1423,14 @@ public class WavEditor
 						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
 							try {
 								long timeStamp = resource.getTimeStamp();
+
+								URI resourceURI = resource.getURI();
+								if(resourceURI.isFile()) {
+									saveOptions.put("FileString", resourceURI.toFileString());
+								}
 								resource.save(saveOptions);
+								saveOptions.remove("FileString");
+
 								if (resource.getTimeStamp() != timeStamp) {
 									savedResources.add(resource);
 								}
@@ -1455,6 +1462,15 @@ public class WavEditor
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
+	}
+
+	/**
+	 * This is for implementing {@link IEditorPart} and simply saves the model file.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void doSaveGen(IProgressMonitor progressMonitor) {
 	}
 
 	/**

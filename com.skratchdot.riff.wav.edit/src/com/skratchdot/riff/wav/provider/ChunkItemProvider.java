@@ -72,11 +72,34 @@ public class ChunkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBlockAlignedSizePropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
 			addChunkTypeIDPropertyDescriptor(object);
 			addChunkTypeIDValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Block Aligned Size feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBlockAlignedSizePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Chunk_blockAlignedSize_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Chunk_blockAlignedSize_feature", "_UI_Chunk_type"),
+				 WavPackage.Literals.CHUNK__BLOCK_ALIGNED_SIZE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -154,7 +177,7 @@ public class ChunkItemProvider
 	@Override
 	public String getText(Object object) {
 		Chunk chunk = (Chunk)object;
-		return getString("_UI_Chunk_type") + " " + chunk.getSize();
+		return getString("_UI_Chunk_type") + " " + chunk.getBlockAlignedSize();
 	}
 
 	/**
@@ -169,6 +192,7 @@ public class ChunkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Chunk.class)) {
+			case WavPackage.CHUNK__BLOCK_ALIGNED_SIZE:
 			case WavPackage.CHUNK__SIZE:
 			case WavPackage.CHUNK__CHUNK_TYPE_ID:
 			case WavPackage.CHUNK__CHUNK_TYPE_ID_VALUE:

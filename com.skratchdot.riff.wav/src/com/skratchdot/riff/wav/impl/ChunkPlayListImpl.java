@@ -239,6 +239,9 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
 		out.writeUnsignedInt(this.getChunkTypeIDValue());
 		out.writeUnsignedInt(this.getSize());
+		
+		out.writeUnsignedInt(this.getNumberOfSegments());
+
 		for(int i=0; i<this.getNumberOfSegments(); i++) {
 			out.writeUnsignedInt(this.getSegments().get(i).getCuePointID());
 			out.writeUnsignedInt(this.getSegments().get(i).getLengthInSamples());
