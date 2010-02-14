@@ -22,12 +22,14 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -70,8 +72,31 @@ public class RIFFWaveItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSizePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Size feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSizePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RIFFWave_size_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RIFFWave_size_feature", "_UI_RIFFWave_type"),
+				 WavPackage.Literals.RIFF_WAVE__SIZE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -124,7 +149,8 @@ public class RIFFWaveItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RIFFWave_type");
+		RIFFWave riffWave = (RIFFWave)object;
+		return getString("_UI_RIFFWave_type") + " " + riffWave.getSize();
 	}
 
 	/**
@@ -139,6 +165,9 @@ public class RIFFWaveItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RIFFWave.class)) {
+			case WavPackage.RIFF_WAVE__SIZE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case WavPackage.RIFF_WAVE__CHUNKS:
 			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

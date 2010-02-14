@@ -98,13 +98,22 @@ public interface WavPackage extends EPackage {
 	int RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIFF_WAVE__SIZE = 2;
+
+	/**
 	 * The number of structural features of the '<em>RIFF Wave</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RIFF_WAVE_FEATURE_COUNT = 2;
+	int RIFF_WAVE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChannelImpl <em>Channel</em>}' class.
@@ -1837,6 +1846,17 @@ public interface WavPackage extends EPackage {
 	EReference getRIFFWave_ParseChunkExceptions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.RIFFWave#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see com.skratchdot.riff.wav.RIFFWave#getSize()
+	 * @see #getRIFFWave()
+	 * @generated
+	 */
+	EAttribute getRIFFWave_Size();
+
+	/**
 	 * Returns the meta object for class '{@link com.skratchdot.riff.wav.Channel <em>Channel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3031,6 +3051,14 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS = eINSTANCE.getRIFFWave_ParseChunkExceptions();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RIFF_WAVE__SIZE = eINSTANCE.getRIFFWave_Size();
 
 		/**
 		 * The meta object literal for the '{@link com.skratchdot.riff.wav.impl.ChannelImpl <em>Channel</em>}' class.

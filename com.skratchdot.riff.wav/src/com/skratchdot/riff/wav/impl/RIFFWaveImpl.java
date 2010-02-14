@@ -15,6 +15,7 @@
 package com.skratchdot.riff.wav.impl;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -43,6 +44,7 @@ import com.skratchdot.riff.wav.util.WavUtil;
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.impl.RIFFWaveImpl#getChunks <em>Chunks</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.RIFFWaveImpl#getParseChunkExceptions <em>Parse Chunk Exceptions</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.RIFFWaveImpl#getSize <em>Size</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +70,16 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	 * @ordered
 	 */
 	protected EList<ParseChunkException> parseChunkExceptions;
+
+	/**
+	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long SIZE_EDEFAULT = 0L;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,6 +183,15 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public long getSize() {
+		return -1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -196,6 +217,8 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 				return getChunks();
 			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
 				return getParseChunkExceptions();
+			case WavPackage.RIFF_WAVE__SIZE:
+				return getSize();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -251,8 +274,29 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 				return chunks != null && !chunks.isEmpty();
 			case WavPackage.RIFF_WAVE__PARSE_CHUNK_EXCEPTIONS:
 				return parseChunkExceptions != null && !parseChunkExceptions.isEmpty();
+			case WavPackage.RIFF_WAVE__SIZE:
+				return getSize() != SIZE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	public void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException {
+
+		out.writeUnsignedInt(ChunkTypeID.RIFF_VALUE);
+		out.writeUnsignedInt(this.getSize());
+		out.writeUnsignedInt(ChunkTypeID.WAVE_VALUE);
+
+		for(int i=0; i<this.getChunks().size(); i++) {
+			Chunk currentChunk = this.getChunks().get(i);
+			currentChunk.write(riffWave, out);
+			out.blockAlign();
+		}
 	}
 
 } //RIFFWaveImpl

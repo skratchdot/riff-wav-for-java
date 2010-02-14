@@ -14,6 +14,9 @@
  */
 package com.skratchdot.riff.wav;
 
+import java.io.IOException;
+
+import com.skratchdot.riff.wav.util.WavRandomAccessFile;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -28,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getChunks <em>Chunks</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getParseChunkExceptions <em>Parse Chunk Exceptions</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getSize <em>Size</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,5 +71,29 @@ public interface RIFFWave extends EObject {
 	 * @generated
 	 */
 	EList<ParseChunkException> getParseChunkExceptions();
+
+	/**
+	 * Returns the value of the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Size</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Size</em>' attribute.
+	 * @see com.skratchdot.riff.wav.WavPackage#getRIFFWave_Size()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	long getSize();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @model outDataType="com.skratchdot.riff.wav.WavRandomAccessFile"
+	 * @generated NOT
+	 */
+	void write(RIFFWave riffWave, WavRandomAccessFile out) throws IOException;
 
 } // RIFFWave

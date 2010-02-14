@@ -4,10 +4,16 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="wav"
     nsURI="http:///com/skratchdot/riff/wav/RIFFWave.ecore" nsPrefix="com.skratchdot.riff.wav">
   <eClassifiers xsi:type="ecore:EClass" name="RIFFWave">
+    <eOperations name="write">
+      <eParameters name="riffWave" eType="#//RIFFWave"/>
+      <eParameters name="out" eType="#//WavRandomAccessFile"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="chunks" upperBound="-1"
         eType="#//Chunk" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parseChunkExceptions" upperBound="-1"
         eType="#//ParseChunkException" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Channel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sampleData" eType="#//SampleData"

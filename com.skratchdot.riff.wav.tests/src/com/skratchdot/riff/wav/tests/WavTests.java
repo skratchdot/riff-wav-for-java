@@ -43,6 +43,7 @@ public class WavTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new WavTests("wav Tests");
+		suite.addTestSuite(RIFFWaveTest.class);
 		suite.addTestSuite(ChunkCueTest.class);
 		suite.addTestSuite(ChunkDataTest.class);
 		suite.addTestSuite(ChunkDataListTest.class);
