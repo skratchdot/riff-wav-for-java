@@ -23,7 +23,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.skratchdot.riff.wav.ChunkFormat;
 import com.skratchdot.riff.wav.ChunkTypeID;
 import com.skratchdot.riff.wav.CompressionCode;
+import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.RIFFWave;
+import com.skratchdot.riff.wav.WavFactory;
 import com.skratchdot.riff.wav.WavPackage;
 import com.skratchdot.riff.wav.util.RiffWaveException;
 import com.skratchdot.riff.wav.util.WavRandomAccessFile;
@@ -36,6 +38,7 @@ import com.skratchdot.riff.wav.util.WavRandomAccessFile;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkFormatImpl#getCompressionCode <em>Compression Code</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.impl.ChunkFormatImpl#getCompressionCodeValue <em>Compression Code Value</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkFormatImpl#getNumberOfChannels <em>Number Of Channels</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkFormatImpl#getSampleRate <em>Sample Rate</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.impl.ChunkFormatImpl#getAverageBytesPerSecond <em>Average Bytes Per Second</em>}</li>
@@ -68,6 +71,26 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 	 * @ordered
 	 */
 	protected CompressionCode compressionCode = COMPRESSION_CODE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCompressionCodeValue() <em>Compression Code Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompressionCodeValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer COMPRESSION_CODE_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCompressionCodeValue() <em>Compression Code Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompressionCodeValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer compressionCodeValue = COMPRESSION_CODE_VALUE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNumberOfChannels() <em>Number Of Channels</em>}' attribute.
@@ -224,29 +247,32 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 			long chunkSize = in.readUnsignedInt();
 
 			// Set member variables
-			this.setCompressionCode(CompressionCode.get(in.readUnsignedShort()));
+			this.setCompressionCodeValue(in.readUnsignedShort());
+			this.setCompressionCode(CompressionCode.get(this.getCompressionCodeValue()));
 			this.setNumberOfChannels(in.readUnsignedShort());
 			this.setSampleRate(in.readUnsignedInt());
 			this.setAverageBytesPerSecond(in.readUnsignedInt());
 			this.setBlockAlign(in.readUnsignedShort());
 			this.setSignificantBitsPerSample(in.readUnsignedShort());
-			
-			if(this.getCompressionCode().getValue()!=CompressionCode.COMPRESSION_CODE_1_VALUE) {
+
+			if(this.getCompressionCodeValue()!=CompressionCode.COMPRESSION_CODE_1_VALUE) {
 				int numberOfExtraFormatBytes = in.readUnsignedShort();
 
 				if(numberOfExtraFormatBytes>0) {
-					byte[] b = new byte[this.getNumberOfExtraFormatBytes()];
-					in.readFully(b, 0, this.getNumberOfExtraFormatBytes());
+					byte[] b = new byte[numberOfExtraFormatBytes];
+					in.readFully(b, 0, numberOfExtraFormatBytes);
 					this.setExtraFormatBytes(b);
 				}
 			}
 
 			// Does the size we read in, match the size we calculate from the data read
 			if(chunkSize!=this.getSize()) {
-				throw new RiffWaveException("Invalid chunk size for format chunk." +
+				ParseChunkException pce = WavFactory.eINSTANCE.createParseChunkException();
+				pce.setException(new Exception("Invalid chunk size for format chunk." +
 					"From File: " + Long.toString(chunkSize) +
 					"Calculated: " + Long.toString(this.getSize())
-				);
+				));
+				riffWave.getParseChunkExceptions().add(pce);
 			}
 
 		} catch (Exception e) {
@@ -283,6 +309,27 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		compressionCode = newCompressionCode == null ? COMPRESSION_CODE_EDEFAULT : newCompressionCode;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_FORMAT__COMPRESSION_CODE, oldCompressionCode, compressionCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getCompressionCodeValue() {
+		return compressionCodeValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompressionCodeValue(Integer newCompressionCodeValue) {
+		Integer oldCompressionCodeValue = compressionCodeValue;
+		compressionCodeValue = newCompressionCodeValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WavPackage.CHUNK_FORMAT__COMPRESSION_CODE_VALUE, oldCompressionCodeValue, compressionCodeValue));
 	}
 
 	/**
@@ -441,7 +488,7 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 	 */
 	@Override
 	public long getSize() {
-		if(this.getNumberOfExtraFormatBytes()>0) {
+		if(this.getCompressionCodeValue()!=CompressionCode.COMPRESSION_CODE_1_VALUE) {
 			return 18 + this.getNumberOfExtraFormatBytes();
 		}
 		return 16;
@@ -457,6 +504,8 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		switch (featureID) {
 			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE:
 				return getCompressionCode();
+			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE_VALUE:
+				return getCompressionCodeValue();
 			case WavPackage.CHUNK_FORMAT__NUMBER_OF_CHANNELS:
 				return getNumberOfChannels();
 			case WavPackage.CHUNK_FORMAT__SAMPLE_RATE:
@@ -485,6 +534,9 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		switch (featureID) {
 			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE:
 				setCompressionCode((CompressionCode)newValue);
+				return;
+			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE_VALUE:
+				setCompressionCodeValue((Integer)newValue);
 				return;
 			case WavPackage.CHUNK_FORMAT__NUMBER_OF_CHANNELS:
 				setNumberOfChannels((Integer)newValue);
@@ -519,6 +571,9 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE:
 				setCompressionCode(COMPRESSION_CODE_EDEFAULT);
 				return;
+			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE_VALUE:
+				setCompressionCodeValue(COMPRESSION_CODE_VALUE_EDEFAULT);
+				return;
 			case WavPackage.CHUNK_FORMAT__NUMBER_OF_CHANNELS:
 				setNumberOfChannels(NUMBER_OF_CHANNELS_EDEFAULT);
 				return;
@@ -551,6 +606,8 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		switch (featureID) {
 			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE:
 				return compressionCode != COMPRESSION_CODE_EDEFAULT;
+			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE_VALUE:
+				return COMPRESSION_CODE_VALUE_EDEFAULT == null ? compressionCodeValue != null : !COMPRESSION_CODE_VALUE_EDEFAULT.equals(compressionCodeValue);
 			case WavPackage.CHUNK_FORMAT__NUMBER_OF_CHANNELS:
 				return NUMBER_OF_CHANNELS_EDEFAULT == null ? numberOfChannels != null : !NUMBER_OF_CHANNELS_EDEFAULT.equals(numberOfChannels);
 			case WavPackage.CHUNK_FORMAT__SAMPLE_RATE:
@@ -581,6 +638,8 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (compressionCode: ");
 		result.append(compressionCode);
+		result.append(", compressionCodeValue: ");
+		result.append(compressionCodeValue);
 		result.append(", numberOfChannels: ");
 		result.append(numberOfChannels);
 		result.append(", sampleRate: ");
@@ -606,14 +665,14 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		out.writeUnsignedInt(this.getChunkTypeIDValue());
 		out.writeUnsignedInt(this.getSize());
 		
-		out.writeUnsignedShort(this.getCompressionCode().getValue());
+		out.writeUnsignedShort(this.getCompressionCodeValue());
 		out.writeUnsignedShort(this.getNumberOfChannels());
 		out.writeUnsignedInt(this.getSampleRate());
 		out.writeUnsignedInt(this.getAverageBytesPerSecond());
 		out.writeUnsignedShort(this.getBlockAlign());
 		out.writeUnsignedShort(this.getSignificantBitsPerSample());
-		
-		if(this.getNumberOfExtraFormatBytes()>0) {
+
+		if(this.getCompressionCodeValue()!=CompressionCode.COMPRESSION_CODE_1_VALUE) {
 			out.writeUnsignedShort(this.getNumberOfExtraFormatBytes());
 			out.write(this.getExtraFormatBytes());
 		}

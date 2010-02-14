@@ -28,6 +28,7 @@ import com.skratchdot.riff.wav.util.WavRandomAccessFile;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.skratchdot.riff.wav.ChunkFormat#getCompressionCode <em>Compression Code</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkFormat#getCompressionCodeValue <em>Compression Code Value</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkFormat#getNumberOfChannels <em>Number Of Channels</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkFormat#getSampleRate <em>Sample Rate</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.ChunkFormat#getAverageBytesPerSecond <em>Average Bytes Per Second</em>}</li>
@@ -71,6 +72,32 @@ public interface ChunkFormat extends Chunk {
 	 * @generated
 	 */
 	void setCompressionCode(CompressionCode value);
+
+	/**
+	 * Returns the value of the '<em><b>Compression Code Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Compression Code Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Compression Code Value</em>' attribute.
+	 * @see #setCompressionCodeValue(Integer)
+	 * @see com.skratchdot.riff.wav.WavPackage#getChunkFormat_CompressionCodeValue()
+	 * @model dataType="com.skratchdot.riff.wav.UnsignedShort"
+	 * @generated
+	 */
+	Integer getCompressionCodeValue();
+
+	/**
+	 * Sets the value of the '{@link com.skratchdot.riff.wav.ChunkFormat#getCompressionCodeValue <em>Compression Code Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Compression Code Value</em>' attribute.
+	 * @see #getCompressionCodeValue()
+	 * @generated
+	 */
+	void setCompressionCodeValue(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Channels</b></em>' attribute.

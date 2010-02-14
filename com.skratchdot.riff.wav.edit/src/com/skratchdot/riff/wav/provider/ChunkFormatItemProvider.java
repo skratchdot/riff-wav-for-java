@@ -70,6 +70,7 @@ public class ChunkFormatItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCompressionCodePropertyDescriptor(object);
+			addCompressionCodeValuePropertyDescriptor(object);
 			addNumberOfChannelsPropertyDescriptor(object);
 			addSampleRatePropertyDescriptor(object);
 			addAverageBytesPerSecondPropertyDescriptor(object);
@@ -96,6 +97,28 @@ public class ChunkFormatItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkFormat_compressionCode_feature", "_UI_ChunkFormat_type"),
 				 WavPackage.Literals.CHUNK_FORMAT__COMPRESSION_CODE,
 				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Compression Code Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompressionCodeValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ChunkFormat_compressionCodeValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChunkFormat_compressionCodeValue_feature", "_UI_ChunkFormat_type"),
+				 WavPackage.Literals.CHUNK_FORMAT__COMPRESSION_CODE_VALUE,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -293,6 +316,7 @@ public class ChunkFormatItemProvider
 
 		switch (notification.getFeatureID(ChunkFormat.class)) {
 			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE:
+			case WavPackage.CHUNK_FORMAT__COMPRESSION_CODE_VALUE:
 			case WavPackage.CHUNK_FORMAT__NUMBER_OF_CHANNELS:
 			case WavPackage.CHUNK_FORMAT__SAMPLE_RATE:
 			case WavPackage.CHUNK_FORMAT__AVERAGE_BYTES_PER_SECOND:

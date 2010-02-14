@@ -717,7 +717,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkFormat_NumberOfChannels() {
+	public EAttribute getChunkFormat_CompressionCodeValue() {
 		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -726,7 +726,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkFormat_SampleRate() {
+	public EAttribute getChunkFormat_NumberOfChannels() {
 		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -735,7 +735,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkFormat_AverageBytesPerSecond() {
+	public EAttribute getChunkFormat_SampleRate() {
 		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -744,7 +744,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkFormat_BlockAlign() {
+	public EAttribute getChunkFormat_AverageBytesPerSecond() {
 		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -753,7 +753,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkFormat_SignificantBitsPerSample() {
+	public EAttribute getChunkFormat_BlockAlign() {
 		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -762,7 +762,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkFormat_NumberOfExtraFormatBytes() {
+	public EAttribute getChunkFormat_SignificantBitsPerSample() {
 		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -771,8 +771,17 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChunkFormat_ExtraFormatBytes() {
+	public EAttribute getChunkFormat_NumberOfExtraFormatBytes() {
 		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChunkFormat_ExtraFormatBytes() {
+		return (EAttribute)chunkFormatEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1481,6 +1490,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		chunkFormatEClass = createEClass(CHUNK_FORMAT);
 		createEAttribute(chunkFormatEClass, CHUNK_FORMAT__COMPRESSION_CODE);
+		createEAttribute(chunkFormatEClass, CHUNK_FORMAT__COMPRESSION_CODE_VALUE);
 		createEAttribute(chunkFormatEClass, CHUNK_FORMAT__NUMBER_OF_CHANNELS);
 		createEAttribute(chunkFormatEClass, CHUNK_FORMAT__SAMPLE_RATE);
 		createEAttribute(chunkFormatEClass, CHUNK_FORMAT__AVERAGE_BYTES_PER_SECOND);
@@ -1721,6 +1731,7 @@ public class WavPackageImpl extends EPackageImpl implements WavPackage {
 
 		initEClass(chunkFormatEClass, ChunkFormat.class, "ChunkFormat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChunkFormat_CompressionCode(), this.getCompressionCode(), "compressionCode", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChunkFormat_CompressionCodeValue(), this.getUnsignedShort(), "compressionCodeValue", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkFormat_NumberOfChannels(), this.getUnsignedShort(), "numberOfChannels", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkFormat_SampleRate(), this.getUnsignedInt(), "sampleRate", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChunkFormat_AverageBytesPerSecond(), this.getUnsignedInt(), "averageBytesPerSecond", null, 0, 1, ChunkFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

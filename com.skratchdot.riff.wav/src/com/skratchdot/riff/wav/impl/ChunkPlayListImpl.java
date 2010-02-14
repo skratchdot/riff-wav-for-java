@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import com.skratchdot.riff.wav.ChunkPlayList;
 import com.skratchdot.riff.wav.ChunkTypeID;
+import com.skratchdot.riff.wav.ParseChunkException;
 import com.skratchdot.riff.wav.RIFFWave;
 import com.skratchdot.riff.wav.Segment;
 import com.skratchdot.riff.wav.WavFactory;
@@ -100,10 +101,12 @@ public class ChunkPlayListImpl extends ChunkImpl implements ChunkPlayList {
 
 			// Does the size we read in match the size we calculate from the data read in?
 			if(chunkSize!=this.getSize()) {
-				throw new RiffWaveException("Invalid chunk size for cue chunk." +
+				ParseChunkException pce = WavFactory.eINSTANCE.createParseChunkException();
+				pce.setException(new Exception("Invalid chunk size for format chunk." +
 					"From File: " + Long.toString(chunkSize) +
 					"Calculated: " + Long.toString(this.getSize())
-				);
+				));
+				riffWave.getParseChunkExceptions().add(pce);
 			}
 
 		} catch (Exception e) {

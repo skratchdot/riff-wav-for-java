@@ -919,13 +919,22 @@ public interface WavPackage extends EPackage {
 	int CHUNK_FORMAT__COMPRESSION_CODE = CHUNK_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Compression Code Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHUNK_FORMAT__COMPRESSION_CODE_VALUE = CHUNK_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Number Of Channels</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__NUMBER_OF_CHANNELS = CHUNK_FEATURE_COUNT + 1;
+	int CHUNK_FORMAT__NUMBER_OF_CHANNELS = CHUNK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Sample Rate</b></em>' attribute.
@@ -934,7 +943,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__SAMPLE_RATE = CHUNK_FEATURE_COUNT + 2;
+	int CHUNK_FORMAT__SAMPLE_RATE = CHUNK_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Average Bytes Per Second</b></em>' attribute.
@@ -943,7 +952,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__AVERAGE_BYTES_PER_SECOND = CHUNK_FEATURE_COUNT + 3;
+	int CHUNK_FORMAT__AVERAGE_BYTES_PER_SECOND = CHUNK_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Block Align</b></em>' attribute.
@@ -952,7 +961,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__BLOCK_ALIGN = CHUNK_FEATURE_COUNT + 4;
+	int CHUNK_FORMAT__BLOCK_ALIGN = CHUNK_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Significant Bits Per Sample</b></em>' attribute.
@@ -961,7 +970,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__SIGNIFICANT_BITS_PER_SAMPLE = CHUNK_FEATURE_COUNT + 5;
+	int CHUNK_FORMAT__SIGNIFICANT_BITS_PER_SAMPLE = CHUNK_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Extra Format Bytes</b></em>' attribute.
@@ -970,7 +979,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__NUMBER_OF_EXTRA_FORMAT_BYTES = CHUNK_FEATURE_COUNT + 6;
+	int CHUNK_FORMAT__NUMBER_OF_EXTRA_FORMAT_BYTES = CHUNK_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Extra Format Bytes</b></em>' attribute.
@@ -979,7 +988,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT__EXTRA_FORMAT_BYTES = CHUNK_FEATURE_COUNT + 7;
+	int CHUNK_FORMAT__EXTRA_FORMAT_BYTES = CHUNK_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Chunk Format</em>' class.
@@ -988,7 +997,7 @@ public interface WavPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHUNK_FORMAT_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 8;
+	int CHUNK_FORMAT_FEATURE_COUNT = CHUNK_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.skratchdot.riff.wav.impl.ChunkInstrumentImpl <em>Chunk Instrument</em>}' class.
@@ -2373,6 +2382,17 @@ public interface WavPackage extends EPackage {
 	EAttribute getChunkFormat_CompressionCode();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ChunkFormat#getCompressionCodeValue <em>Compression Code Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Compression Code Value</em>'.
+	 * @see com.skratchdot.riff.wav.ChunkFormat#getCompressionCodeValue()
+	 * @see #getChunkFormat()
+	 * @generated
+	 */
+	EAttribute getChunkFormat_CompressionCodeValue();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.skratchdot.riff.wav.ChunkFormat#getNumberOfChannels <em>Number Of Channels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3542,6 +3562,14 @@ public interface WavPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHUNK_FORMAT__COMPRESSION_CODE = eINSTANCE.getChunkFormat_CompressionCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Compression Code Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHUNK_FORMAT__COMPRESSION_CODE_VALUE = eINSTANCE.getChunkFormat_CompressionCodeValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Number Of Channels</b></em>' attribute feature.

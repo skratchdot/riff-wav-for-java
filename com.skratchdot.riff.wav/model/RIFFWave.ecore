@@ -107,6 +107,7 @@
       <eParameters name="out" eType="#//WavRandomAccessFile"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="compressionCode" eType="#//CompressionCode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compressionCodeValue" eType="#//UnsignedShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfChannels" eType="#//UnsignedShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleRate" eType="#//UnsignedInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageBytesPerSecond"
