@@ -29,6 +29,12 @@ import junit.textui.TestRunner;
  *   <li>{@link com.skratchdot.riff.wav.ChunkFormat#getNumberOfExtraFormatBytes() <em>Number Of Extra Format Bytes</em>}</li>
  * </ul>
  * </p>
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.ChunkFormat#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile) <em>Write</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ChunkFormatTest extends ChunkTest {
@@ -94,6 +100,19 @@ public class ChunkFormatTest extends ChunkTest {
 	 */
 	public void testGetNumberOfExtraFormatBytes() {
 		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.ChunkFormat#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile) <em>Write</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.ChunkFormat#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile)
+	 * @generated
+	 */
+	public void testWrite__RIFFWave_WavRandomAccessFile() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
