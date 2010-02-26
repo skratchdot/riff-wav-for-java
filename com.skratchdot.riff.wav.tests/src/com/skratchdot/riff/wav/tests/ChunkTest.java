@@ -34,7 +34,8 @@ import junit.framework.TestCase;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link com.skratchdot.riff.wav.Chunk#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile) <em>Write</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#init(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.ExtendedByteBuffer) <em>Init</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.Chunk#toByteArray() <em>To Byte Array</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -132,13 +133,26 @@ public abstract class ChunkTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.skratchdot.riff.wav.Chunk#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile) <em>Write</em>}' operation.
+	 * Tests the '{@link com.skratchdot.riff.wav.Chunk#init(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.ExtendedByteBuffer) <em>Init</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.skratchdot.riff.wav.Chunk#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile)
+	 * @see com.skratchdot.riff.wav.Chunk#init(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.ExtendedByteBuffer)
 	 * @generated
 	 */
-	public void testWrite__RIFFWave_WavRandomAccessFile() {
+	public void testInit__RIFFWave_ExtendedByteBuffer() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.Chunk#toByteArray() <em>To Byte Array</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.Chunk#toByteArray()
+	 * @generated
+	 */
+	public void testToByteArray() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

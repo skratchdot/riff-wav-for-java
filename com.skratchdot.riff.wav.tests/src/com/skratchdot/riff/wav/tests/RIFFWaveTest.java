@@ -34,8 +34,14 @@ import junit.textui.TestRunner;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getChunksByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get Chunks By Type</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getFirstChunkByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get First Chunk By Type</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#init(com.skratchdot.riff.wav.util.ExtendedByteBuffer) <em>Init</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#toAudioFileFormat() <em>To Audio File Format</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#toAudioFormat() <em>To Audio Format</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#toAudioInputStream() <em>To Audio Input Stream</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#toByteArray() <em>To Byte Array</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.RIFFWave#write(java.io.File) <em>Write</em>}</li>
- *   <li>{@link com.skratchdot.riff.wav.RIFFWave#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile) <em>Write</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -125,6 +131,97 @@ public class RIFFWaveTest extends TestCase {
 	}
 
 	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#getChunksByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get Chunks By Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#getChunksByType(org.eclipse.emf.ecore.EStructuralFeature)
+	 * @generated
+	 */
+	public void testGetChunksByType__EStructuralFeature() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#getFirstChunkByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get First Chunk By Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#getFirstChunkByType(org.eclipse.emf.ecore.EStructuralFeature)
+	 * @generated
+	 */
+	public void testGetFirstChunkByType__EStructuralFeature() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#init(com.skratchdot.riff.wav.util.ExtendedByteBuffer) <em>Init</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#init(com.skratchdot.riff.wav.util.ExtendedByteBuffer)
+	 * @generated
+	 */
+	public void testInit__ExtendedByteBuffer() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#toAudioFileFormat() <em>To Audio File Format</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#toAudioFileFormat()
+	 * @generated
+	 */
+	public void testToAudioFileFormat() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#toAudioFormat() <em>To Audio Format</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#toAudioFormat()
+	 * @generated
+	 */
+	public void testToAudioFormat() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#toAudioInputStream() <em>To Audio Input Stream</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#toAudioInputStream()
+	 * @generated
+	 */
+	public void testToAudioInputStream() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#toByteArray() <em>To Byte Array</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.skratchdot.riff.wav.RIFFWave#toByteArray()
+	 * @generated
+	 */
+	public void testToByteArray() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#write(java.io.File) <em>Write</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,19 +229,6 @@ public class RIFFWaveTest extends TestCase {
 	 * @generated
 	 */
 	public void testWrite__File() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile) <em>Write</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.skratchdot.riff.wav.RIFFWave#write(com.skratchdot.riff.wav.RIFFWave, com.skratchdot.riff.wav.util.WavRandomAccessFile)
-	 * @generated
-	 */
-	public void testWrite__RIFFWave_WavRandomAccessFile() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
