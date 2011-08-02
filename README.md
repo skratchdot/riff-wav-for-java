@@ -10,8 +10,7 @@ It attempts to read in well-known RIFF chunks, and provide an API for reading/ma
 Most of the information about various RIFF chunks were found on The Sonic Spot website 
 and from links in the Wikipedia article on wave files. (For more info, see the links section).  
 
-This library is based
-  
+
 ### USAGE: ###
 
 Loading a wave file (preferred method using EMF):  
