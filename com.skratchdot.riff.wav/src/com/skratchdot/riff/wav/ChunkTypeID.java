@@ -48,7 +48,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RIFF(1179011410, "RIFF", "RIFF Header Chunk - 'RIFF'"), /**
+	RIFF(1179011410, "RIFF", "RIFF Header Chunk - \'RIFF\'"), /**
 	 * The '<em><b>WAVE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +56,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WAVE(1163280727, "WAVE", "WAVE Header Chunk - 'WAVE'"), /**
+	WAVE(1163280727, "WAVE", "WAVE Header Chunk - \'WAVE\'"), /**
 	 * The '<em><b>CUE </b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,7 +64,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUE_(543520099, "CUE_", "Cue Chunk - 'cue '"), /**
+	CUE_(543520099, "CUE_", "Cue Chunk - \'cue \'"), /**
 	 * The '<em><b>DATA</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,7 +72,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA(1635017060, "DATA", "Data Chunk - 'data'"),
+	DATA(1635017060, "DATA", "Data Chunk - \'data\'"),
 
 	/**
 	 * The '<em><b>FACT</b></em>' literal object.
@@ -82,7 +82,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FACT(1952670054, "FACT", "Fact Chunk - 'fact'"),
+	FACT(1952670054, "FACT", "Fact Chunk - \'fact\'"),
 
 	/**
 	 * The '<em><b>FMT </b></em>' literal object.
@@ -92,7 +92,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FMT_(544501094, "FMT_", "Format Chunk - 'fmt '"), /**
+	FMT_(544501094, "FMT_", "Format Chunk - \'fmt \'"), /**
 	 * The '<em><b>INST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +100,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INST(1953721961, "INST", "Instrument Chunk - 'inst'"), /**
+	INST(1953721961, "INST", "Instrument Chunk - \'inst\'"), /**
 	 * The '<em><b>LABL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,7 +108,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LABL(1818386796, "LABL", "Label Chunk - 'labl'"), /**
+	LABL(1818386796, "LABL", "Label Chunk - \'labl\'"), /**
 	 * The '<em><b>LIST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,7 +116,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIST(1953720684, "LIST", "Data List Chunk - 'list'"), /**
+	LIST(1953720684, "LIST", "Data List Chunk - \'list\'"), /**
 	 * The '<em><b>LTXT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,7 +124,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LTXT(1954051180, "LTXT", "Labeled Text Chunk - 'ltxt'"), /**
+	LTXT(1954051180, "LTXT", "Labeled Text Chunk - \'ltxt\'"), /**
 	 * The '<em><b>NOTE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,7 +132,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTE(1702129518, "NOTE", "Note Chunk - 'note'"),
+	NOTE(1702129518, "NOTE", "Note Chunk - \'note\'"),
 
 	/**
 	 * The '<em><b>PLST</b></em>' literal object.
@@ -142,7 +142,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLST(1953721456, "PLST", "Playlist Chunk - 'plst'"), /**
+	PLST(1953721456, "PLST", "Playlist Chunk - \'plst\'"), /**
 	 * The '<em><b>SINT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,7 +150,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SINT(1953393779, "SINT", "Silent Chunk - 'slnt'"), /**
+	SINT(1953393779, "SINT", "Silent Chunk - \'slnt\'"), /**
 	 * The '<em><b>SMPL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,7 +158,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SMPL(1819307379, "SMPL", "Sampler Chunk - 'smpl'"), /**
+	SMPL(1819307379, "SMPL", "Sampler Chunk - \'smpl\'"), /**
 	 * The '<em><b>WAVL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,7 +166,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WAVL(1819697527, "WAVL", "Wave List Chunk - 'wavl'");
+	WAVL(1819697527, "WAVL", "Wave List Chunk - \'wavl\'");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -192,7 +192,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RIFF
-	 * @model literal="RIFF Header Chunk - 'RIFF'"
+	 * @model literal="RIFF Header Chunk - \'RIFF\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -207,7 +207,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WAVE
-	 * @model literal="WAVE Header Chunk - 'WAVE'"
+	 * @model literal="WAVE Header Chunk - \'WAVE\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -222,7 +222,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CUE_
-	 * @model literal="Cue Chunk - 'cue '"
+	 * @model literal="Cue Chunk - \'cue \'"
 	 * @generated
 	 * @ordered
 	 */
@@ -237,7 +237,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DATA
-	 * @model literal="Data Chunk - 'data'"
+	 * @model literal="Data Chunk - \'data\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -252,7 +252,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FACT
-	 * @model literal="Fact Chunk - 'fact'"
+	 * @model literal="Fact Chunk - \'fact\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -267,7 +267,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FMT_
-	 * @model literal="Format Chunk - 'fmt '"
+	 * @model literal="Format Chunk - \'fmt \'"
 	 * @generated
 	 * @ordered
 	 */
@@ -282,7 +282,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INST
-	 * @model literal="Instrument Chunk - 'inst'"
+	 * @model literal="Instrument Chunk - \'inst\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -297,7 +297,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LABL
-	 * @model literal="Label Chunk - 'labl'"
+	 * @model literal="Label Chunk - \'labl\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -312,7 +312,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LIST
-	 * @model literal="Data List Chunk - 'list'"
+	 * @model literal="Data List Chunk - \'list\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -327,7 +327,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LTXT
-	 * @model literal="Labeled Text Chunk - 'ltxt'"
+	 * @model literal="Labeled Text Chunk - \'ltxt\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -342,7 +342,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NOTE
-	 * @model literal="Note Chunk - 'note'"
+	 * @model literal="Note Chunk - \'note\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -357,7 +357,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PLST
-	 * @model literal="Playlist Chunk - 'plst'"
+	 * @model literal="Playlist Chunk - \'plst\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -372,7 +372,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SINT
-	 * @model literal="Silent Chunk - 'slnt'"
+	 * @model literal="Silent Chunk - \'slnt\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -387,7 +387,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SMPL
-	 * @model literal="Sampler Chunk - 'smpl'"
+	 * @model literal="Sampler Chunk - \'smpl\'"
 	 * @generated
 	 * @ordered
 	 */
@@ -402,7 +402,7 @@ public enum ChunkTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WAVL
-	 * @model literal="Wave List Chunk - 'wavl'"
+	 * @model literal="Wave List Chunk - \'wavl\'"
 	 * @generated
 	 * @ordered
 	 */

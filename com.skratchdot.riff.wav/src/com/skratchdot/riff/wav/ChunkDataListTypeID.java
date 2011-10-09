@@ -48,7 +48,7 @@ public enum ChunkDataListTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ADTL(1819567201, "ADTL", "Associated Data Type List - 'adtl'");
+	ADTL(1819567201, "ADTL", "Associated Data Type List - \'adtl\'");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -74,7 +74,7 @@ public enum ChunkDataListTypeID implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ADTL
-	 * @model literal="Associated Data Type List - 'adtl'"
+	 * @model literal="Associated Data Type List - \'adtl\'"
 	 * @generated
 	 * @ordered
 	 */

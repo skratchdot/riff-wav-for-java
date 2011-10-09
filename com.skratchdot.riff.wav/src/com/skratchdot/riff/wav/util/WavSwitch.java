@@ -14,12 +14,36 @@
  */
 package com.skratchdot.riff.wav.util;
 
-import com.skratchdot.riff.wav.*;
-
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
+
+import com.skratchdot.riff.wav.Channel;
+import com.skratchdot.riff.wav.Chunk;
+import com.skratchdot.riff.wav.ChunkCue;
+import com.skratchdot.riff.wav.ChunkData;
+import com.skratchdot.riff.wav.ChunkDataList;
+import com.skratchdot.riff.wav.ChunkDataListType;
+import com.skratchdot.riff.wav.ChunkDataListTypeLabel;
+import com.skratchdot.riff.wav.ChunkDataListTypeLabeledText;
+import com.skratchdot.riff.wav.ChunkDataListTypeNote;
+import com.skratchdot.riff.wav.ChunkFact;
+import com.skratchdot.riff.wav.ChunkFormat;
+import com.skratchdot.riff.wav.ChunkInstrument;
+import com.skratchdot.riff.wav.ChunkPlayList;
+import com.skratchdot.riff.wav.ChunkSampler;
+import com.skratchdot.riff.wav.ChunkSilent;
+import com.skratchdot.riff.wav.ChunkUnknown;
+import com.skratchdot.riff.wav.ChunkWaveList;
+import com.skratchdot.riff.wav.CuePoint;
+import com.skratchdot.riff.wav.ParseChunkException;
+import com.skratchdot.riff.wav.RIFFWave;
+import com.skratchdot.riff.wav.SampleData;
+import com.skratchdot.riff.wav.SampleData16Bit;
+import com.skratchdot.riff.wav.SampleData8Bit;
+import com.skratchdot.riff.wav.SampleLoop;
+import com.skratchdot.riff.wav.Segment;
+import com.skratchdot.riff.wav.WavPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +58,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see com.skratchdot.riff.wav.WavPackage
  * @generated
  */
-public class WavSwitch<T> {
+public class WavSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -56,14 +80,16 @@ public class WavSwitch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
 	/**
@@ -73,26 +99,7 @@ public class WavSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch(eSuperTypes.get(0), theEObject);
-		}
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case WavPackage.RIFF_WAVE: {
@@ -655,6 +662,7 @@ public class WavSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
+	@Override
 	public T defaultCase(EObject object) {
 		return null;
 	}

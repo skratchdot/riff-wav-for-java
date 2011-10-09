@@ -34,8 +34,8 @@ import junit.textui.TestRunner;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getChunksByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get Chunks By Type</em>}</li>
- *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getFirstChunkByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get First Chunk By Type</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getChunksByEClass(org.eclipse.emf.ecore.EClass) <em>Get Chunks By EClass</em>}</li>
+ *   <li>{@link com.skratchdot.riff.wav.RIFFWave#getFirstChunkByEClass(org.eclipse.emf.ecore.EClass) <em>Get First Chunk By EClass</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.RIFFWave#init(com.skratchdot.riff.wav.util.ExtendedByteBuffer) <em>Init</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.RIFFWave#toAudioFileFormat() <em>To Audio File Format</em>}</li>
  *   <li>{@link com.skratchdot.riff.wav.RIFFWave#toAudioFormat() <em>To Audio Format</em>}</li>
@@ -131,26 +131,26 @@ public class RIFFWaveTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#getChunksByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get Chunks By Type</em>}' operation.
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#getChunksByEClass(org.eclipse.emf.ecore.EClass) <em>Get Chunks By EClass</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.skratchdot.riff.wav.RIFFWave#getChunksByType(org.eclipse.emf.ecore.EStructuralFeature)
+	 * @see com.skratchdot.riff.wav.RIFFWave#getChunksByEClass(org.eclipse.emf.ecore.EClass)
 	 * @generated
 	 */
-	public void testGetChunksByType__EStructuralFeature() {
+	public void testGetChunksByEClass__EClass() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#getFirstChunkByType(org.eclipse.emf.ecore.EStructuralFeature) <em>Get First Chunk By Type</em>}' operation.
+	 * Tests the '{@link com.skratchdot.riff.wav.RIFFWave#getFirstChunkByEClass(org.eclipse.emf.ecore.EClass) <em>Get First Chunk By EClass</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.skratchdot.riff.wav.RIFFWave#getFirstChunkByType(org.eclipse.emf.ecore.EStructuralFeature)
+	 * @see com.skratchdot.riff.wav.RIFFWave#getFirstChunkByEClass(org.eclipse.emf.ecore.EClass)
 	 * @generated
 	 */
-	public void testGetFirstChunkByType__EStructuralFeature() {
+	public void testGetFirstChunkByEClass__EClass() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

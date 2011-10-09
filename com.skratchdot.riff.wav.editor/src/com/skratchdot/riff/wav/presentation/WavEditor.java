@@ -1334,6 +1334,7 @@ public class WavEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Save only resources that have actually changed.
 		//
